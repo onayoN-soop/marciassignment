@@ -1502,6 +1502,10 @@ h3 {
    MOBILE GALLERY
    ========================================================= */
 
+/* =========================================================
+   MOBILE GALLERY
+   ========================================================= */
+
 @media (max-width: 700px) {
 
     .gallery-section {
@@ -1524,10 +1528,7 @@ h3 {
     }
 
 
-    /*
-       Hide giant desktop arrows.
-       On mobile they steal too much horizontal space.
-    */
+    /* Hide the giant desktop arrows on mobile */
 
     .gallery-arrow {
         display: none;
@@ -1542,18 +1543,30 @@ h3 {
 
 
     .photo-stage {
+        position: relative;
+
         height: min(125vw, 560px);
 
         overflow: visible;
 
         touch-action: pan-y;
+
+        user-select: none;
+        -webkit-user-select: none;
     }
 
 
-    /*
-       Mobile = one main paper with the next/previous
-       sheet subtly visible behind it.
-    */
+    .photo-stage img {
+        pointer-events: none;
+
+        user-select: none;
+        -webkit-user-select: none;
+
+        -webkit-user-drag: none;
+    }
+
+
+    /* Main mobile photo paper */
 
     .photo-paper {
         width: min(88%, 460px);
@@ -1574,10 +1587,18 @@ h3 {
 
     .photo-frame img {
         aspect-ratio: 4 / 5;
+
+        object-fit: cover;
     }
 
 
+    /* Current photo */
+
     .photo-paper.is-active {
+        z-index: 5;
+
+        opacity: 1;
+
         transform:
             translate(-50%, -50%)
             rotate(-1deg)
@@ -1585,7 +1606,11 @@ h3 {
     }
 
 
+    /* Previous photo peeking behind */
+
     .photo-paper.is-prev {
+        z-index: 2;
+
         opacity: 0.35;
 
         transform:
@@ -1595,7 +1620,11 @@ h3 {
     }
 
 
+    /* Next photo peeking behind */
+
     .photo-paper.is-next {
+        z-index: 3;
+
         opacity: 0.45;
 
         transform:
@@ -1613,21 +1642,21 @@ h3 {
     }
 
 
-    /*
-       Dedicated mobile controls.
-    */
+    /* =====================================================
+       MOBILE ARROW CONTROLS
+       ===================================================== */
 
     .gallery-mobile-controls {
+        position: relative;
+        z-index: 50;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         width: min(100%, 460px);
 
-        margin:
-            20px
-            auto
-            0;
+        margin: 20px auto 0;
 
         border-top: 1px solid var(--sand);
         border-bottom: 1px solid var(--sand);
@@ -1635,20 +1664,32 @@ h3 {
 
 
     .gallery-mobile-arrow {
+        position: relative;
+        z-index: 51;
+
         display: flex;
         align-items: center;
         justify-content: center;
 
-        width: 62px;
-        height: 62px;
+        width: 64px;
+        height: 64px;
+
+        padding: 0;
+
+        border: 0;
 
         background: transparent;
         color: var(--charcoal);
 
         font-family: var(--serif);
-        font-size: 41px;
+        font-size: 42px;
+        font-weight: 400;
 
         line-height: 1;
+
+        cursor: pointer;
+
+        touch-action: manipulation;
     }
 
 
@@ -1686,8 +1727,15 @@ h3 {
         font-size: 10px;
     }
 
-}
 
+    .gallery-mobile-arrow {
+        width: 58px;
+        height: 58px;
+
+        font-size: 38px;
+    }
+
+}
 
 /* =========================================================
    SERVICES
