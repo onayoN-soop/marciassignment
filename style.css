@@ -1337,11 +1337,27 @@ body.lightbox-open {
         justify-content: center;
         height: 330px;
         min-height: 0;
-        padding-top: 30px;
-        padding-bottom: 30px;
+        padding: 30px clamp(24px, 3vw, 45px);
+    }
+
+    .service-card {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .service-card:first-child {
+        padding-left: 0;
+    }
+
+    .service-card:last-child {
+        padding-right: 0;
+    }
+
+    .service-card h4 {
+        font-size: clamp(23px, 2vw, 34px);
+        white-space: nowrap;
     }
 }
-
 @media (max-width: 1250px) {
     .stats-section {
         grid-template-columns: 1fr;
