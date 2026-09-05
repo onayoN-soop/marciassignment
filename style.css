@@ -907,17 +907,15 @@ h3 {
     display: grid;
 
     grid-template-columns:
-        minmax(340px, 470px)
-        minmax(0, 950px);
+        minmax(320px, 420px)
+        minmax(0, 1250px);
 
     align-items: center;
     justify-content: center;
 
-    gap:
-        clamp(70px, 6vw, 120px);
+    gap: clamp(55px, 4vw, 80px);
 
     width: 100%;
-
     min-height: 420px;
 
     padding:
@@ -957,7 +955,7 @@ h3 {
     grid-template-columns:
         minmax(330px, auto)
         minmax(230px, auto)
-        minmax(390px, 1fr);
+        minmax(620px, 1fr);
 
     align-items: center;
 
@@ -1045,9 +1043,7 @@ h3 {
     align-items: center;
     justify-content: center;
 
-    padding-left:
-        clamp(34px, 3vw, 55px);
-
+    padding-left: 30px;
     padding-right: 0;
 
     border-left: 0;
@@ -1063,11 +1059,10 @@ h3 {
     align-items: center;
     justify-items: center;
 
-    gap:
-        clamp(18px, 1.6vw, 28px);
+    gap: 22px;
 
     width: 100%;
-    max-width: 560px;
+    max-width: 780px;
 }
 
 
@@ -1075,17 +1070,14 @@ h3 {
     display: block;
 
     width: 100%;
-
-    max-width: 120px;
-    max-height: 88px;
+    max-width: 215px;
+    max-height: 155px;
 
     margin: auto;
 
     object-fit: contain;
 }
 
-
-/* Black logo -> white */
 
 .equal-housing-logo {
     filter: brightness(0) invert(1);
