@@ -1,349 +1,364 @@
 /* =========================================================
-   MARCI METZGER — INTERACTIONS
+   MARCI METZGER HOMES
    ========================================================= */
 
 
 /* =========================================================
-   01. ELEMENTS
+   HEADER SCROLL STATE
    ========================================================= */
 
-const header = document.getElementById("site-header");
+const siteHeader =
+    document.querySelector(".site-header");
 
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
-const mobileClose = document.getElementById("mobile-close");
-
-const mobileLinks = document.querySelectorAll(".mobile-menu a");
-
-const searchForm = document.querySelector(".search-form");
-const contactForm = document.querySelector(".contact-form");
-
-
-/* =========================================================
-   02. STICKY HEADER
-   ========================================================= */
 
 function updateHeader() {
+
+    if (!siteHeader) return;
+
     if (window.scrollY > 50) {
-        header.classList.add("scrolled");
+        siteHeader.classList.add("scrolled");
     } else {
-        header.classList.remove("scrolled");
-    }
-}
-
-window.addEventListener("scroll", updateHeader);
-
-updateHeader();
-
-
-/* =========================================================
-   03. MOBILE MENU
-   ========================================================= */
-
-function openMenu() {
-    mobileMenu.classList.add("active");
-    document.body.classList.add("menu-open");
-}
-
-
-function closeMenu() {
-    mobileMenu.classList.remove("active");
-    document.body.classList.remove("menu-open");
-}
-
-
-menuToggle.addEventListener("click", openMenu);
-
-mobileClose.addEventListener("click", closeMenu);
-
-
-mobileLinks.forEach(link => {
-    link.addEventListener("click", closeMenu);
-});
-
-
-/* Close menu when pressing Escape */
-
-document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-        closeMenu();
+        siteHeader.classList.remove("scrolled");
     }
 
-});
+}
 
 
-/* =========================================================
-   04. SCROLL REVEAL ANIMATIONS
-   ========================================================= */
-
-const revealElements = document.querySelectorAll(
-    ".about-grid, " +
-    ".stats-grid, " +
-    ".feature-content, " +
-    ".search-heading, " +
-    ".search-form, " +
-    ".gallery-heading, " +
-    ".gallery-item, " +
-    ".services-heading, " +
-    ".service-card, " +
-    ".contact-content, " +
-    ".contact-form"
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
 );
 
 
-revealElements.forEach(element => {
-    element.classList.add("reveal");
-});
+/* =========================================================
+   HEADER DROPDOWN MENU
+   ========================================================= */
+
+const menuDropdownToggle =
+    document.querySelector(".menu-dropdown-toggle");
+
+const headerDropdown =
+    document.querySelector(".header-dropdown");
 
 
-const revealObserver = new IntersectionObserver(
-    entries => {
+function closeDropdown() {
 
-        entries.forEach(entry => {
+    if (!menuDropdownToggle || !headerDropdown) {
+        return;
+    }
 
-            if (entry.isIntersecting) {
+    headerDropdown.classList.remove("active");
+    menuDropdownToggle.classList.remove("active");
 
-                entry.target.classList.add("visible");
+    menuDropdownToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
-                revealObserver.unobserve(entry.target);
+}
 
-            }
+
+if (menuDropdownToggle && headerDropdown) {
+
+    menuDropdownToggle.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+            const isOpen =
+                headerDropdown.classList.toggle("active");
+
+            menuDropdownToggle.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            menuDropdownToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+        }
+    );
+
+
+    headerDropdown
+        .querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                closeDropdown
+            );
 
         });
 
-    },
-    {
-        threshold: 0.12,
-        rootMargin: "0px 0px -50px 0px"
-    }
-);
 
+    document.addEventListener(
+        "click",
+        event => {
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
-
-
-/* =========================================================
-   05. PROPERTY SEARCH
-   ========================================================= */
-
-if (searchForm) {
-
-    searchForm.addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        const location =
-            document.getElementById("location").value;
-
-        const type =
-            document.getElementById("type").value;
-
-        const bedrooms =
-            document.getElementById("bedrooms").value;
-
-        const baths =
-            document.getElementById("baths").value;
-
-        const minPrice =
-            document.getElementById("min-price").value;
-
-        const maxPrice =
-            document.getElementById("max-price").value;
-
-
-        /*
-         * The original Marci site uses a property-search
-         * system. For this redesign, we don't want the form
-         * to pretend that it actually performs a search if
-         * we haven't connected it to a listing API yet.
-         *
-         * For now, we collect the selections and direct
-         * visitors to the contact section.
-         */
-
-        const hasSearchCriteria =
-            location ||
-            type ||
-            bedrooms ||
-            baths ||
-            minPrice ||
-            maxPrice;
-
-
-        if (hasSearchCriteria) {
-
-            document.getElementById("contact").scrollIntoView({
-                behavior: "smooth"
-            });
-
-        } else {
-
-            document.getElementById("contact").scrollIntoView({
-                behavior: "smooth"
-            });
+            if (
+                !headerDropdown.contains(event.target) &&
+                !menuDropdownToggle.contains(event.target)
+            ) {
+                closeDropdown();
+            }
 
         }
-
-    });
-
-}
+    );
 
 
-/* =========================================================
-   06. CONTACT FORM
-   ========================================================= */
+    document.addEventListener(
+        "keydown",
+        event => {
 
-if (contactForm) {
+            if (event.key === "Escape") {
+                closeDropdown();
+            }
 
-    contactForm.addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        /*
-         * This is currently a front-end demonstration.
-         *
-         * For the actual assignment, we can connect this
-         * to a form service later if necessary.
-         */
-
-        const button =
-            contactForm.querySelector("button");
-
-        const originalText = button.textContent;
-
-        button.textContent = "Message Sent";
-
-        button.disabled = true;
-
-        setTimeout(() => {
-
-            contactForm.reset();
-
-            button.textContent = originalText;
-
-            button.disabled = false;
-
-        }, 2500);
-
-    });
+        }
+    );
 
 }
 
 
 /* =========================================================
-   07. HERO SLIDESHOW
+   HERO SLIDESHOW
    ========================================================= */
 
-const heroSlides = document.querySelectorAll(".hero-slide");
+const heroSlides =
+    document.querySelectorAll(".hero-slide");
 
 let currentHeroSlide = 0;
 
+
 function showHeroSlide(index) {
+
     heroSlides.forEach(slide => {
         slide.classList.remove("active");
     });
 
-    const activeSlide = heroSlides[index];
+
+    const activeSlide =
+        heroSlides[index];
+
+
+    if (!activeSlide) return;
+
 
     /*
-     * Restart CSS animation each time the slide becomes active
+     * Reset the animation so that it starts
+     * from the beginning every time.
      */
     activeSlide.style.animation = "none";
+
     void activeSlide.offsetWidth;
+
     activeSlide.style.animation = "";
 
     activeSlide.classList.add("active");
+
 }
+
 
 if (heroSlides.length > 0) {
+
     showHeroSlide(currentHeroSlide);
 
-    setInterval(() => {
-        currentHeroSlide =
-            (currentHeroSlide + 1) % heroSlides.length;
 
-        showHeroSlide(currentHeroSlide);
+    window.setInterval(() => {
+
+        currentHeroSlide =
+            (currentHeroSlide + 1) %
+            heroSlides.length;
+
+        showHeroSlide(
+            currentHeroSlide
+        );
+
     }, 8000);
+
 }
 
 
 /* =========================================================
-   08. IMAGE HOVER EFFECT
+   SCROLL REVEAL
    ========================================================= */
 
-const galleryItems =
-    document.querySelectorAll(".gallery-item");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
-galleryItems.forEach(item => {
+if (
+    "IntersectionObserver" in window &&
+    revealElements.length > 0
+) {
 
-    item.addEventListener("mouseenter", () => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-        item.classList.add("hovered");
+                entries.forEach(entry => {
 
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
     });
 
+} else {
 
-    item.addEventListener("mouseleave", () => {
-
-        item.classList.remove("hovered");
-
+    revealElements.forEach(element => {
+        element.classList.add("visible");
     });
 
-});
+}
 
 
 /* =========================================================
-   09. SMOOTH ANCHOR LINKS
+   SMOOTH INTERNAL LINKS
    ========================================================= */
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
 
-    link.addEventListener("click", event => {
+        link.addEventListener(
+            "click",
+            event => {
 
-        const targetId =
-            link.getAttribute("href");
-
-        if (
-            !targetId ||
-            targetId === "#"
-        ) {
-            return;
-        }
+                const href =
+                    link.getAttribute("href");
 
 
-        const target =
-            document.querySelector(targetId);
+                if (
+                    !href ||
+                    href === "#"
+                ) {
+                    return;
+                }
 
 
-        if (!target) {
-            return;
-        }
+                const target =
+                    document.querySelector(href);
 
 
-        event.preventDefault();
+                if (!target) {
+                    return;
+                }
 
 
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
 
     });
 
-});
+
+/* =========================================================
+   LISTING SEARCH DEMO
+   ========================================================= */
+
+const searchForm =
+    document.querySelector("#searchForm");
+
+const searchMessage =
+    document.querySelector("#searchMessage");
+
+
+if (searchForm) {
+
+    searchForm.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            if (searchMessage) {
+
+                searchMessage.textContent =
+                    "Listing search would connect to the live MLS / IDX service in production.";
+
+            }
+
+        }
+    );
+
+}
 
 
 /* =========================================================
-   10. INITIALIZE
+   CONTACT FORM DEMO
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+const contactForm =
+    document.querySelector("#contactForm");
 
-    updateHeader();
+const formMessage =
+    document.querySelector("#formMessage");
 
-});
 
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            if (formMessage) {
+
+                formMessage.textContent =
+                    "Thank you. This assessment form is currently a front-end demonstration.";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INITIALIZATION
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        updateHeader();
+
+    }
+);
