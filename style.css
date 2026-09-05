@@ -1025,7 +1025,9 @@ h3 {
     object-fit: contain;
 }
 
-
+.equal-housing-logo {
+    filter: brightness(0) invert(1);
+}
 /* =========================================================
    FEATURE SECTIONS
    ========================================================= */
