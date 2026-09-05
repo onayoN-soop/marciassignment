@@ -2042,24 +2042,164 @@ body.lightbox-open {
    FOOTER
    ========================================================= */
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 .footer {
     position: relative;
     z-index: 2;
 
+    width: 100%;
+
+    background: #000;
+    color: var(--white);
+}
+
+
+/* =========================================================
+   FOOTER MAIN
+   ========================================================= */
+
+.footer-main {
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 0.8fr)
+        minmax(420px, 1.2fr);
+
+    align-items: center;
+
+    gap: clamp(70px, 8vw, 140px);
+
+    width:
+        min(
+            calc(100% - (var(--gutter) * 2)),
+            var(--content-width)
+        );
+
+    margin: 0 auto;
+
+    padding:
+        clamp(70px, 7vw, 100px)
+        0;
+}
+
+
+/* LEFT */
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    max-width: 430px;
+}
+
+
+.footer-logo {
+    width:
+        min(300px, 100%);
+
+    margin-bottom: 20px;
+
+    filter: invert(1);
+}
+
+
+.footer-company {
+    margin-bottom: 30px;
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+.footer-phone {
+    display: inline-block;
+
+    margin-bottom: 16px;
+
+    padding-bottom: 5px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.45);
+
+    font-family: var(--serif);
+
+    font-size: 32px;
+
+    line-height: 1.2;
+}
+
+
+.footer-address {
+    color:
+        rgba(255, 255, 255, 0.66);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.footer-map {
+    width: 100%;
+
+    min-height: 330px;
+
+    overflow: hidden;
+
+    background: #171717;
+}
+
+
+.footer-map iframe {
+    display: block;
+
+    width: 100%;
+    height: 330px;
+
+    border: 0;
+
+    filter:
+        grayscale(1)
+        contrast(0.9)
+        brightness(0.82);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom-area {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    min-height: 205px;
+    min-height: 190px;
 
     padding:
-        55px
+        44px
         var(--gutter)
-        45px;
+        38px;
 
-    background: #000;
-    color: var(--white);
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.1);
 
     text-align: center;
 }
@@ -2084,7 +2224,8 @@ body.lightbox-open {
     width: 22px;
     height: 22px;
 
-    color: rgba(255, 255, 255, 0.86);
+    color:
+        rgba(255, 255, 255, 0.86);
 
     font-size: 16px;
 
@@ -2124,6 +2265,78 @@ body.lightbox-open {
         rgba(255, 255, 255, 0.4);
 }
 
+
+/* =========================================================
+   MOBILE FOOTER
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .footer-main {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        width: calc(100% - 50px);
+
+        padding:
+            65px
+            0;
+    }
+
+
+    .footer-info {
+        max-width: 100%;
+    }
+
+
+    .footer-logo {
+        width: 230px;
+    }
+
+
+    .footer-phone {
+        font-size: 29px;
+    }
+
+
+    .footer-map {
+        min-height: 280px;
+    }
+
+
+    .footer-map iframe {
+        height: 280px;
+    }
+
+
+    .footer-bottom-area {
+        min-height: 180px;
+
+        padding:
+            42px
+            25px
+            36px;
+    }
+
+
+    .footer-socials {
+        gap: 20px;
+    }
+
+
+    .footer-socials a {
+        font-size: 17px;
+    }
+
+
+    .footer-copyright {
+        font-size: 10px;
+
+        letter-spacing: 0.1em;
+    }
+
+}
 
 /* =========================================================
    REVEAL
