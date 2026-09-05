@@ -1334,66 +1334,184 @@ h3 {
    ACTIVE PHOTO
    ========================================================= */
 
+/* =========================================================
+   GALLERY ENLARGED VIEW
+   ========================================================= */
+
 .photo-paper.is-active {
-    z-index: 5;
+    cursor: zoom-in;
+}
 
+
+/* Full-screen dimmed background */
+
+.gallery-lightbox {
+    position: fixed;
+    z-index: 5000;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        40px
+        clamp(20px, 5vw, 70px);
+
+    background:
+        rgba(10, 10, 10, 0.88);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* Open state */
+
+.gallery-lightbox.is-open {
     opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(-0.8deg)
-        scale(1);
+    visibility: visible;
 
     pointer-events: auto;
 }
 
 
-/* Previous paper */
+/* =========================================================
+   POPUP
+   ========================================================= */
 
-.photo-paper.is-prev {
-    z-index: 2;
+.lightbox-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    opacity: 0.72;
-
-    transform:
-        translate(-88%, -50%)
-        rotate(-7deg)
-        scale(0.79);
+    width: fit-content;
+    max-width: min(92vw, 1500px);
+    max-height: calc(100vh - 60px);
 }
 
 
-/* Next paper */
+/* Enlarged image */
 
-.photo-paper.is-next {
-    z-index: 3;
+.lightbox-popup img {
+    display: block;
 
-    opacity: 0.78;
+    width: auto;
+    height: auto;
 
-    transform:
-        translate(-12%, -50%)
-        rotate(6deg)
-        scale(0.82);
+    max-width: 100%;
+    max-height: calc(100vh - 150px);
+
+    object-fit: contain;
+
+    box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.45);
 }
 
 
-/* Hover effect only on desktop/pointer devices */
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
 
-@media (hover: hover) and (pointer: fine) {
+.lightbox-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    .photo-paper.is-active:hover {
-        transform:
-            translate(-50%, -52%)
-            rotate(0deg)
-            scale(1.015);
+    gap: 10px;
 
-        box-shadow:
-            0 36px 80px rgba(24, 22, 18, 0.22),
-            0 6px 18px rgba(24, 22, 18, 0.10);
+    margin-top: 24px;
+    padding: 10px 4px;
+
+    border: 0;
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.65);
+
+    background: transparent;
+    color: var(--white);
+
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+.lightbox-close span {
+    font-size: 24px;
+    font-weight: 300;
+
+    line-height: 1;
+}
+
+
+.lightbox-close:hover {
+    opacity: 0.65;
+
+    gap: 14px;
+}
+
+
+/* Prevent background page from scrolling */
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MOBILE LIGHTBOX
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .gallery-lightbox {
+        padding:
+            25px
+            15px;
     }
 
 
-    .photo-paper.is-active:hover img {
-        transform: scale(1.035);
+    .lightbox-popup {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .lightbox-popup img {
+        max-width: 100%;
+
+        max-height:
+            calc(100vh - 125px);
+    }
+
+
+    .lightbox-close {
+        min-height: 44px;
+
+        margin-top: 18px;
+
+        font-size: 12px;
+    }
+
+
+    .lightbox-close span {
+        font-size: 22px;
     }
 
 }
