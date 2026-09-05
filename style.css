@@ -544,15 +544,15 @@ h3 {
 
 /* Camera pan animations */
 .hero-slide.active.pan-left {
-    animation: heroPanLeft 4s ease-in-out forwards;
+    animation: heroPanLeft 4s linear forwards;
 }
 
 .hero-slide.active.pan-right {
-    animation: heroPanRight 4s ease-in-out forwards;
+    animation: heroPanRight 4s linear forwards;
 }
 
 .hero-slide.active.pan-up {
-    animation: heroPanUp 4s ease-in-out forwards;
+    animation: heroPanUp 4s linear forwards;
 }
 
 @keyframes heroPanLeft {
