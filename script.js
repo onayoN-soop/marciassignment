@@ -420,7 +420,7 @@ document
  * = 4
  */
 
-const galleryPhotoCount = 4;
+const galleryPhotoCount = 9;
 
 
 
