@@ -633,21 +633,36 @@ h3 {
     text-transform: uppercase;
 }
 
+.credentials-strip {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 160px;
+    padding: 30px var(--gutter);
+    background: rgba(20, 20, 18, 0.42);
+    backdrop-filter: blur(18px) brightness(0.7);
+    -webkit-backdrop-filter: blur(18px) brightness(0.7);
+}
+
 .credibility-logos {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: center;
     justify-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 760px;
+    gap: clamp(30px, 5vw, 75px);
+    width: min(100%, 950px);
+    margin: 0 auto;
 }
 
 .credibility-logos img {
-    width: 100%;
-    max-width: 200px;
-    max-height: 150px;
-    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 175px;
+    max-height: 90px;
     object-fit: contain;
 }
 
@@ -1461,9 +1476,9 @@ body.lightbox-open {
         width: 185px;
     }
 
-    .credentials-strip {
-    min-height: 120px;
-    padding: 28px 25px;
+       .credentials-strip {
+        min-height: 120px;
+        padding: 28px 25px;
     }
     
     .credibility-logos {
@@ -1588,43 +1603,7 @@ body.lightbox-open {
         font-size: clamp(68px, 20vw, 88px);
     }
 
-    .credentials-strip {
-        position: relative;
-        z-index: 2;
     
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    
-        min-height: 160px;
-        padding: 30px var(--gutter);
-    
-        background: rgba(20, 20, 18, 0.42);
-        backdrop-filter: blur(18px) brightness(0.7);
-        -webkit-backdrop-filter: blur(18px) brightness(0.7);
-    }
-    
-    .credibility-logos {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        align-items: center;
-        justify-items: center;
-    
-        gap: clamp(30px, 5vw, 75px);
-    
-        width: min(100%, 950px);
-        margin: 0 auto;
-    }
-    
-    .credibility-logos img {
-        display: block;
-    
-        width: auto;
-        max-width: 175px;
-        max-height: 90px;
-    
-        object-fit: contain;
-    }
     
     .equal-housing-logo {
         filter: brightness(0) invert(1);
