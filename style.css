@@ -2495,20 +2495,20 @@ body.lightbox-open {
     */
 
     .credibility-logos {
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-        gap: 10px;
+    gap: 10px;
 
-        width: 100%;
-        max-width: 100%;
-    }
+    width: 100%;
+    max-width: 100%;
+}
 
 
-    .credibility-logos img {
-        max-width: 74px;
-        max-height: 54px;
-    }
+.credibility-logos img {
+    max-width: 72px;
+    max-height: 58px;
+}
 
 
     /* Feature sections */
@@ -2963,14 +2963,14 @@ body.lightbox-open {
     /* Stats logos stay in one row */
 
     .credibility-logos {
-        gap: 8px;
-    }
+    gap: 7px;
+}
 
 
-    .credibility-logos img {
-        max-width: 62px;
-        max-height: 46px;
-    }
+.credibility-logos img {
+    max-width: 62px;
+    max-height: 50px;
+}
 
 
     .feature-image {
