@@ -1108,6 +1108,10 @@ updateGallery();
    GALLERY LIGHTBOX
    ========================================================= */
 
+/* =========================================================
+   GALLERY LIGHTBOX
+   ========================================================= */
+
 const galleryLightbox =
     document.querySelector(
         "#galleryLightbox"
@@ -1126,16 +1130,205 @@ const lightboxClose =
     );
 
 
-const lightboxPrev =
-    document.querySelector(
-        "#lightboxPrev"
+/* =========================================================
+   OPEN LIGHTBOX
+   ========================================================= */
+
+function openGalleryLightbox() {
+
+    if (
+        !galleryLightbox ||
+        !lightboxImage ||
+        !galleryPapers.length
+    ) {
+        return;
+    }
+
+
+    const currentPaper =
+        galleryPapers[
+            currentGalleryIndex
+        ];
+
+
+    const image =
+        currentPaper.querySelector(
+            "img"
+        );
+
+
+    if (!image) {
+        return;
+    }
+
+
+    lightboxImage.src =
+        image.src;
+
+
+    lightboxImage.alt =
+        image.alt ||
+        "Enlarged gallery photo";
+
+
+    galleryLightbox.classList.add(
+        "is-open"
     );
 
 
-const lightboxNext =
-    document.querySelector(
-        "#lightboxNext"
+    galleryLightbox.setAttribute(
+        "aria-hidden",
+        "false"
     );
+
+
+    document.body.classList.add(
+        "lightbox-open"
+    );
+
+
+    if (lightboxClose) {
+
+        lightboxClose.focus();
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE LIGHTBOX
+   ========================================================= */
+
+function closeGalleryLightbox() {
+
+    if (!galleryLightbox) {
+        return;
+    }
+
+
+    galleryLightbox.classList.remove(
+        "is-open"
+    );
+
+
+    galleryLightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "lightbox-open"
+    );
+
+}
+
+
+/* =========================================================
+   CLICK / TAP CURRENT PHOTO
+   ========================================================= */
+
+galleryPapers.forEach(
+    paper => {
+
+        paper.addEventListener(
+            "click",
+            () => {
+
+                /*
+                 * Do not open after swiping.
+                 */
+
+                if (galleryDidSwipe) {
+                    return;
+                }
+
+
+                if (
+                    paper.classList.contains(
+                        "is-active"
+                    )
+                ) {
+
+                    openGalleryLightbox();
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+if (lightboxClose) {
+
+    lightboxClose.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+            closeGalleryLightbox();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CLICK DARK BACKGROUND TO CLOSE
+   ========================================================= */
+
+if (galleryLightbox) {
+
+    galleryLightbox.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target ===
+                galleryLightbox
+            ) {
+
+                closeGalleryLightbox();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE TO CLOSE
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            galleryLightbox &&
+            galleryLightbox.classList.contains(
+                "is-open"
+            )
+        ) {
+
+            closeGalleryLightbox();
+
+        }
+
+    }
+);
 
 
 
