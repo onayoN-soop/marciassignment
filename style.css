@@ -557,8 +557,11 @@ h3 {
     width: 100%;
     min-height: 420px;
     padding: clamp(90px, 8vw, 125px) var(--gutter);
-    background: var(--charcoal);
+    background: rgba(20, 20, 18, 0.42);
     color: var(--cream);
+
+    backdrop-filter: blur(18px) brightness(0.7);
+    -webkit-backdrop-filter: blur(18px) brightness(0.7);
 }
 
 .stats-intro {
