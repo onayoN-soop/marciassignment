@@ -8,23 +8,17 @@
    ========================================================= */
 
 const siteHeader =
-    document.querySelector(
-        ".site-header"
-    );
+    document.querySelector(".site-header");
 
 
 function updateHeader() {
 
-    if (!siteHeader) {
-        return;
-    }
-
+    if (!siteHeader) return;
 
     siteHeader.classList.toggle(
         "scrolled",
         window.scrollY > 50
     );
-
 }
 
 
@@ -37,9 +31,6 @@ window.addEventListener(
 );
 
 
-updateHeader();
-
-
 
 /* =========================================================
    HEADER DROPDOWN
@@ -49,7 +40,6 @@ const menuDropdownToggle =
     document.querySelector(
         ".menu-dropdown-toggle"
     );
-
 
 const headerDropdown =
     document.querySelector(
@@ -66,22 +56,18 @@ function closeDropdown() {
         return;
     }
 
-
     headerDropdown.classList.remove(
         "active"
     );
-
 
     menuDropdownToggle.classList.remove(
         "active"
     );
 
-
     menuDropdownToggle.setAttribute(
         "aria-expanded",
         "false"
     );
-
 }
 
 
@@ -96,28 +82,20 @@ if (
 
             event.stopPropagation();
 
-
             const isOpen =
-                headerDropdown
-                    .classList
-                    .toggle(
-                        "active"
-                    );
-
-
-            menuDropdownToggle
-                .classList
-                .toggle(
-                    "active",
-                    isOpen
+                headerDropdown.classList.toggle(
+                    "active"
                 );
 
+            menuDropdownToggle.classList.toggle(
+                "active",
+                isOpen
+            );
 
-            menuDropdownToggle
-                .setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
+            menuDropdownToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
 
         }
     );
@@ -125,16 +103,14 @@ if (
 
     headerDropdown
         .querySelectorAll("a")
-        .forEach(
-            link => {
+        .forEach(link => {
 
-                link.addEventListener(
-                    "click",
-                    closeDropdown
-                );
+            link.addEventListener(
+                "click",
+                closeDropdown
+            );
 
-            }
-        );
+        });
 
 
     document.addEventListener(
@@ -149,9 +125,7 @@ if (
                     event.target
                 )
             ) {
-
                 closeDropdown();
-
             }
 
         }
@@ -162,13 +136,8 @@ if (
         "keydown",
         event => {
 
-            if (
-                event.key ===
-                "Escape"
-            ) {
-
+            if (event.key === "Escape") {
                 closeDropdown();
-
             }
 
         }
@@ -189,7 +158,6 @@ const heroSlides =
         )
     );
 
-
 let currentHeroSlide = 0;
 
 
@@ -200,49 +168,41 @@ function showHeroSlide(index) {
     }
 
 
-    heroSlides.forEach(
-        slide => {
+    heroSlides.forEach(slide => {
 
-            slide.classList.remove(
-                "active"
-            );
+        slide.classList.remove(
+            "active"
+        );
 
-        }
-    );
+    });
 
 
     const activeSlide =
         heroSlides[index];
 
 
-    if (!activeSlide) {
-        return;
-    }
-
+    /*
+       Restart the camera animation
+       every time the slide is activated.
+    */
 
     activeSlide.style.animation =
         "none";
 
-
     void activeSlide.offsetWidth;
-
 
     activeSlide.style.animation =
         "";
 
-
     activeSlide.classList.add(
         "active"
     );
-
 }
 
 
 if (heroSlides.length) {
 
-    showHeroSlide(
-        currentHeroSlide
-    );
+    showHeroSlide(0);
 
 
     window.setInterval(
@@ -250,11 +210,9 @@ if (heroSlides.length) {
 
             currentHeroSlide =
                 (
-                    currentHeroSlide +
-                    1
+                    currentHeroSlide + 1
                 ) %
                 heroSlides.length;
-
 
             showHeroSlide(
                 currentHeroSlide
@@ -294,11 +252,9 @@ if (
                         ) {
 
                             entry.target
-                                .classList
-                                .add(
+                                .classList.add(
                                     "visible"
                                 );
-
 
                             revealObserver
                                 .unobserve(
@@ -351,51 +307,49 @@ document
     .querySelectorAll(
         'a[href^="#"]'
     )
-    .forEach(
-        link => {
+    .forEach(link => {
 
-            link.addEventListener(
-                "click",
-                event => {
+        link.addEventListener(
+            "click",
+            event => {
 
-                    const href =
-                        link.getAttribute(
-                            "href"
-                        );
-
-
-                    if (
-                        !href ||
-                        href === "#"
-                    ) {
-                        return;
-                    }
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
 
 
-                    const target =
-                        document.querySelector(
-                            href
-                        );
-
-
-                    if (!target) {
-                        return;
-                    }
-
-
-                    event.preventDefault();
-
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
+                if (
+                    !href ||
+                    href === "#"
+                ) {
+                    return;
                 }
-            );
 
-        }
-    );
+
+                const target =
+                    document.querySelector(
+                        href
+                    );
+
+
+                if (!target) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+    });
 
 
 
@@ -403,62 +357,96 @@ document
    PHOTO PAPER GALLERY
    ========================================================= */
 
-
 /*
- * IMPORTANT:
- *
- * Change ONLY this number when
- * adding more gallery photos.
- *
- * Example:
- *
- * gallery-1.jpg
- * gallery-2.jpg
- * gallery-3.jpg
- * gallery-4.jpg
- *
- * = 4
- */
+   Add gallery images as:
 
-const galleryPhotoCount = 9;
+   gallery-1.jpg
+   gallery-2.jpg
+   gallery-3.jpg
+   gallery-4.jpg
 
+   If you add more photos, only change
+   this number.
+*/
 
+const galleryPhotoCount = 4;
 
-/* =========================================================
-   BUILD PHOTOS AUTOMATICALLY
-   ========================================================= */
 
 const photoStage =
     document.querySelector(
         "#photoStage"
     );
 
+const galleryCurrent =
+    document.querySelector(
+        "#galleryCurrent"
+    );
+
+const galleryTotal =
+    document.querySelector(
+        "#galleryTotal"
+    );
+
+const galleryPrev =
+    document.querySelector(
+        "#galleryPrev"
+    );
+
+const galleryNext =
+    document.querySelector(
+        "#galleryNext"
+    );
+
+const galleryMobilePrev =
+    document.querySelector(
+        "#galleryMobilePrev"
+    );
+
+const galleryMobileNext =
+    document.querySelector(
+        "#galleryMobileNext"
+    );
+
+
+/* Build papers automatically */
 
 if (photoStage) {
 
     for (
-        let photoNumber = 1;
-        photoNumber <=
-        galleryPhotoCount;
-        photoNumber++
+        let index = 1;
+        index <= galleryPhotoCount;
+        index += 1
     ) {
-
 
         const paper =
             document.createElement(
                 "figure"
             );
 
-
         paper.className =
             "photo-paper";
+
+
+        paper.setAttribute(
+            "role",
+            "button"
+        );
+
+        paper.setAttribute(
+            "aria-label",
+            `Open gallery photo ${index}`
+        );
+
+        paper.setAttribute(
+            "tabindex",
+            "-1"
+        );
 
 
         const frame =
             document.createElement(
                 "div"
             );
-
 
         frame.className =
             "photo-frame";
@@ -469,22 +457,17 @@ if (photoStage) {
                 "img"
             );
 
-
         image.src =
-            `images/gallery-${photoNumber}.jpg`;
-
+            `images/gallery-${index}.jpg`;
 
         image.alt =
-            `Marci Metzger real estate gallery photo ${photoNumber}`;
-
+            `Pahrump property gallery photo ${index}`;
 
         image.draggable =
             false;
 
 
-        if (
-            photoNumber === 1
-        ) {
+        if (index === 1) {
 
             image.loading =
                 "eager";
@@ -501,11 +484,9 @@ if (photoStage) {
             image
         );
 
-
         paper.appendChild(
             frame
         );
-
 
         photoStage.appendChild(
             paper
@@ -516,67 +497,20 @@ if (photoStage) {
 }
 
 
-
-/* =========================================================
-   GALLERY ELEMENTS
-   ========================================================= */
-
 const galleryPapers =
-    Array.from(
-        document.querySelectorAll(
-            ".photo-paper"
+    photoStage
+        ? Array.from(
+            photoStage.querySelectorAll(
+                ".photo-paper"
+            )
         )
-    );
+        : [];
 
 
-const galleryCurrent =
-    document.querySelector(
-        "#galleryCurrent"
-    );
+let currentGalleryIndex = 0;
 
 
-const galleryTotal =
-    document.querySelector(
-        "#galleryTotal"
-    );
-
-
-const galleryPrev =
-    document.querySelector(
-        "#galleryPrev"
-    );
-
-
-const galleryNext =
-    document.querySelector(
-        "#galleryNext"
-    );
-
-
-const galleryMobilePrev =
-    document.querySelector(
-        "#galleryMobilePrev"
-    );
-
-
-const galleryMobileNext =
-    document.querySelector(
-        "#galleryMobileNext"
-    );
-
-
-let currentGalleryIndex =
-    0;
-
-
-let galleryDidSwipe =
-    false;
-
-
-
-/* =========================================================
-   GALLERY COUNTER
-   ========================================================= */
+/* Update total */
 
 if (galleryTotal) {
 
@@ -593,7 +527,7 @@ if (galleryTotal) {
 
 
 /* =========================================================
-   UPDATE GALLERY
+   GALLERY POSITIONING
    ========================================================= */
 
 function updateGallery() {
@@ -627,11 +561,16 @@ function updateGallery() {
     galleryPapers.forEach(
         (paper, index) => {
 
-
             paper.classList.remove(
                 "is-active",
                 "is-prev",
                 "is-next"
+            );
+
+
+            paper.setAttribute(
+                "tabindex",
+                "-1"
             );
 
 
@@ -644,6 +583,12 @@ function updateGallery() {
                     "is-active"
                 );
 
+                paper.setAttribute(
+                    "tabindex",
+                    "0"
+                );
+
+
             } else if (
                 index ===
                 previousIndex
@@ -652,6 +597,7 @@ function updateGallery() {
                 paper.classList.add(
                     "is-prev"
                 );
+
 
             } else if (
                 index ===
@@ -672,8 +618,7 @@ function updateGallery() {
 
         galleryCurrent.textContent =
             String(
-                currentGalleryIndex +
-                1
+                currentGalleryIndex + 1
             ).padStart(
                 2,
                 "0"
@@ -686,7 +631,7 @@ function updateGallery() {
 
 
 /* =========================================================
-   PREVIOUS
+   GALLERY NAVIGATION
    ========================================================= */
 
 function previousGalleryPhoto() {
@@ -706,14 +651,8 @@ function previousGalleryPhoto() {
 
 
     updateGallery();
-
 }
 
-
-
-/* =========================================================
-   NEXT
-   ========================================================= */
 
 function nextGalleryPhoto() {
 
@@ -731,14 +670,11 @@ function nextGalleryPhoto() {
 
 
     updateGallery();
-
 }
 
 
 
-/* =========================================================
-   GALLERY ARROWS
-   ========================================================= */
+/* Desktop */
 
 if (galleryPrev) {
 
@@ -771,6 +707,8 @@ if (galleryNext) {
 
 }
 
+
+/* Mobile */
 
 if (galleryMobilePrev) {
 
@@ -809,8 +747,8 @@ if (galleryMobileNext) {
    GALLERY SWIPE
    ========================================================= */
 
-let gallerySwipeStartX =
-    null;
+let gallerySwipeStartX = null;
+let galleryDidSwipe = false;
 
 
 if (
@@ -819,47 +757,50 @@ if (
 ) {
 
     photoStage.addEventListener(
-    "pointerdown",
-    event => {
+        "pointerdown",
+        event => {
 
-        if (!event.isPrimary) {
-            return;
-        }
-
-        gallerySwipeStartX =
-            event.clientX;
-
-        galleryDidSwipe =
-            false;
+            if (!event.isPrimary) {
+                return;
+            }
 
 
-        /*
-         * Pointer capture is useful for
-         * touch swiping, but don't use it
-         * for a desktop mouse because it
-         * can swallow the photo click.
-         */
+            gallerySwipeStartX =
+                event.clientX;
 
-        if (
-            event.pointerType !== "mouse"
-        ) {
+            galleryDidSwipe =
+                false;
 
-            try {
 
-                photoStage.setPointerCapture(
-                    event.pointerId
-                );
+            /*
+               Do NOT capture desktop mouse
+               pointers. This allows a normal
+               desktop click on the active
+               photograph to open the lightbox.
+            */
 
-            } catch (error) {
+            if (
+                event.pointerType !==
+                "mouse"
+            ) {
 
-                /* Pointer capture is optional */
+                try {
+
+                    photoStage
+                        .setPointerCapture(
+                            event.pointerId
+                        );
+
+                } catch (error) {
+
+                    /* Pointer capture optional */
+
+                }
 
             }
 
         }
-
-    }
-);
+    );
 
 
     photoStage.addEventListener(
@@ -884,16 +825,14 @@ if (
 
 
             if (
-                Math.abs(
-                    difference
-                ) < 35
+                Math.abs(difference) <
+                35
             ) {
 
                 galleryDidSwipe =
                     false;
 
                 return;
-
             }
 
 
@@ -901,9 +840,7 @@ if (
                 true;
 
 
-            if (
-                difference > 0
-            ) {
+            if (difference > 0) {
 
                 previousGalleryPhoto();
 
@@ -921,7 +858,7 @@ if (
                         false;
 
                 },
-                200
+                0
             );
 
         }
@@ -945,15 +882,17 @@ if (
 
 
 
-/* Touch fallback */
+/*
+   Touch fallback for older browsers
+   without Pointer Events.
+*/
 
 if (
     photoStage &&
     !window.PointerEvent
 ) {
 
-    let touchStartX =
-        null;
+    let touchStartX = null;
 
 
     photoStage.addEventListener(
@@ -970,7 +909,6 @@ if (
             touchStartX =
                 event.changedTouches[0]
                     .clientX;
-
 
             galleryDidSwipe =
                 false;
@@ -1005,16 +943,14 @@ if (
 
 
             if (
-                Math.abs(
-                    difference
-                ) < 35
+                Math.abs(difference) <
+                35
             ) {
 
                 galleryDidSwipe =
                     false;
 
                 return;
-
             }
 
 
@@ -1022,9 +958,7 @@ if (
                 true;
 
 
-            if (
-                difference > 0
-            ) {
+            if (difference > 0) {
 
                 previousGalleryPhoto();
 
@@ -1042,7 +976,7 @@ if (
                         false;
 
                 },
-                200
+                0
             );
 
         },
@@ -1060,12 +994,6 @@ if (
    ========================================================= */
 
 if (photoStage) {
-
-    photoStage.setAttribute(
-        "tabindex",
-        "0"
-    );
-
 
     photoStage.addEventListener(
         "keydown",
@@ -1101,14 +1029,8 @@ if (photoStage) {
 
 
 
-/* Initialize gallery */
-
-updateGallery();
-
-
-
 /* =========================================================
-   GALLERY POPUP
+   GALLERY LIGHTBOX
    ========================================================= */
 
 const galleryLightbox =
@@ -1116,12 +1038,10 @@ const galleryLightbox =
         "#galleryLightbox"
     );
 
-
 const lightboxImage =
     document.querySelector(
         "#lightboxImage"
     );
-
 
 const lightboxClose =
     document.querySelector(
@@ -1132,11 +1052,6 @@ const lightboxClose =
 let lastFocusedGalleryPaper =
     null;
 
-
-
-/* =========================================================
-   OPEN POPUP
-   ========================================================= */
 
 function openGalleryLightbox() {
 
@@ -1149,45 +1064,37 @@ function openGalleryLightbox() {
     }
 
 
-    const currentPaper =
+    const activePaper =
         galleryPapers[
             currentGalleryIndex
         ];
 
 
-    if (!currentPaper) {
+    const activeImage =
+        activePaper
+            ?.querySelector("img");
+
+
+    if (!activeImage) {
         return;
     }
-
-
-    const currentImage =
-        currentPaper.querySelector(
-            "img"
-        );
-
-
-    if (!currentImage) {
-        return;
-    }
-
-
-    lightboxImage.src =
-        currentImage.currentSrc ||
-        currentImage.src;
-
-
-    lightboxImage.alt =
-        currentImage.alt ||
-        "Enlarged gallery photo";
 
 
     lastFocusedGalleryPaper =
-        currentPaper;
+        activePaper;
+
+
+    lightboxImage.src =
+        activeImage.currentSrc ||
+        activeImage.src;
+
+
+    lightboxImage.alt =
+        activeImage.alt;
 
 
     galleryLightbox
-        .classList
-        .add(
+        .classList.add(
             "is-open"
         );
 
@@ -1200,25 +1107,26 @@ function openGalleryLightbox() {
 
 
     document.body
-        .classList
-        .add(
+        .classList.add(
             "lightbox-open"
         );
 
 
     if (lightboxClose) {
 
-        lightboxClose.focus();
+        window.setTimeout(
+            () => {
+
+                lightboxClose.focus();
+
+            },
+            50
+        );
 
     }
 
 }
 
-
-
-/* =========================================================
-   CLOSE POPUP
-   ========================================================= */
 
 function closeGalleryLightbox() {
 
@@ -1228,8 +1136,7 @@ function closeGalleryLightbox() {
 
 
     galleryLightbox
-        .classList
-        .remove(
+        .classList.remove(
             "is-open"
         );
 
@@ -1242,8 +1149,7 @@ function closeGalleryLightbox() {
 
 
     document.body
-        .classList
-        .remove(
+        .classList.remove(
             "lightbox-open"
         );
 
@@ -1253,6 +1159,9 @@ function closeGalleryLightbox() {
         lightboxImage.src =
             "";
 
+        lightboxImage.alt =
+            "";
+
     }
 
 
@@ -1260,10 +1169,19 @@ function closeGalleryLightbox() {
         lastFocusedGalleryPaper
     ) {
 
-        lastFocusedGalleryPaper
-            .focus({
-                preventScroll: true
-            });
+        try {
+
+            lastFocusedGalleryPaper
+                .focus({
+                    preventScroll: true
+                });
+
+        } catch (error) {
+
+            lastFocusedGalleryPaper
+                .focus();
+
+        }
 
     }
 
@@ -1271,108 +1189,70 @@ function closeGalleryLightbox() {
 
 
 
-/* =========================================================
-   CLICK ACTIVE PHOTO TO OPEN
-   ========================================================= */
+/*
+   Event delegation makes the active
+   photo click reliable on desktop
+   and mobile.
+*/
 
-galleryPapers.forEach(
-    paper => {
+if (photoStage) {
 
-        paper.setAttribute(
-            "tabindex",
-            "0"
-        );
-
-
-        paper.setAttribute(
-            "role",
-            "button"
-        );
-
-
-        paper.setAttribute(
-            "aria-label",
-            "Enlarge photo"
-        );
-
-
-        paper.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    galleryDidSwipe
-                ) {
-                    return;
-                }
-
-
-                if (
-                    paper.classList
-                        .contains(
-                            "is-active"
-                        )
-                ) {
-
-                    openGalleryLightbox();
-
-                }
-
-            }
-        );
-
-
-        paper.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    (
-                        event.key ===
-                        "Enter"
-                    ) ||
-                    (
-                        event.key ===
-                        " "
-                    )
-                ) {
-
-                    if (
-                        paper.classList
-                            .contains(
-                                "is-active"
-                            )
-                    ) {
-
-                        event.preventDefault();
-
-                        openGalleryLightbox();
-
-                    }
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =========================================================
-   CLOSE BUTTON
-   ========================================================= */
-
-if (lightboxClose) {
-
-    lightboxClose.addEventListener(
+    photoStage.addEventListener(
         "click",
         event => {
 
-            event.stopPropagation();
+            if (galleryDidSwipe) {
+                return;
+            }
 
-            closeGalleryLightbox();
+
+            const clickedPaper =
+                event.target.closest
+                    ? event.target.closest(
+                        ".photo-paper.is-active"
+                    )
+                    : null;
+
+
+            if (!clickedPaper) {
+                return;
+            }
+
+
+            openGalleryLightbox();
+
+        }
+    );
+
+
+    photoStage.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key !== "Enter" &&
+                event.key !== " "
+            ) {
+                return;
+            }
+
+
+            const activePaper =
+                event.target.closest
+                    ? event.target.closest(
+                        ".photo-paper.is-active"
+                    )
+                    : null;
+
+
+            if (!activePaper) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+            openGalleryLightbox();
 
         }
     );
@@ -1381,9 +1261,16 @@ if (lightboxClose) {
 
 
 
-/* =========================================================
-   CLICK DARK AREA TO CLOSE
-   ========================================================= */
+if (lightboxClose) {
+
+    lightboxClose.addEventListener(
+        "click",
+        closeGalleryLightbox
+    );
+
+}
+
+
 
 if (galleryLightbox) {
 
@@ -1407,27 +1294,14 @@ if (galleryLightbox) {
 
 
 
-/* =========================================================
-   ESCAPE TO CLOSE
-   ========================================================= */
-
 document.addEventListener(
     "keydown",
     event => {
 
         if (
-            event.key !==
-            "Escape"
-        ) {
-            return;
-        }
-
-
-        if (
-            galleryLightbox &&
+            event.key === "Escape" &&
             galleryLightbox
-                .classList
-                .contains(
+                ?.classList.contains(
                     "is-open"
                 )
         ) {
@@ -1442,6 +1316,14 @@ document.addEventListener(
 
 
 /* =========================================================
+   INITIALIZE GALLERY
+   ========================================================= */
+
+updateGallery();
+
+
+
+/* =========================================================
    LISTING SEARCH DEMO
    ========================================================= */
 
@@ -1449,7 +1331,6 @@ const searchForm =
     document.querySelector(
         "#searchForm"
     );
-
 
 const searchMessage =
     document.querySelector(
@@ -1489,7 +1370,6 @@ const contactForm =
         "#contactForm"
     );
 
-
 const formMessage =
     document.querySelector(
         "#formMessage"
@@ -1516,3 +1396,11 @@ if (contactForm) {
     );
 
 }
+
+
+
+/* =========================================================
+   INITIAL STATE
+   ========================================================= */
+
+updateHeader();
