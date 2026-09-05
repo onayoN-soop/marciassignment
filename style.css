@@ -633,12 +633,6 @@ h3 {
     text-transform: uppercase;
 }
 
-.stats-grid .stat.stat-logos {
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 0;
-}
-
 .credibility-logos {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1467,6 +1461,21 @@ body.lightbox-open {
         width: 185px;
     }
 
+    .credentials-strip {
+    min-height: 120px;
+    padding: 28px 25px;
+    }
+    
+    .credibility-logos {
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .credibility-logos img {
+        max-width: 72px;
+        max-height: 58px;
+    }
+
     .stats-title span {
     margin-left: 0;
     }
@@ -1570,12 +1579,6 @@ body.lightbox-open {
     .stat,
     .stats-grid .stat:first-child,
     .stats-grid .stat:nth-child(2),
-    .stats-grid .stat.stat-logos {
-        padding: 26px 0;
-        border-left: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.16);
-    }
-
     .stats-grid .stat:first-child {
         border-top: 0;
     }
@@ -1585,21 +1588,44 @@ body.lightbox-open {
         font-size: clamp(68px, 20vw, 88px);
     }
 
-    .stats-grid .stat.stat-logos {
-        align-items: flex-start;
+    .credentials-strip {
+        position: relative;
+        z-index: 2;
+    
+        display: flex;
+        align-items: center;
         justify-content: center;
+    
+        min-height: 160px;
+        padding: 30px var(--gutter);
+    
+        background: var(--charcoal);
     }
-
+    
     .credibility-logos {
+        display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
+        align-items: center;
+        justify-items: center;
+    
+        gap: clamp(30px, 5vw, 75px);
+    
+        width: min(100%, 950px);
+        margin: 0 auto;
     }
-
+    
     .credibility-logos img {
-        max-width: 72px;
-        max-height: 58px;
+        display: block;
+    
+        width: auto;
+        max-width: 175px;
+        max-height: 90px;
+    
+        object-fit: contain;
+    }
+    
+    .equal-housing-logo {
+        filter: brightness(0) invert(1);
     }
 
     .feature {
