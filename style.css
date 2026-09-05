@@ -2080,3 +2080,163 @@ h3 {
     }
 
 }
+
+/* =========================================================
+   READABILITY / ACCESSIBILITY FONT-SIZE PASS
+   ========================================================= */
+
+/* Main body text */
+body {
+    font-size: 17px;
+}
+
+/* Header navigation */
+.desktop-nav a,
+.header-phone {
+    font-size: 11px;
+}
+
+/* Small uppercase labels */
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+}
+
+.section-label {
+    font-size: 10px;
+}
+
+/* Hero supporting text */
+.hero-subtitle {
+    font-size: clamp(28px, 2.5vw, 40px);
+}
+
+.hero-scroll {
+    font-size: 10px;
+}
+
+/* About section */
+.about-copy > p:not(.large-copy) {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.large-copy {
+    font-size: clamp(30px, 2.8vw, 43px);
+}
+
+.text-link {
+    font-size: 11px;
+}
+
+/* Stats labels */
+.stat span {
+    max-width: 180px;
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+/* Seller / buyer paragraphs */
+.feature-content p:not(.eyebrow) {
+    max-width: 520px;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Search form */
+.form-field label {
+    font-size: 10px;
+}
+
+.form-field select,
+.form-field input {
+    font-size: 16px;
+}
+
+/* Buttons */
+.button {
+    font-size: 11px;
+}
+
+/* Services */
+.service-card p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.service-number {
+    font-size: 10px;
+}
+
+/* Gallery numbering */
+.gallery-number {
+    font-size: 11px;
+}
+
+/* Contact */
+.contact-address {
+    font-size: 16px;
+}
+
+.contact-hours {
+    max-width: 440px;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.contact-form label {
+    font-size: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: 16px;
+}
+
+/* Footer */
+.footer-brand p,
+.footer-links a,
+.footer-contact p {
+    font-size: 12px;
+}
+
+.footer-bottom {
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MOBILE READABILITY
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        font-size: 17px;
+    }
+
+    .about-copy > p:not(.large-copy),
+    .feature-content p:not(.eyebrow),
+    .service-card p {
+        font-size: 16px;
+    }
+
+    .contact-address {
+        font-size: 16px;
+    }
+
+    .contact-hours {
+        font-size: 13px;
+    }
+
+    .mobile-menu nav a {
+        font-size: clamp(50px, 13vw, 76px);
+    }
+
+    .mobile-call {
+        font-size: 12px;
+    }
+}
