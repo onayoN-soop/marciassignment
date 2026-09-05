@@ -1234,7 +1234,7 @@ body.lightbox-open {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 80px var(--gutter) 38px;
+    padding: 40px var(--gutter) 38px;
     text-align: center;
 }
 
