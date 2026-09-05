@@ -481,13 +481,32 @@ h3 {
 }
 
 
-.hero-image {
+.hero-slideshow {
     position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
 
-    inset: -2% 0;
+.hero-slide {
+    position: absolute;
+    inset: -2%;
+
+    opacity: 0;
 
     background-color: #77736c;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
+    transition: opacity 1.2s ease;
+    transform: scale(1.06);
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide:nth-child(1) {
     background-image:
         linear-gradient(
             180deg,
@@ -495,14 +514,70 @@ h3 {
             rgba(0, 0, 0, 0.10) 45%,
             rgba(0, 0, 0, 0.58) 100%
         ),
-        url("images/hero.jpg");
+        url("images/hero-1.jpg");
+}
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.hero-slide:nth-child(2) {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.09) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.58) 100%
+        ),
+        url("images/hero-2.jpg");
+}
 
-    transform: scale(1.02);
-    transform-origin: center;
+.hero-slide:nth-child(3) {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.09) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.58) 100%
+        ),
+        url("images/hero-3.jpg");
+}
+
+
+/* Camera pan animations */
+.hero-slide.active.pan-left {
+    animation: heroPanLeft 4s ease-in-out forwards;
+}
+
+.hero-slide.active.pan-right {
+    animation: heroPanRight 4s ease-in-out forwards;
+}
+
+.hero-slide.active.pan-up {
+    animation: heroPanUp 4s ease-in-out forwards;
+}
+
+@keyframes heroPanLeft {
+    from {
+        transform: scale(1.12) translateX(2%);
+    }
+    to {
+        transform: scale(1.02) translateX(-2%);
+    }
+}
+
+@keyframes heroPanRight {
+    from {
+        transform: scale(1.12) translateX(-2%);
+    }
+    to {
+        transform: scale(1.02) translateX(2%);
+    }
+}
+
+@keyframes heroPanUp {
+    from {
+        transform: scale(1.12) translateY(2%);
+    }
+    to {
+        transform: scale(1.02) translateY(-2%);
+    }
 }
 
 
