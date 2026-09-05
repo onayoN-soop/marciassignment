@@ -1778,7 +1778,9 @@ h3 {
         width: 185px;
     }
 
-
+    .menu-dropdown-toggle > span:first-child {
+    display: none;
+    }
     .header-dropdown {
         position: fixed;
 
