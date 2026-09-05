@@ -1500,9 +1500,16 @@ body.lightbox-open {
         width: 185px;
     }
 
-       .credentials-strip {
-        min-height: 120px;
-        padding: 28px 25px;
+    .credentials-strip {
+    min-height: 120px;
+    padding: 28px 25px;
+
+    background:
+        linear-gradient(rgba(20, 20, 18, 0.55), rgba(20, 20, 18, 0.55)),
+        url("images/hero-1.jpg");
+
+    background-size: cover;
+    background-position: center;
     }
     
     .credibility-logos {
@@ -1608,14 +1615,21 @@ body.lightbox-open {
    @media (max-width: 900px) {
 
     .stats-section {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 50px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
 
-        height: auto;
-        padding: 75px 25px;
-    }
+    height: auto;
+    padding: 75px 25px;
+
+    background:
+        linear-gradient(rgba(20, 20, 18, 0.55), rgba(20, 20, 18, 0.55)),
+        url("images/hero-1.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
 
     .stat {
         align-items: flex-start;
