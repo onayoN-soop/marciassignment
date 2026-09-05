@@ -260,6 +260,9 @@ const galleryPapers =
 const galleryCurrent =
     document.querySelector("#galleryCurrent");
 
+const galleryTotal =
+    document.querySelector("#galleryTotal");
+
 const photoStage =
     document.querySelector("#photoStage");
 
@@ -367,6 +370,10 @@ function previousGalleryPhoto() {
         ) %
         galleryPapers.length;
 
+   if (galleryTotal) {
+    galleryTotal.textContent =
+        String(galleryPapers.length).padStart(2, "0");
+}
 
     updateGallery();
 }
