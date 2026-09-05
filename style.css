@@ -24,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -338,6 +339,17 @@ h3 {
     background-size: cover;
     background-repeat: no-repeat;
     transform: scale(1.03);
+}
+
+.hero-slide {
+    inset: 0;
+}
+
+.hero-slide.active.pan-in,
+.hero-slide.active.pan-out,
+.hero-slide.active.pan-right {
+    animation: none;
+    transform: scale(1.02);
 }
 
 .hero-slide.active {
@@ -1504,6 +1516,8 @@ body.lightbox-open {
     }
 
     .stats-title span {
+    width: auto;
+    max-width: 100%;
     margin-left: 0;
     }
 
