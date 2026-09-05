@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    MARCI METZGER — INTERACTIONS
    ========================================================= */
@@ -347,5 +346,4 @@ document.addEventListener("DOMContentLoaded", () => {
     updateHeroParallax();
 
 });
-```
 
