@@ -614,6 +614,10 @@ h3 {
     padding-bottom: clamp(70px, 10vh, 115px);
 }
 
+.hero-content .button {
+    margin-left: 12px;
+}
+
 
 .hero-content h1 {
     max-width: 850px;
