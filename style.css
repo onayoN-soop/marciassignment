@@ -923,15 +923,26 @@ h3 {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: min(68%, 780px);
-    padding: clamp(10px, 1vw, 15px);
+
+    width: min(68%, 880px);
+    padding: clamp(8px, 0.7vw, 12px);
+
     background: #fffefb;
-    box-shadow: 0 28px 65px rgba(24, 22, 18, 0.18), 0 4px 12px rgba(24, 22, 18, 0.08);
+    box-shadow:
+        0 24px 55px rgba(24, 22, 18, 0.14),
+        0 3px 10px rgba(24, 22, 18, 0.06);
+
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.72);
+
+    transform: translate(-50%, -50%) scale(0.82);
     transform-origin: center;
+
     pointer-events: none;
-    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s ease, box-shadow 0.55s ease;
+
+    transition:
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.55s ease,
+        box-shadow 0.55s ease;
 }
 
 .photo-frame {
@@ -964,22 +975,37 @@ h3 {
 
 .photo-paper.is-active {
     z-index: 5;
+
     opacity: 1;
     pointer-events: auto;
     cursor: zoom-in;
-    transform: translate(-50%, -50%) rotate(-0.8deg) scale(1);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-0.35deg)
+        scale(1);
 }
 
 .photo-paper.is-prev {
     z-index: 2;
-    opacity: 0.72;
-    transform: translate(-88%, -50%) rotate(-7deg) scale(0.79);
+
+    opacity: 0.46;
+
+    transform:
+        translate(-110%, -50%)
+        rotate(-2deg)
+        scale(0.78);
 }
 
 .photo-paper.is-next {
     z-index: 3;
-    opacity: 0.78;
-    transform: translate(-12%, -50%) rotate(6deg) scale(0.82);
+
+    opacity: 0.52;
+
+    transform:
+        translate(10%, -50%)
+        rotate(2deg)
+        scale(0.8);
 }
 
 .gallery-arrow {
@@ -1367,9 +1393,15 @@ body.lightbox-open {
 
 @media (hover: hover) and (pointer: fine) {
     .photo-paper.is-active:hover {
-        transform: translate(-50%, -52%) rotate(0deg) scale(1.015);
-        box-shadow: 0 36px 80px rgba(24, 22, 18, 0.22), 0 6px 18px rgba(24, 22, 18, 0.10);
-    }
+    transform:
+        translate(-50%, -51%)
+        rotate(0deg)
+        scale(1.01);
+
+    box-shadow:
+        0 32px 70px rgba(24, 22, 18, 0.18),
+        0 5px 14px rgba(24, 22, 18, 0.08);
+}
 
     .photo-paper.is-active:hover img {
         transform: scale(1.035);
