@@ -207,29 +207,32 @@ h3 {
 /* Logo */
 
 .logo {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    width: clamp(190px, 16vw, 255px);
+    line-height: 0;
+    flex-shrink: 0;
+}
 
-    line-height: 1;
+.logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    /* Original artwork is black.
+       Make it white while it sits over the hero image. */
+    filter: invert(1);
+
+    transition:
+        filter var(--transition),
+        opacity var(--transition);
 }
 
 
-.logo span {
-    font-size: 12px;
-    font-weight: 500;
+/* When the header becomes light after scrolling,
+   return the logo to its original black lettering. */
 
-    letter-spacing: 0.24em;
-}
-
-
-.logo strong {
-    margin-top: 5px;
-
-    font-family: var(--serif);
-    font-size: 23px;
-    font-weight: 500;
-
-    letter-spacing: 0.03em;
+.site-header.scrolled .logo img {
+    filter: none;
 }
 
 
