@@ -577,6 +577,11 @@ h3 {
     font-size: clamp(58px, 4.8vw, 82px);
 }
 
+.stats-title span {
+    display: block;
+    margin-left: 2.15em;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: minmax(230px, 0.8fr) minmax(150px, 0.5fr) minmax(440px, 1.7fr);
@@ -1455,6 +1460,10 @@ body.lightbox-open {
 
     .logo {
         width: 185px;
+    }
+
+    .stats-title span {
+    margin-left: 0;
     }
 
     .menu-label {
