@@ -838,14 +838,17 @@ h3 {
 .search-button {
     grid-column: 13 / 16;
     grid-row: 2;
-    align-self: end;
+
+    align-self: stretch;
 
     width: 100%;
     min-width: 0;
-    min-height: 66px;
+    min-height: 0;
 
-    margin: 0 0 24px;
-    padding: 18px 20px;
+    margin: 0;
+    padding: 20px;
+
+    height: auto;
 }
 
 .search-message {
