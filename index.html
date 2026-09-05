@@ -764,68 +764,36 @@
              GALLERY LIGHTBOX
              ================================================= -->
 
-        <div
-            class="gallery-lightbox"
-            id="galleryLightbox"
-            aria-hidden="true"
-            role="dialog"
-            aria-label="Enlarged gallery photo"
+<div
+    class="gallery-lightbox"
+    id="galleryLightbox"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Enlarged gallery photo"
+>
+
+    <div class="lightbox-popup">
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
         >
 
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+            type="button"
+            aria-label="Close enlarged photo"
+        >
+            <span>×</span>
+            Close
+        </button>
 
-            <!-- Close -->
+    </div>
 
-            <button
-                class="lightbox-close"
-                id="lightboxClose"
-                type="button"
-                aria-label="Close enlarged photo"
-            >
-                ×
-            </button>
-
-
-
-            <!-- Previous -->
-
-            <button
-                class="lightbox-arrow lightbox-arrow-left"
-                id="lightboxPrev"
-                type="button"
-                aria-label="Previous enlarged photo"
-            >
-                ←
-            </button>
-
-
-
-            <!-- Image -->
-
-            <div class="lightbox-content">
-
-                <img
-                    id="lightboxImage"
-                    src=""
-                    alt=""
-                >
-
-            </div>
-
-
-
-            <!-- Next -->
-
-            <button
-                class="lightbox-arrow lightbox-arrow-right"
-                id="lightboxNext"
-                type="button"
-                aria-label="Next enlarged photo"
-            >
-                →
-            </button>
-
-        </div>
-
+</div>
 
 
         <!-- =================================================
