@@ -551,12 +551,16 @@ h3 {
 
 .stats-section {
     display: grid;
-    grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.7fr);
+    grid-template-columns: minmax(600px, 1.25fr) minmax(600px, 1fr);
     align-items: center;
-    gap: clamp(40px, 4vw, 70px);
+    justify-content: center;
+    gap: clamp(60px, 6vw, 120px);
+
     width: 100%;
     min-height: 420px;
+
     padding: clamp(90px, 8vw, 125px) var(--gutter);
+
     background: rgba(20, 20, 18, 0.42);
     color: var(--cream);
 
@@ -566,7 +570,7 @@ h3 {
 
 .stats-intro {
     width: 100%;
-    max-width: 420px;
+    max-width: 720px;
 }
 
 .stats-intro .eyebrow {
@@ -579,7 +583,8 @@ h3 {
 
 .stats-title span {
     display: block;
-    margin-left: 2.15em;
+    width: max-content;
+    margin-left: 1.7em;
 }
 
 .stats-grid {
