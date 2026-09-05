@@ -349,6 +349,307 @@ if (contactForm) {
 
 }
 
+/* =========================================================
+   PHOTO PAPER GALLERY
+   ========================================================= */
+
+const galleryPapers =
+    Array.from(document.querySelectorAll(".photo-paper"));
+
+const galleryPrev =
+    document.querySelector("#galleryPrev");
+
+const galleryNext =
+    document.querySelector("#galleryNext");
+
+const galleryMobilePrev =
+    document.querySelector("#galleryMobilePrev");
+
+const galleryMobileNext =
+    document.querySelector("#galleryMobileNext");
+
+const galleryCurrent =
+    document.querySelector("#galleryCurrent");
+
+const photoStage =
+    document.querySelector("#photoStage");
+
+
+let currentGalleryIndex = 0;
+
+
+/*
+ * Converts a number into:
+ * 1 -> 01
+ * 2 -> 02
+ */
+
+function formatGalleryNumber(number) {
+
+    return String(number).padStart(2, "0");
+
+}
+
+
+/*
+ * Determine which paper should be:
+ *
+ * previous
+ * active
+ * next
+ *
+ * The remaining paper stays hidden.
+ */
+
+function updateGallery() {
+
+    if (!galleryPapers.length) {
+        return;
+    }
+
+
+    const total =
+        galleryPapers.length;
+
+    const previousIndex =
+        (currentGalleryIndex - 1 + total) % total;
+
+    const nextIndex =
+        (currentGalleryIndex + 1) % total;
+
+
+    galleryPapers.forEach(
+        (paper, index) => {
+
+            paper.classList.remove(
+                "is-active",
+                "is-prev",
+                "is-next"
+            );
+
+
+            if (index === currentGalleryIndex) {
+
+                paper.classList.add(
+                    "is-active"
+                );
+
+            } else if (index === previousIndex) {
+
+                paper.classList.add(
+                    "is-prev"
+                );
+
+            } else if (index === nextIndex) {
+
+                paper.classList.add(
+                    "is-next"
+                );
+
+            }
+
+        }
+    );
+
+
+    if (galleryCurrent) {
+
+        galleryCurrent.textContent =
+            formatGalleryNumber(
+                currentGalleryIndex + 1
+            );
+
+    }
+
+}
+
+
+/*
+ * Navigation
+ */
+
+function previousGalleryPhoto() {
+
+    currentGalleryIndex =
+        (
+            currentGalleryIndex -
+            1 +
+            galleryPapers.length
+        ) %
+        galleryPapers.length;
+
+    updateGallery();
+
+}
+
+
+function nextGalleryPhoto() {
+
+    currentGalleryIndex =
+        (
+            currentGalleryIndex +
+            1
+        ) %
+        galleryPapers.length;
+
+    updateGallery();
+
+}
+
+
+/*
+ * Desktop arrows
+ */
+
+if (galleryPrev) {
+
+    galleryPrev.addEventListener(
+        "click",
+        previousGalleryPhoto
+    );
+
+}
+
+
+if (galleryNext) {
+
+    galleryNext.addEventListener(
+        "click",
+        nextGalleryPhoto
+    );
+
+}
+
+
+/*
+ * Mobile arrows
+ */
+
+if (galleryMobilePrev) {
+
+    galleryMobilePrev.addEventListener(
+        "click",
+        previousGalleryPhoto
+    );
+
+}
+
+
+if (galleryMobileNext) {
+
+    galleryMobileNext.addEventListener(
+        "click",
+        nextGalleryPhoto
+    );
+
+}
+
+
+/* =========================================================
+   MOBILE SWIPE
+   ========================================================= */
+
+let galleryTouchStartX = 0;
+let galleryTouchEndX = 0;
+
+
+if (photoStage) {
+
+    photoStage.addEventListener(
+        "touchstart",
+        event => {
+
+            galleryTouchStartX =
+                event.changedTouches[0].screenX;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    photoStage.addEventListener(
+        "touchend",
+        event => {
+
+            galleryTouchEndX =
+                event.changedTouches[0].screenX;
+
+
+            const distance =
+                galleryTouchEndX -
+                galleryTouchStartX;
+
+
+            /*
+             * Ignore tiny accidental swipes.
+             */
+
+            if (Math.abs(distance) < 45) {
+                return;
+            }
+
+
+            if (distance > 0) {
+
+                previousGalleryPhoto();
+
+            } else {
+
+                nextGalleryPhoto();
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+   ========================================================= */
+
+if (photoStage) {
+
+    photoStage.setAttribute(
+        "tabindex",
+        "0"
+    );
+
+
+    photoStage.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "ArrowLeft") {
+
+                previousGalleryPhoto();
+
+            }
+
+
+            if (event.key === "ArrowRight") {
+
+                nextGalleryPhoto();
+
+            }
+
+        }
+    );
+
+}
+
+
+/*
+ * Initial state
+ */
+
+updateGallery();
 
 /* =========================================================
    INITIALIZATION
