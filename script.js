@@ -234,38 +234,40 @@ if (contactForm) {
 
 
 /* =========================================================
-   07. PARALLAX HERO
+   07. HERO SLIDESHOW
    ========================================================= */
 
-const heroImage = document.querySelector(".hero-image");
+const heroSlides = document.querySelectorAll(".hero-slide");
 
+let currentHeroSlide = 0;
 
-function updateHeroParallax() {
+function showHeroSlide(index) {
+    heroSlides.forEach(slide => {
+        slide.classList.remove("active");
+    });
 
-    if (!heroImage) return;
+    const activeSlide = heroSlides[index];
 
     /*
-     * Only apply the effect while the hero is visible.
+     * Restart CSS animation each time the slide becomes active
      */
+    activeSlide.style.animation = "none";
+    void activeSlide.offsetWidth;
+    activeSlide.style.animation = "";
 
-    if (window.scrollY <= window.innerHeight) {
-
-        const movement =
-            window.scrollY * 0.12;
-
-        heroImage.style.transform =
-            `translateY(${movement}px) scale(1.02)`;
-
-    }
-
+    activeSlide.classList.add("active");
 }
 
+if (heroSlides.length > 0) {
+    showHeroSlide(currentHeroSlide);
 
-window.addEventListener(
-    "scroll",
-    updateHeroParallax,
-    { passive: true }
-);
+    setInterval(() => {
+        currentHeroSlide =
+            (currentHeroSlide + 1) % heroSlides.length;
+
+        showHeroSlide(currentHeroSlide);
+    }, 4000);
+}
 
 
 /* =========================================================
@@ -342,8 +344,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 document.addEventListener("DOMContentLoaded", () => {
 
     updateHeader();
-
-    updateHeroParallax();
 
 });
 
