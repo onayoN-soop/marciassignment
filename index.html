@@ -507,50 +507,154 @@
              GALLERY
              ================================================= -->
 
-        <section class="gallery-section">
+       <section class="gallery-section" id="gallery">
 
-            <div class="gallery-heading reveal">
+    <div class="gallery-heading reveal">
 
-                <div>
+        <div>
+            <p class="eyebrow dark">
+                Pahrump & Beyond
+            </p>
 
-                    <p class="eyebrow dark">
-                        Pahrump & Beyond
-                    </p>
+            <h2>
+                Photo Gallery.
+            </h2>
+        </div>
 
-                    <h2>
-                        Photo Gallery.
-                    </h2>
+        <div class="gallery-count">
+            <span id="galleryCurrent">01</span>
+            <span class="gallery-count-divider">/</span>
+            <span>04</span>
+        </div>
 
+    </div>
+
+
+    <div class="photo-gallery reveal">
+
+        <!-- LEFT ARROW -->
+
+        <button
+            class="gallery-arrow gallery-arrow-left"
+            id="galleryPrev"
+            type="button"
+            aria-label="Previous photo"
+        >
+            ←
+        </button>
+
+
+        <!-- PHOTO STACK -->
+
+        <div class="photo-stage" id="photoStage">
+
+            <figure class="photo-paper is-active">
+
+                <div class="photo-frame">
+                    <img
+                        src="images/gallery-1.jpg"
+                        alt="Featured Pahrump real estate property"
+                    >
                 </div>
 
-                <span class="gallery-number">
-                    03
-                </span>
+                <figcaption>
+                    Pahrump, Nevada
+                </figcaption>
 
-            </div>
+            </figure>
 
 
-            <div class="gallery-grid">
+            <figure class="photo-paper is-next">
 
-                <div class="gallery-item gallery-large reveal">
-                    <div class="gallery-image image-1"></div>
+                <div class="photo-frame">
+                    <img
+                        src="images/gallery-2.jpg"
+                        alt="Scenic Pahrump community view"
+                    >
                 </div>
 
-                <div class="gallery-item reveal">
-                    <div class="gallery-image image-2"></div>
+                <figcaption>
+                    Desert Living
+                </figcaption>
+
+            </figure>
+
+
+            <figure class="photo-paper">
+
+                <div class="photo-frame">
+                    <img
+                        src="images/gallery-3.jpg"
+                        alt="Pahrump landscape and community"
+                    >
                 </div>
 
-                <div class="gallery-item reveal">
-                    <div class="gallery-image image-3"></div>
+                <figcaption>
+                    The Community
+                </figcaption>
+
+            </figure>
+
+
+            <figure class="photo-paper is-prev">
+
+                <div class="photo-frame">
+                    <img
+                        src="images/gallery-4.jpg"
+                        alt="Residential property in Pahrump"
+                    >
                 </div>
 
-                <div class="gallery-item reveal">
-                    <div class="gallery-image image-4"></div>
-                </div>
+                <figcaption>
+                    Life in Pahrump
+                </figcaption>
 
-            </div>
+            </figure>
 
-        </section>
+        </div>
+
+
+        <!-- RIGHT ARROW -->
+
+        <button
+            class="gallery-arrow gallery-arrow-right"
+            id="galleryNext"
+            type="button"
+            aria-label="Next photo"
+        >
+            →
+        </button>
+
+    </div>
+
+
+    <div class="gallery-mobile-controls">
+
+        <button
+            class="gallery-mobile-arrow"
+            id="galleryMobilePrev"
+            type="button"
+            aria-label="Previous photo"
+        >
+            ←
+        </button>
+
+        <span class="gallery-mobile-hint">
+            Swipe to explore
+        </span>
+
+        <button
+            class="gallery-mobile-arrow"
+            id="galleryMobileNext"
+            type="button"
+            aria-label="Next photo"
+        >
+            →
+        </button>
+
+    </div>
+
+</section>
 
 
         <!-- =================================================
