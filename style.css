@@ -546,6 +546,10 @@ h3 {
    HERO CAMERA MOVEMENTS
    ========================================================= */
 
+/* =========================================================
+   HERO CAMERA MOVEMENTS
+   ========================================================= */
+
 .hero-slide.active.pan-in {
     animation: heroPanIn 8s linear forwards;
 }
@@ -554,8 +558,8 @@ h3 {
     animation: heroPanOut 8s linear forwards;
 }
 
-.hero-slide.active.pan-arc {
-    animation: heroPanArc 8s linear forwards;
+.hero-slide.active.pan-right {
+    animation: heroPanRight 8s linear forwards;
 }
 
 
@@ -585,27 +589,15 @@ h3 {
 }
 
 
-/* HERO 3 — slow curved sideways movement */
+/* HERO 3 — slow sideways pan */
 
-@keyframes heroPanArc {
-    0% {
-        transform: scale(1.055) translate(-1.2%, 0.7%);
+@keyframes heroPanRight {
+    from {
+        transform: scale(1.06) translateX(-1%);
     }
 
-    25% {
-        transform: scale(1.052) translate(-0.6%, 0%);
-    }
-
-    50% {
-        transform: scale(1.048) translate(0%, -0.45%);
-    }
-
-    75% {
-        transform: scale(1.044) translate(0.6%, 0%);
-    }
-
-    100% {
-        transform: scale(1.04) translate(1.2%, 0.7%);
+    to {
+        transform: scale(1.06) translateX(1%);
     }
 }
 
