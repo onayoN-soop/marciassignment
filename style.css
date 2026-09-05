@@ -2082,161 +2082,333 @@ h3 {
 }
 
 /* =========================================================
-   READABILITY / ACCESSIBILITY FONT-SIZE PASS
+   READABILITY PASS — LARGER LUXURY REAL ESTATE TYPOGRAPHY
+   Inspired by the more readable hierarchy used on
+   premium Luxury Presence-style real estate sites.
    ========================================================= */
 
-/* Main body text */
+
+/* ---------------------------------------------------------
+   GENERAL BODY
+   --------------------------------------------------------- */
+
 body {
-    font-size: 17px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.7;
 }
 
-/* Header navigation */
+
+/* ---------------------------------------------------------
+   HEADER / NAVIGATION
+   --------------------------------------------------------- */
+
+.logo span {
+    font-size: 12px;
+}
+
+.logo strong {
+    font-size: 23px;
+}
+
 .desktop-nav a,
 .header-phone {
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
 }
 
-/* Small uppercase labels */
+
+/* ---------------------------------------------------------
+   SMALL LABELS / EYEBROWS
+   --------------------------------------------------------- */
+
 .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.18em;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
 }
 
 .section-label {
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
 }
 
-/* Hero supporting text */
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
 .hero-subtitle {
-    font-size: clamp(28px, 2.5vw, 40px);
+    font-size: clamp(31px, 2.7vw, 43px);
+    line-height: 1.1;
 }
 
 .hero-scroll {
-    font-size: 10px;
+    font-size: 12px;
 }
 
-/* About section */
-.about-copy > p:not(.large-copy) {
-    font-size: 16px;
-    line-height: 1.8;
-}
+
+/* ---------------------------------------------------------
+   ABOUT
+   --------------------------------------------------------- */
 
 .large-copy {
-    font-size: clamp(30px, 2.8vw, 43px);
+    font-size: clamp(34px, 3vw, 47px);
+    line-height: 1.15;
+}
+
+.about-copy > p:not(.large-copy) {
+    max-width: 550px;
+
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.75;
 }
 
 .text-link {
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: 600;
 }
 
-/* Stats labels */
-.stat span {
-    max-width: 180px;
 
-    font-size: 11px;
+/* ---------------------------------------------------------
+   STATISTICS
+   --------------------------------------------------------- */
+
+.stat span {
+    max-width: 200px;
+
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     line-height: 1.55;
 }
 
-/* Seller / buyer paragraphs */
-.feature-content p:not(.eyebrow) {
-    max-width: 520px;
 
-    font-size: 16px;
-    line-height: 1.8;
+/* ---------------------------------------------------------
+   SELLER / BUYER SECTIONS
+   --------------------------------------------------------- */
+
+.feature-content p:not(.eyebrow) {
+    max-width: 560px;
+
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.75;
 }
 
-/* Search form */
+
+/* ---------------------------------------------------------
+   PROPERTY SEARCH
+   --------------------------------------------------------- */
+
 .form-field label {
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
 }
 
 .form-field select,
 .form-field input {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
-/* Buttons */
+
+/* ---------------------------------------------------------
+   BUTTONS
+   --------------------------------------------------------- */
+
 .button {
-    font-size: 11px;
+    min-width: 175px;
+
+    padding: 17px 29px;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
 }
 
-/* Services */
-.service-card p {
-    font-size: 16px;
-    line-height: 1.8;
+
+/* ---------------------------------------------------------
+   GALLERY
+   --------------------------------------------------------- */
+
+.gallery-number {
+    font-size: 13px;
 }
+
+
+/* ---------------------------------------------------------
+   SERVICES
+   --------------------------------------------------------- */
 
 .service-number {
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 500;
 }
 
-/* Gallery numbering */
-.gallery-number {
-    font-size: 11px;
+.service-card p {
+    max-width: 390px;
+
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.75;
 }
 
-/* Contact */
+
+/* ---------------------------------------------------------
+   CONTACT
+   --------------------------------------------------------- */
+
 .contact-address {
-    font-size: 16px;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.contact-phone {
+    font-size: 32px;
 }
 
 .contact-hours {
-    max-width: 440px;
+    max-width: 480px;
 
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.7;
 }
 
 .contact-form label {
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
 }
 
 .contact-form input,
 .contact-form textarea {
-    font-size: 16px;
+    font-size: 18px;
 }
 
-/* Footer */
-.footer-brand p,
-.footer-links a,
-.footer-contact p {
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.footer-brand > span {
     font-size: 12px;
 }
 
+.footer-brand > strong {
+    font-size: 34px;
+}
+
+.footer-brand p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.footer-links a {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.footer-contact > a {
+    font-size: 28px;
+}
+
+.footer-contact p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
 .footer-bottom {
-    font-size: 10px;
+    font-size: 11px;
+    line-height: 1.6;
 }
 
 
 /* =========================================================
-   MOBILE READABILITY
+   TABLET / MOBILE READABILITY
    ========================================================= */
 
 @media (max-width: 800px) {
 
     body {
-        font-size: 17px;
+        font-size: 18px;
+    }
+
+    .eyebrow,
+    .section-label {
+        font-size: 12px;
     }
 
     .about-copy > p:not(.large-copy),
     .feature-content p:not(.eyebrow),
     .service-card p {
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 1.75;
+    }
+
+    .form-field select,
+    .form-field input {
+        font-size: 18px;
     }
 
     .contact-address {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .contact-hours {
-        font-size: 13px;
+        font-size: 15px;
     }
 
-    .mobile-menu nav a {
-        font-size: clamp(50px, 13vw, 76px);
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 18px;
     }
 
     .mobile-call {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 13px;
+    }
+
+    .footer-links a,
+    .footer-brand p,
+    .footer-contact p {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 18px;
+    }
+
+    .large-copy {
+        font-size: 31px;
+    }
+
+    .about-copy > p:not(.large-copy),
+    .feature-content p:not(.eyebrow),
+    .service-card p {
+        font-size: 18px;
+    }
+
+    .eyebrow,
+    .section-label {
         font-size: 12px;
     }
+
 }
