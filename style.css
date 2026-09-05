@@ -492,18 +492,20 @@ h3 {
     inset: -2%;
 
     opacity: 0;
+    visibility: hidden;
 
     background-color: #77736c;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    transition: opacity 1.2s ease;
     transform: scale(1.06);
 }
 
 .hero-slide.active {
     opacity: 1;
+    visibility: visible;
+    z-index: 2;
 }
 
 .hero-slide:nth-child(1) {
@@ -555,28 +557,33 @@ h3 {
 
 @keyframes heroPanLeft {
     from {
-        transform: scale(1.12) translateX(2%);
+        transform: scale(1.08) translateX(1.5%);
     }
+
     to {
-        transform: scale(1.02) translateX(-2%);
+        transform: scale(1.04) translateX(-1.5%);
     }
 }
+
 
 @keyframes heroPanRight {
     from {
-        transform: scale(1.12) translateX(-2%);
+        transform: scale(1.08) translateX(-1.5%);
     }
+
     to {
-        transform: scale(1.02) translateX(2%);
+        transform: scale(1.04) translateX(1.5%);
     }
 }
 
+
 @keyframes heroPanUp {
     from {
-        transform: scale(1.12) translateY(2%);
+        transform: scale(1.08) translateY(1.5%);
     }
+
     to {
-        transform: scale(1.02) translateY(-2%);
+        transform: scale(1.04) translateY(-1.5%);
     }
 }
 
