@@ -23,7 +23,6 @@
 
     --content-width: 1440px;
     --gutter: clamp(24px, 5vw, 80px);
-
     --section-y: clamp(85px, 8vw, 125px);
 
     --transition:
@@ -52,9 +51,9 @@ body {
     color: var(--charcoal);
 
     font-family: var(--sans);
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.6;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.7;
 
     overflow-x: hidden;
 }
@@ -147,11 +146,11 @@ h3 {
     color: rgba(255, 255, 255, 0.72);
 
     font-family: var(--sans);
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 500;
 
-    letter-spacing: 0.22em;
-    line-height: 1.4;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
 
     text-transform: uppercase;
 }
@@ -216,10 +215,10 @@ h3 {
 
 
 .logo span {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 
-    letter-spacing: 0.28em;
+    letter-spacing: 0.24em;
 }
 
 
@@ -227,14 +226,14 @@ h3 {
     margin-top: 5px;
 
     font-family: var(--serif);
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 500;
 
     letter-spacing: 0.03em;
 }
 
 
-/* Desktop nav */
+/* Desktop navigation */
 
 .desktop-nav {
     position: absolute;
@@ -245,18 +244,20 @@ h3 {
     display: flex;
     align-items: center;
 
-    gap: clamp(26px, 3vw, 52px);
+    gap: clamp(24px, 2.8vw, 48px);
 }
 
 
 .desktop-nav a {
     position: relative;
 
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 500;
 
-    letter-spacing: 0.17em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
+
+    white-space: nowrap;
 }
 
 
@@ -282,18 +283,20 @@ h3 {
 }
 
 
-/* Phone */
+/* Call Now */
 
 .header-phone {
     padding-bottom: 5px;
 
     border-bottom: 1px solid currentColor;
 
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 500;
 
-    letter-spacing: 0.17em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
+
+    white-space: nowrap;
 }
 
 
@@ -399,7 +402,7 @@ h3 {
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 0.12em;
 }
 
@@ -414,14 +417,14 @@ h3 {
     justify-content: center;
 
     width: fit-content;
-    min-width: 160px;
+    min-width: 175px;
 
-    padding: 16px 26px;
+    padding: 17px 29px;
 
-    font-size: 9px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
 
-    letter-spacing: 0.18em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
 
     transition:
@@ -544,9 +547,9 @@ h3 {
     margin-bottom: 34px;
 
     font-family: var(--serif);
-    font-size: clamp(25px, 2.3vw, 36px);
+    font-size: clamp(31px, 2.7vw, 43px);
 
-    line-height: 1.06;
+    line-height: 1.1;
 }
 
 
@@ -562,10 +565,10 @@ h3 {
 
     gap: 14px;
 
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.72);
 
-    font-size: 8px;
-    letter-spacing: 0.2em;
+    font-size: 12px;
+    letter-spacing: 0.16em;
 
     text-transform: uppercase;
 }
@@ -606,10 +609,10 @@ h3 {
 
     color: var(--taupe);
 
-    font-size: 8px;
+    font-size: 13px;
     font-weight: 500;
 
-    letter-spacing: 0.2em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
 }
 
@@ -666,29 +669,31 @@ h3 {
 
 .about-copy {
     width: 100%;
-    max-width: 570px;
+    max-width: 600px;
 
     justify-self: end;
 }
 
 
 .large-copy {
-    margin-bottom: 27px;
+    margin-bottom: 30px;
 
     font-family: var(--serif);
-    font-size: clamp(28px, 2.6vw, 40px);
+    font-size: clamp(34px, 3vw, 47px);
 
-    line-height: 1.1;
+    line-height: 1.15;
 }
 
 
 .about-copy > p:not(.large-copy) {
-    max-width: 500px;
+    max-width: 550px;
 
-    color: #69645c;
+    color: #5f5a53;
 
-    font-size: 13px;
-    line-height: 1.9;
+    font-size: 19px;
+    font-weight: 400;
+
+    line-height: 1.75;
 }
 
 
@@ -703,16 +708,16 @@ h3 {
 
     border-bottom: 1px solid var(--charcoal);
 
-    font-size: 9px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
 
-    letter-spacing: 0.16em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
 }
 
 
 .text-link span {
-    font-size: 16px;
+    font-size: 18px;
 
     transition: transform var(--transition);
 }
@@ -755,7 +760,7 @@ h3 {
 
 
 .stats-intro .eyebrow {
-    color: rgba(255, 255, 255, 0.48);
+    color: rgba(255, 255, 255, 0.62);
 }
 
 
@@ -805,15 +810,15 @@ h3 {
 .stat span {
     display: block;
 
-    max-width: 150px;
+    max-width: 200px;
 
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.68);
 
-    font-size: 8px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 500;
 
-    letter-spacing: 0.14em;
-    line-height: 1.6;
+    letter-spacing: 0.10em;
+    line-height: 1.55;
 
     text-transform: uppercase;
 }
@@ -885,14 +890,16 @@ h3 {
 
 
 .feature-content p:not(.eyebrow) {
-    max-width: 470px;
+    max-width: 560px;
 
     margin-bottom: 30px;
 
-    color: #6d685f;
+    color: #5f5a53;
 
-    font-size: 13px;
-    line-height: 1.85;
+    font-size: 19px;
+    font-weight: 400;
+
+    line-height: 1.75;
 }
 
 
@@ -939,7 +946,7 @@ h3 {
 .form-field {
     min-width: 0;
 
-    padding: 24px 22px 22px 0;
+    padding: 26px 22px 24px 0;
 
     border-bottom: 1px solid var(--sand);
 }
@@ -957,10 +964,10 @@ h3 {
 
     color: var(--taupe);
 
-    font-size: 8px;
+    font-size: 13px;
     font-weight: 500;
 
-    letter-spacing: 0.16em;
+    letter-spacing: 0.12em;
 
     text-transform: uppercase;
 }
@@ -976,13 +983,13 @@ h3 {
     background: transparent;
     color: var(--charcoal);
 
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 400;
 }
 
 
 .form-field input::placeholder {
-    color: #7c766d;
+    color: #706a62;
     opacity: 1;
 }
 
@@ -1061,8 +1068,8 @@ h3 {
 .gallery-number {
     color: var(--taupe);
 
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 13px;
+    letter-spacing: 0.15em;
 }
 
 
@@ -1186,8 +1193,10 @@ h3 {
 
     color: var(--taupe);
 
-    font-size: 8px;
-    letter-spacing: 0.2em;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.15em;
 }
 
 
@@ -1199,12 +1208,14 @@ h3 {
 
 
 .service-card p {
-    max-width: 350px;
+    max-width: 390px;
 
-    color: #6d685f;
+    color: #5f5a53;
 
-    font-size: 13px;
-    line-height: 1.85;
+    font-size: 19px;
+    font-weight: 400;
+
+    line-height: 1.75;
 }
 
 
@@ -1294,8 +1305,8 @@ h3 {
 .contact-address {
     margin-bottom: 22px;
 
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: 19px;
+    line-height: 1.7;
 }
 
 
@@ -1309,17 +1320,19 @@ h3 {
         1px solid rgba(255, 255, 255, 0.5);
 
     font-family: var(--serif);
-    font-size: 28px;
+    font-size: 32px;
 }
 
 
 .contact-hours {
-    max-width: 390px;
+    max-width: 480px;
 
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.70);
 
-    font-size: 10px;
-    line-height: 1.8;
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.7;
 }
 
 
@@ -1353,12 +1366,12 @@ h3 {
     margin-top: 20px;
     margin-bottom: 6px;
 
-    color: rgba(255, 255, 255, 0.52);
+    color: rgba(255, 255, 255, 0.72);
 
-    font-size: 8px;
+    font-size: 13px;
     font-weight: 500;
 
-    letter-spacing: 0.16em;
+    letter-spacing: 0.12em;
 
     text-transform: uppercase;
 }
@@ -1368,17 +1381,19 @@ h3 {
 .contact-form textarea {
     width: 100%;
 
-    padding: 9px 0;
+    padding: 10px 0;
 
     border: 0;
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.35);
+        1px solid rgba(255, 255, 255, 0.42);
 
     border-radius: 0;
     outline: 0;
 
     background: transparent;
     color: var(--white);
+
+    font-size: 18px;
 
     resize: none;
 
@@ -1435,9 +1450,9 @@ h3 {
 
 
 .footer-brand > span {
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: 0.28em;
+    letter-spacing: 0.24em;
 }
 
 
@@ -1445,7 +1460,7 @@ h3 {
     margin-top: 5px;
 
     font-family: var(--serif);
-    font-size: 30px;
+    font-size: 34px;
     font-weight: 400;
 }
 
@@ -1453,11 +1468,12 @@ h3 {
 .footer-brand p {
     margin-top: 18px;
 
-    color: rgba(255, 255, 255, 0.42);
+    color: rgba(255, 255, 255, 0.58);
 
-    font-size: 9px;
-    letter-spacing: 0.12em;
+    font-size: 13px;
+    line-height: 1.6;
 
+    letter-spacing: 0.10em;
     text-transform: uppercase;
 }
 
@@ -1466,18 +1482,19 @@ h3 {
     display: flex;
     flex-direction: column;
 
-    gap: 12px;
+    gap: 14px;
 }
 
 
 .footer-links a {
     width: fit-content;
 
-    color: rgba(255, 255, 255, 0.62);
+    color: rgba(255, 255, 255, 0.68);
 
-    font-size: 9px;
-    letter-spacing: 0.14em;
+    font-size: 13px;
+    line-height: 1.5;
 
+    letter-spacing: 0.11em;
     text-transform: uppercase;
 
     transition: color var(--transition);
@@ -1504,15 +1521,15 @@ h3 {
         1px solid rgba(255, 255, 255, 0.45);
 
     font-family: var(--serif);
-    font-size: 24px;
+    font-size: 28px;
 }
 
 
 .footer-contact p {
-    color: rgba(255, 255, 255, 0.42);
+    color: rgba(255, 255, 255, 0.62);
 
-    font-size: 10px;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
 
@@ -1529,11 +1546,12 @@ h3 {
     border-top:
         1px solid rgba(255, 255, 255, 0.12);
 
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.48);
 
-    font-size: 8px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    line-height: 1.6;
 
+    letter-spacing: 0.10em;
     text-transform: uppercase;
 }
 
@@ -1549,9 +1567,7 @@ h3 {
 
     transition:
         opacity 0.8s ease,
-        transform
-            0.8s
-            cubic-bezier(0.22, 1, 0.36, 1);
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
@@ -1563,18 +1579,19 @@ h3 {
 
 
 /* =========================================================
-   17. LARGE TABLETS / SMALL LAPTOPS
+   17. SMALL LAPTOPS
    ========================================================= */
 
 @media (max-width: 1100px) {
 
     .desktop-nav {
-        gap: 22px;
+        gap: 18px;
     }
 
 
+    .desktop-nav a,
     .header-phone {
-        display: none;
+        font-size: 12px;
     }
 
 
@@ -1650,10 +1667,10 @@ h3 {
 
 
 /* =========================================================
-   18. TABLET / MOBILE
+   18. TABLET / MOBILE MENU SWITCH
    ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
     :root {
         --gutter: 25px;
@@ -1706,7 +1723,7 @@ h3 {
 
 
     .hero-subtitle {
-        font-size: 25px;
+        font-size: 30px;
     }
 
 
@@ -1719,6 +1736,13 @@ h3 {
 
     .section-label {
         margin-bottom: 48px;
+
+        font-size: 12px;
+    }
+
+
+    .eyebrow {
+        font-size: 12px;
     }
 
 
@@ -1745,7 +1769,12 @@ h3 {
 
 
     .large-copy {
-        font-size: 29px;
+        font-size: 32px;
+    }
+
+
+    .about-copy > p:not(.large-copy) {
+        font-size: 18px;
     }
 
 
@@ -1788,6 +1817,11 @@ h3 {
     }
 
 
+    .stat span {
+        font-size: 13px;
+    }
+
+
     /* Features */
 
     .feature {
@@ -1817,6 +1851,11 @@ h3 {
     }
 
 
+    .feature-content p:not(.eyebrow) {
+        font-size: 18px;
+    }
+
+
     .feature-buy .feature-content {
         order: 2;
     }
@@ -1840,6 +1879,12 @@ h3 {
     .form-field:not(:nth-child(4n + 1)) {
         padding-left: 0;
         padding-right: 0;
+    }
+
+
+    .form-field select,
+    .form-field input {
+        font-size: 18px;
     }
 
 
@@ -1904,6 +1949,11 @@ h3 {
     }
 
 
+    .service-card p {
+        font-size: 18px;
+    }
+
+
     /* Contact */
 
     .contact-section {
@@ -1929,12 +1979,28 @@ h3 {
     }
 
 
+    .contact-address {
+        font-size: 18px;
+    }
+
+
+    .contact-hours {
+        font-size: 15px;
+    }
+
+
     .contact-form {
         max-width: 600px;
 
         justify-self: start;
 
         padding: 35px 25px;
+    }
+
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 18px;
     }
 
 
@@ -1975,8 +2041,13 @@ h3 {
 
 @media (max-width: 480px) {
 
-    .logo strong {
+    body {
         font-size: 18px;
+    }
+
+
+    .logo strong {
+        font-size: 20px;
     }
 
 
@@ -1991,11 +2062,13 @@ h3 {
 
 
     .button {
-        min-width: 150px;
+        min-width: 160px;
 
         padding:
-            15px
-            22px;
+            16px
+            24px;
+
+        font-size: 13px;
     }
 
 
@@ -2005,7 +2078,7 @@ h3 {
 
 
     .large-copy {
-        font-size: 27px;
+        font-size: 31px;
     }
 
 
@@ -2044,7 +2117,14 @@ h3 {
 
 
     .contact-phone {
-        font-size: 25px;
+        font-size: 29px;
+    }
+
+
+    .footer-links a,
+    .footer-brand p,
+    .footer-contact p {
+        font-size: 14px;
     }
 
 }
@@ -2077,338 +2157,6 @@ h3 {
         opacity: 1;
 
         transform: none;
-    }
-
-}
-
-/* =========================================================
-   READABILITY PASS — LARGER LUXURY REAL ESTATE TYPOGRAPHY
-   Inspired by the more readable hierarchy used on
-   premium Luxury Presence-style real estate sites.
-   ========================================================= */
-
-
-/* ---------------------------------------------------------
-   GENERAL BODY
-   --------------------------------------------------------- */
-
-body {
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.7;
-}
-
-
-/* ---------------------------------------------------------
-   HEADER / NAVIGATION
-   --------------------------------------------------------- */
-
-.logo span {
-    font-size: 12px;
-}
-
-.logo strong {
-    font-size: 23px;
-}
-
-.desktop-nav a,
-.header-phone {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.13em;
-}
-
-
-/* ---------------------------------------------------------
-   SMALL LABELS / EYEBROWS
-   --------------------------------------------------------- */
-
-.eyebrow {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    line-height: 1.5;
-}
-
-.section-label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-}
-
-
-/* ---------------------------------------------------------
-   HERO
-   --------------------------------------------------------- */
-
-.hero-subtitle {
-    font-size: clamp(31px, 2.7vw, 43px);
-    line-height: 1.1;
-}
-
-.hero-scroll {
-    font-size: 12px;
-}
-
-
-/* ---------------------------------------------------------
-   ABOUT
-   --------------------------------------------------------- */
-
-.large-copy {
-    font-size: clamp(34px, 3vw, 47px);
-    line-height: 1.15;
-}
-
-.about-copy > p:not(.large-copy) {
-    max-width: 550px;
-
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.75;
-}
-
-.text-link {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-
-/* ---------------------------------------------------------
-   STATISTICS
-   --------------------------------------------------------- */
-
-.stat span {
-    max-width: 200px;
-
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    line-height: 1.55;
-}
-
-
-/* ---------------------------------------------------------
-   SELLER / BUYER SECTIONS
-   --------------------------------------------------------- */
-
-.feature-content p:not(.eyebrow) {
-    max-width: 560px;
-
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.75;
-}
-
-
-/* ---------------------------------------------------------
-   PROPERTY SEARCH
-   --------------------------------------------------------- */
-
-.form-field label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-}
-
-.form-field select,
-.form-field input {
-    font-size: 18px;
-    font-weight: 400;
-}
-
-
-/* ---------------------------------------------------------
-   BUTTONS
-   --------------------------------------------------------- */
-
-.button {
-    min-width: 175px;
-
-    padding: 17px 29px;
-
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
-}
-
-
-/* ---------------------------------------------------------
-   GALLERY
-   --------------------------------------------------------- */
-
-.gallery-number {
-    font-size: 13px;
-}
-
-
-/* ---------------------------------------------------------
-   SERVICES
-   --------------------------------------------------------- */
-
-.service-number {
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.service-card p {
-    max-width: 390px;
-
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.75;
-}
-
-
-/* ---------------------------------------------------------
-   CONTACT
-   --------------------------------------------------------- */
-
-.contact-address {
-    font-size: 19px;
-    line-height: 1.7;
-}
-
-.contact-phone {
-    font-size: 32px;
-}
-
-.contact-hours {
-    max-width: 480px;
-
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.7;
-}
-
-.contact-form label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-}
-
-.contact-form input,
-.contact-form textarea {
-    font-size: 18px;
-}
-
-
-/* ---------------------------------------------------------
-   FOOTER
-   --------------------------------------------------------- */
-
-.footer-brand > span {
-    font-size: 12px;
-}
-
-.footer-brand > strong {
-    font-size: 34px;
-}
-
-.footer-brand p {
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.footer-links a {
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.footer-contact > a {
-    font-size: 28px;
-}
-
-.footer-contact p {
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.footer-bottom {
-    font-size: 11px;
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   TABLET / MOBILE READABILITY
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-    body {
-        font-size: 18px;
-    }
-
-    .eyebrow,
-    .section-label {
-        font-size: 12px;
-    }
-
-    .about-copy > p:not(.large-copy),
-    .feature-content p:not(.eyebrow),
-    .service-card p {
-        font-size: 18px;
-        line-height: 1.75;
-    }
-
-    .form-field select,
-    .form-field input {
-        font-size: 18px;
-    }
-
-    .contact-address {
-        font-size: 18px;
-    }
-
-    .contact-hours {
-        font-size: 15px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 18px;
-    }
-
-    .mobile-call {
-        font-size: 14px;
-    }
-
-    .button {
-        font-size: 13px;
-    }
-
-    .footer-links a,
-    .footer-brand p,
-    .footer-contact p {
-        font-size: 14px;
-    }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-    body {
-        font-size: 18px;
-    }
-
-    .large-copy {
-        font-size: 31px;
-    }
-
-    .about-copy > p:not(.large-copy),
-    .feature-content p:not(.eyebrow),
-    .service-card p {
-        font-size: 18px;
-    }
-
-    .eyebrow,
-    .section-label {
-        font-size: 12px;
     }
 
 }
