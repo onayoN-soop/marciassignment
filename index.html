@@ -482,264 +482,249 @@
 
 
             <form
-                class="search-form reveal"
-                id="searchForm"
-            >
+    class="search-form reveal"
+    id="searchForm"
+>
+
+    <!-- LOCATION -->
+    <div class="form-field">
+
+        <label for="location">
+            Location
+        </label>
+
+        <select id="location">
+
+            <option value="">
+                Any
+            </option>
+
+            <option>Alamo</option>
+            <option>Alton</option>
+            <option>Amargosa Valley</option>
+            <option>Beatty</option>
+            <option>Beryl</option>
+            <option>Blue Diamond</option>
+            <option>Boulder City</option>
+            <option>Brian Head</option>
+            <option>Cal Nev Ari</option>
+            <option>Caliente</option>
+            <option>Cold Creek</option>
+            <option>Crystal</option>
+            <option>Duck Creek Village</option>
+            <option>Dyer</option>
+            <option>Elko</option>
+            <option>Ely</option>
+            <option>Goldfield</option>
+            <option>Goodsprings</option>
+            <option>Hatch</option>
+            <option>Henderson</option>
+            <option>Indian Springs</option>
+            <option>Jean</option>
+            <option>Las Vegas</option>
+            <option>Laughlin</option>
+            <option>Logandale</option>
+            <option>Manhattan</option>
+            <option>Mc Gill</option>
+            <option>Mesquite</option>
+            <option>Moapa</option>
+            <option>Mount Charleston</option>
+            <option>Mountain Springs</option>
+            <option>North Las Vegas</option>
+            <option>Overton</option>
+            <option>Pahrump</option>
+            <option>Palm Gardens</option>
+            <option>Panaca</option>
+            <option>Parowan</option>
+            <option>Pioche</option>
+            <option>Round Mountain</option>
+            <option>Sandy Valley</option>
+            <option>Searchlight</option>
+            <option>Tonopah</option>
+            <option>Other</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- PROPERTY TYPE -->
+    <div class="form-field">
+
+        <label for="propertyType">
+            Property Type
+        </label>
+
+        <select id="propertyType">
+
+            <option value="">
+                Any
+            </option>
+
+            <option>
+                Residential
+            </option>
+
+            <option>
+                Commercial
+            </option>
+
+            <option>
+                Land
+            </option>
+
+        </select>
+
+    </div>
+
 
-                <div class="form-field">
+    <!-- SORT BY -->
+    <div class="form-field">
 
-                    <label for="location">
-                        Location
-                    </label>
+        <label for="sortBy">
+            Sort By
+        </label>
 
-                    <input
-                        id="location"
-                        type="text"
-                        value="Pahrump, Nevada"
-                        readonly
-                    >
+        <select id="sortBy">
 
-                </div>
+            <option value="">
+                
+            </option>
 
+            <option value="newest">
+                Newest
+            </option>
 
-                <div class="form-field">
+             <option value="oldest">
+                Oldest
+            </option>
 
-                    <label for="propertyType">
-                        Property Type
-                    </label>
+            <option value="price-low">
+                Price: Low to High
+            </option>
 
-                    <select id="propertyType">
+            <option value="price-high">
+                Price: High to Low
+            </option>
 
-                        <option value="">
-                            Any
-                        </option>
+            <option value="bedrooms-asce">
+                Bedrooms: Low to High
+            </option>
 
-                        <option>
-                            Land
-                        </option>
+            <option value="bedrooms-desc">
+                Bedrooms: High to Low
+            </option>
 
-                         <option>
-                            Residential Lease
-                        </option>
-                        
-                        <option>
-                            High Rise
-                        </option>
+            <option value="bathrooms-asce">
+                Bathrooms: Low to High
+            </option>
 
-                        <option>
-                            Residential
-                        </option>
+            <option value="bathrooms-desc">
+                Bathrooms: High to Low
+            </option>
 
-                    </select>
+        </select>
 
-                </div>
+    </div>
 
 
-                <div class="form-field">
+    <!-- BEDROOMS -->
+    <div class="form-field">
 
-                    <label for="minPrice">
-                        Min Price
-                    </label>
+        <label for="bedrooms">
+            Bedrooms
+        </label>
 
-                    <select id="minPrice">
+        <select id="bedrooms">
 
-                        <option value="">
-                            No Minimum
-                        </option>
+            <option value="">
+                Any
+            </option>
 
-                        <option>
-                            $100,000
-                        </option>
+            <option>1+</option>
+            <option>2+</option>
+            <option>3+</option>
+            <option>4+</option>
+            <option>5+</option>
+            <option>6+</option>
 
-                        <option>
-                            $200,000
-                        </option>
+        </select>
 
-                        <option>
-                            $300,000
-                        </option>
+    </div>
 
-                        <option>
-                            $500,000
-                        </option>
 
-                        <option>
-                            $750,000
-                        </option>
+    <!-- BATHROOMS -->
+    <div class="form-field">
 
-                    </select>
+        <label for="bathrooms">
+            Bathrooms
+        </label>
 
-                </div>
+        <select id="bathrooms">
 
+            <option value="">
+                Any
+            </option>
 
-                <div class="form-field">
+            <option>1+</option>
+            <option>2+</option>
+            <option>3+</option>
+            <option>4+</option>
+            <option>5+</option>
+            <option>6+</option>
 
-                    <label for="maxPrice">
-                        Max Price
-                    </label>
+        </select>
 
-                    <select id="maxPrice">
+    </div>
 
-                        <option value="">
-                            No Maximum
-                        </option>
 
-                        <option>
-                            $300,000
-                        </option>
+   <!-- MIN PRICE -->
+<div class="form-field">
 
-                        <option>
-                            $500,000
-                        </option>
+    <label for="minPrice">
+        Min Price
+    </label>
 
-                        <option>
-                            $750,000
-                        </option>
+    <input
+        id="minPrice"
+        type="number"
+        min="0"
+        step="1000"
+        placeholder="No Minimum"
+        inputmode="numeric"
+    >
 
-                        <option>
-                            $1,000,000
-                        </option>
+</div>
 
-                        <option>
-                            $2,000,000+
-                        </option>
 
-                    </select>
+<!-- MAX PRICE -->
+<div class="form-field">
 
-                </div>
+    <label for="maxPrice">
+        Max Price
+    </label>
 
+    <input
+        id="maxPrice"
+        type="number"
+        min="0"
+        step="1000"
+        placeholder="No Maximum"
+        inputmode="numeric"
+    >
 
-                <div class="form-field">
+</div>
 
-                    <label for="bedrooms">
-                        Bedrooms
-                    </label>
 
-                    <select id="bedrooms">
+    <!-- SEARCH BUTTON -->
+    <button
+        class="button button-dark search-button"
+        type="submit"
+    >
+        Search Properties
+    </button>
 
-                        <option value="">
-                            Any
-                        </option>
-
-                        <option>
-                            1+
-                        </option>
-
-                        <option>
-                            2+
-                        </option>
-
-                        <option>
-                            3+
-                        </option>
-
-                        <option>
-                            4+
-                        </option>
-
-                        <option>
-                            5+
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="bathrooms">
-                        Bathrooms
-                    </label>
-
-                    <select id="bathrooms">
-
-                        <option value="">
-                            Any
-                        </option>
-
-                        <option>
-                            1+
-                        </option>
-
-                        <option>
-                            2+
-                        </option>
-
-                        <option>
-                            3+
-                        </option>
-
-                        <option>
-                            4+
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="minSqft">
-                        Min Sq. Ft.
-                    </label>
-
-                    <select id="minSqft">
-
-                        <option value="">
-                            No Minimum
-                        </option>
-
-                        <option>
-                            1,000
-                        </option>
-
-                        <option>
-                            1,500
-                        </option>
-
-                        <option>
-                            2,000
-                        </option>
-
-                        <option>
-                            2,500
-                        </option>
-
-                        <option>
-                            3,000+
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="keyword">
-                        Keyword
-                    </label>
-
-                    <input
-                        id="keyword"
-                        type="text"
-                        placeholder="Pool, acreage, views..."
-                    >
-
-                </div>
-
-
-                <button
-                    class="button button-dark search-button"
-                    type="submit"
-                >
-                    Search Properties
-                </button>
-
-            </form>
-
+</form>
 
             <p
                 class="search-message"
