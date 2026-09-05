@@ -2108,7 +2108,7 @@ body.lightbox-open {
 
 
 .footer-company {
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 
     color:
         rgba(255, 255, 255, 0.58);
@@ -2122,32 +2122,6 @@ body.lightbox-open {
 }
 
 
-.footer-phone {
-    display: inline-block;
-
-    margin-bottom: 16px;
-
-    padding-bottom: 5px;
-
-    border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.45);
-
-    font-family: var(--serif);
-
-    font-size: 32px;
-
-    line-height: 1.2;
-}
-
-
-.footer-address {
-    color:
-        rgba(255, 255, 255, 0.66);
-
-    font-size: 16px;
-    line-height: 1.7;
-}
 
 
 /* =========================================================
