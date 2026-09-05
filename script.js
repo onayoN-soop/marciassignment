@@ -4,25 +4,19 @@
 
 
 /* =========================================================
-   HEADER SCROLL STATE
+   HEADER
    ========================================================= */
 
-const siteHeader =
-    document.querySelector(".site-header");
-
+const siteHeader = document.querySelector(".site-header");
 
 function updateHeader() {
-
     if (!siteHeader) return;
 
-    if (window.scrollY > 50) {
-        siteHeader.classList.add("scrolled");
-    } else {
-        siteHeader.classList.remove("scrolled");
-    }
-
+    siteHeader.classList.toggle(
+        "scrolled",
+        window.scrollY > 50
+    );
 }
-
 
 window.addEventListener(
     "scroll",
@@ -32,7 +26,7 @@ window.addEventListener(
 
 
 /* =========================================================
-   HEADER DROPDOWN MENU
+   HEADER DROPDOWN
    ========================================================= */
 
 const menuDropdownToggle =
@@ -43,10 +37,7 @@ const headerDropdown =
 
 
 function closeDropdown() {
-
-    if (!menuDropdownToggle || !headerDropdown) {
-        return;
-    }
+    if (!menuDropdownToggle || !headerDropdown) return;
 
     headerDropdown.classList.remove("active");
     menuDropdownToggle.classList.remove("active");
@@ -55,7 +46,6 @@ function closeDropdown() {
         "aria-expanded",
         "false"
     );
-
 }
 
 
@@ -64,7 +54,6 @@ if (menuDropdownToggle && headerDropdown) {
     menuDropdownToggle.addEventListener(
         "click",
         event => {
-
             event.stopPropagation();
 
             const isOpen =
@@ -79,7 +68,6 @@ if (menuDropdownToggle && headerDropdown) {
                 "aria-expanded",
                 String(isOpen)
             );
-
         }
     );
 
@@ -121,7 +109,6 @@ if (menuDropdownToggle && headerDropdown) {
 
         }
     );
-
 }
 
 
@@ -130,12 +117,15 @@ if (menuDropdownToggle && headerDropdown) {
    ========================================================= */
 
 const heroSlides =
-    document.querySelectorAll(".hero-slide");
+    Array.from(document.querySelectorAll(".hero-slide"));
 
 let currentHeroSlide = 0;
 
 
 function showHeroSlide(index) {
+
+    if (!heroSlides.length) return;
+
 
     heroSlides.forEach(slide => {
         slide.classList.remove("active");
@@ -146,13 +136,6 @@ function showHeroSlide(index) {
         heroSlides[index];
 
 
-    if (!activeSlide) return;
-
-
-    /*
-     * Reset the animation so that it starts
-     * from the beginning every time.
-     */
     activeSlide.style.animation = "none";
 
     void activeSlide.offsetWidth;
@@ -160,27 +143,23 @@ function showHeroSlide(index) {
     activeSlide.style.animation = "";
 
     activeSlide.classList.add("active");
-
 }
 
 
-if (heroSlides.length > 0) {
+if (heroSlides.length) {
 
-    showHeroSlide(currentHeroSlide);
+    showHeroSlide(0);
 
 
-    window.setInterval(() => {
+    setInterval(() => {
 
         currentHeroSlide =
             (currentHeroSlide + 1) %
             heroSlides.length;
 
-        showHeroSlide(
-            currentHeroSlide
-        );
+        showHeroSlide(currentHeroSlide);
 
     }, 8000);
-
 }
 
 
@@ -192,10 +171,7 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 
-if (
-    "IntersectionObserver" in window &&
-    revealElements.length > 0
-) {
+if ("IntersectionObserver" in window) {
 
     const revealObserver =
         new IntersectionObserver(
@@ -212,14 +188,13 @@ if (
                         revealObserver.unobserve(
                             entry.target
                         );
-
                     }
 
                 });
 
             },
             {
-                threshold: 0.12
+                threshold: 0.1
             }
         );
 
@@ -233,12 +208,11 @@ if (
     revealElements.forEach(element => {
         element.classList.add("visible");
     });
-
 }
 
 
 /* =========================================================
-   SMOOTH INTERNAL LINKS
+   SMOOTH LINKS
    ========================================================= */
 
 document
@@ -252,22 +226,13 @@ document
                 const href =
                     link.getAttribute("href");
 
-
-                if (
-                    !href ||
-                    href === "#"
-                ) {
-                    return;
-                }
+                if (!href || href === "#") return;
 
 
                 const target =
                     document.querySelector(href);
 
-
-                if (!target) {
-                    return;
-                }
+                if (!target) return;
 
 
                 event.preventDefault();
@@ -277,7 +242,6 @@ document
                     behavior: "smooth",
                     block: "start"
                 });
-
             }
         );
 
@@ -285,76 +249,19 @@ document
 
 
 /* =========================================================
-   LISTING SEARCH DEMO
-   ========================================================= */
-
-const searchForm =
-    document.querySelector("#searchForm");
-
-const searchMessage =
-    document.querySelector("#searchMessage");
-
-
-if (searchForm) {
-
-    searchForm.addEventListener(
-        "submit",
-        event => {
-
-            event.preventDefault();
-
-
-            if (searchMessage) {
-
-                searchMessage.textContent =
-                    "Listing search would connect to the live MLS / IDX service in production.";
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CONTACT FORM DEMO
-   ========================================================= */
-
-const contactForm =
-    document.querySelector("#contactForm");
-
-const formMessage =
-    document.querySelector("#formMessage");
-
-
-if (contactForm) {
-
-    contactForm.addEventListener(
-        "submit",
-        event => {
-
-            event.preventDefault();
-
-
-            if (formMessage) {
-
-                formMessage.textContent =
-                    "Thank you. This assessment form is currently a front-end demonstration.";
-
-            }
-
-        }
-    );
-
-}
-
-/* =========================================================
    PHOTO PAPER GALLERY
    ========================================================= */
 
 const galleryPapers =
-    Array.from(document.querySelectorAll(".photo-paper"));
+    Array.from(
+        document.querySelectorAll(".photo-paper")
+    );
+
+const galleryCurrent =
+    document.querySelector("#galleryCurrent");
+
+const photoStage =
+    document.querySelector("#photoStage");
 
 const galleryPrev =
     document.querySelector("#galleryPrev");
@@ -368,38 +275,11 @@ const galleryMobilePrev =
 const galleryMobileNext =
     document.querySelector("#galleryMobileNext");
 
-const galleryCurrent =
-    document.querySelector("#galleryCurrent");
-
-const photoStage =
-    document.querySelector("#photoStage");
-
 
 let currentGalleryIndex = 0;
 
 
-/*
- * Converts a number into:
- * 1 -> 01
- * 2 -> 02
- */
-
-function formatGalleryNumber(number) {
-
-    return String(number).padStart(2, "0");
-
-}
-
-
-/*
- * Determine which paper should be:
- *
- * previous
- * active
- * next
- *
- * The remaining paper stays hidden.
- */
+/* Update paper positions */
 
 function updateGallery() {
 
@@ -411,11 +291,20 @@ function updateGallery() {
     const total =
         galleryPapers.length;
 
+
     const previousIndex =
-        (currentGalleryIndex - 1 + total) % total;
+        (
+            currentGalleryIndex -
+            1 +
+            total
+        ) % total;
+
 
     const nextIndex =
-        (currentGalleryIndex + 1) % total;
+        (
+            currentGalleryIndex +
+            1
+        ) % total;
 
 
     galleryPapers.forEach(
@@ -455,20 +344,20 @@ function updateGallery() {
     if (galleryCurrent) {
 
         galleryCurrent.textContent =
-            formatGalleryNumber(
+            String(
                 currentGalleryIndex + 1
-            );
+            ).padStart(2, "0");
 
     }
-
 }
 
 
-/*
- * Navigation
- */
+/* Previous */
 
 function previousGalleryPhoto() {
+
+    if (!galleryPapers.length) return;
+
 
     currentGalleryIndex =
         (
@@ -478,12 +367,17 @@ function previousGalleryPhoto() {
         ) %
         galleryPapers.length;
 
-    updateGallery();
 
+    updateGallery();
 }
 
 
+/* Next */
+
 function nextGalleryPhoto() {
+
+    if (!galleryPapers.length) return;
+
 
     currentGalleryIndex =
         (
@@ -492,75 +386,161 @@ function nextGalleryPhoto() {
         ) %
         galleryPapers.length;
 
-    updateGallery();
 
+    updateGallery();
 }
 
 
-/*
- * Desktop arrows
- */
+/* Desktop previous */
 
 if (galleryPrev) {
 
     galleryPrev.addEventListener(
         "click",
-        previousGalleryPhoto
-    );
+        event => {
 
+            event.preventDefault();
+            previousGalleryPhoto();
+
+        }
+    );
 }
 
+
+/* Desktop next */
 
 if (galleryNext) {
 
     galleryNext.addEventListener(
         "click",
-        nextGalleryPhoto
-    );
+        event => {
 
+            event.preventDefault();
+            nextGalleryPhoto();
+
+        }
+    );
 }
 
 
-/*
- * Mobile arrows
- */
+/* Mobile previous */
 
 if (galleryMobilePrev) {
 
     galleryMobilePrev.addEventListener(
         "click",
-        previousGalleryPhoto
-    );
+        event => {
 
+            event.preventDefault();
+            previousGalleryPhoto();
+
+        }
+    );
 }
 
+
+/* Mobile next */
 
 if (galleryMobileNext) {
 
     galleryMobileNext.addEventListener(
         "click",
-        nextGalleryPhoto
-    );
+        event => {
 
+            event.preventDefault();
+            nextGalleryPhoto();
+
+        }
+    );
 }
 
 
 /* =========================================================
-   MOBILE SWIPE
+   GALLERY SWIPE
    ========================================================= */
 
-let galleryTouchStartX = 0;
-let galleryTouchEndX = 0;
+let swipeStartX = null;
 
 
-if (photoStage) {
+/*
+ * Pointer Events:
+ * Chrome / Android / modern Safari / Edge
+ */
+
+if (photoStage && window.PointerEvent) {
+
+    photoStage.addEventListener(
+        "pointerdown",
+        event => {
+
+            if (!event.isPrimary) return;
+
+            swipeStartX =
+                event.clientX;
+        }
+    );
+
+
+    photoStage.addEventListener(
+        "pointerup",
+        event => {
+
+            if (swipeStartX === null) return;
+
+
+            const difference =
+                event.clientX - swipeStartX;
+
+
+            swipeStartX = null;
+
+
+            if (Math.abs(difference) < 35) {
+                return;
+            }
+
+
+            if (difference > 0) {
+
+                previousGalleryPhoto();
+
+            } else {
+
+                nextGalleryPhoto();
+
+            }
+        }
+    );
+
+
+    photoStage.addEventListener(
+        "pointercancel",
+        () => {
+            swipeStartX = null;
+        }
+    );
+}
+
+
+/*
+ * Touch fallback for browsers where
+ * Pointer Events aren't available.
+ */
+
+if (photoStage && !window.PointerEvent) {
+
+    let touchStartX = null;
+
 
     photoStage.addEventListener(
         "touchstart",
         event => {
 
-            galleryTouchStartX =
-                event.changedTouches[0].screenX;
+            if (!event.changedTouches.length) return;
+
+
+            touchStartX =
+                event.changedTouches[0].clientX;
 
         },
         {
@@ -573,25 +553,28 @@ if (photoStage) {
         "touchend",
         event => {
 
-            galleryTouchEndX =
-                event.changedTouches[0].screenX;
-
-
-            const distance =
-                galleryTouchEndX -
-                galleryTouchStartX;
-
-
-            /*
-             * Ignore tiny accidental swipes.
-             */
-
-            if (Math.abs(distance) < 45) {
+            if (
+                touchStartX === null ||
+                !event.changedTouches.length
+            ) {
                 return;
             }
 
 
-            if (distance > 0) {
+            const difference =
+                event.changedTouches[0].clientX -
+                touchStartX;
+
+
+            touchStartX = null;
+
+
+            if (Math.abs(difference) < 35) {
+                return;
+            }
+
+
+            if (difference > 0) {
 
                 previousGalleryPhoto();
 
@@ -606,13 +589,10 @@ if (photoStage) {
             passive: true
         }
     );
-
 }
 
 
-/* =========================================================
-   KEYBOARD SUPPORT
-   ========================================================= */
+/* Keyboard support */
 
 if (photoStage) {
 
@@ -628,6 +608,7 @@ if (photoStage) {
 
             if (event.key === "ArrowLeft") {
 
+                event.preventDefault();
                 previousGalleryPhoto();
 
             }
@@ -635,31 +616,85 @@ if (photoStage) {
 
             if (event.key === "ArrowRight") {
 
+                event.preventDefault();
                 nextGalleryPhoto();
 
             }
 
         }
     );
-
 }
 
 
-/*
- * Initial state
- */
+/* Initialize gallery */
 
 updateGallery();
 
+
 /* =========================================================
-   INITIALIZATION
+   LISTING SEARCH DEMO
    ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+const searchForm =
+    document.querySelector("#searchForm");
 
-        updateHeader();
+const searchMessage =
+    document.querySelector("#searchMessage");
 
-    }
-);
+
+if (searchForm) {
+
+    searchForm.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            if (searchMessage) {
+
+                searchMessage.textContent =
+                    "Listing search would connect to the live MLS / IDX service in production.";
+
+            }
+        }
+    );
+}
+
+
+/* =========================================================
+   CONTACT FORM DEMO
+   ========================================================= */
+
+const contactForm =
+    document.querySelector("#contactForm");
+
+const formMessage =
+    document.querySelector("#formMessage");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            if (formMessage) {
+
+                formMessage.textContent =
+                    "Thank you. This assessment form is currently a front-end demonstration.";
+
+            }
+        }
+    );
+}
+
+
+/* =========================================================
+   INITIAL STATE
+   ========================================================= */
+
+updateHeader();
