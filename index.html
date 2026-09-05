@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,15 +11,12 @@
 
     <meta
         name="description"
-        content="Marci Metzger Homes and The Ridge Realty Group — serving buyers and sellers in Pahrump, Nevada."
+        content="Marci Metzger and The Ridge Realty Group — Pahrump, Nevada real estate."
     >
 
     <title>
-        Marci Metzger Homes | Pahrump Real Estate
+        Marci Metzger | The Ridge Realty Group
     </title>
-
-
-    <!-- Google Fonts -->
 
     <link
         rel="preconnect"
@@ -38,19 +34,14 @@
         rel="stylesheet"
     >
 
-
-    <!-- CSS -->
-
     <link
         rel="stylesheet"
-        href="style.css?v=14"
+        href="style.css?v=17"
     >
-
 </head>
 
 
 <body>
-
 
     <!-- =====================================================
          HEADER
@@ -61,14 +52,12 @@
         <a
             href="#home"
             class="logo"
-            aria-label="Marci Metzger Homes"
+            aria-label="Marci Metzger Home"
         >
-
             <img
                 src="images/logo.png"
                 alt="Marci Metzger Homes"
             >
-
         </a>
 
 
@@ -77,8 +66,8 @@
             <button
                 class="menu-dropdown-toggle"
                 type="button"
-                aria-label="Open navigation menu"
                 aria-expanded="false"
+                aria-controls="headerDropdown"
             >
 
                 <span class="menu-label">
@@ -98,6 +87,7 @@
 
             <nav
                 class="header-dropdown"
+                id="headerDropdown"
                 aria-label="Main navigation"
             >
 
@@ -126,7 +116,6 @@
 
 
     <main>
-
 
         <!-- =================================================
              HERO
@@ -176,8 +165,8 @@
                 </p>
 
                 <a
-                    href="tel:+12069196886"
                     class="button button-light"
+                    href="tel:+12069196886"
                 >
                     Call Now
                 </a>
@@ -185,14 +174,15 @@
             </div>
 
 
-            <div class="hero-scroll">
-
+            <div
+                class="hero-scroll"
+                aria-hidden="true"
+            >
                 <span>
                     Scroll
                 </span>
 
                 <div></div>
-
             </div>
 
         </section>
@@ -210,10 +200,12 @@
 
             <div class="section-label reveal">
 
-                <span>01</span>
+                <span>
+                    01
+                </span>
 
                 <span>
-                    About Marci
+                    About
                 </span>
 
             </div>
@@ -234,20 +226,32 @@
                 <div class="about-copy reveal">
 
                     <p class="eyebrow dark">
-                        Realtor for nearly three decades
+                        Realtor for Nearly 3 Decades
                     </p>
 
+                    <h2>
+                        Pahrump Real Estate,
+                        Elevated.
+                    </h2>
+
                     <p class="large-copy">
-                        Experience, local knowledge,
-                        and a commitment to getting results.
+                        Top residential sales in the
+                        Pahrump Valley for the last five years.
                     </p>
 
                     <p>
-                        Our team works hard every day to grow
-                        and learn, so that we may continue to
-                        excel in our market. Our clients deserve
-                        our best, and we want to make sure our
-                        best is better every year.
+                        Marci Metzger and The Ridge Realty Group
+                        bring decades of real estate experience
+                        and local knowledge to buyers and sellers
+                        throughout Pahrump, Nevada.
+                    </p>
+
+                    <p>
+                        The team is always growing and learning,
+                        staying focused on providing knowledgeable
+                        service, strong communication, and a
+                        confident real estate experience from
+                        beginning to end.
                     </p>
 
                     <a
@@ -255,7 +259,7 @@
                         class="text-link"
                     >
                         Work With Marci
-                        <span>→</span>
+                        <span aria-hidden="true">→</span>
                     </a>
 
                 </div>
@@ -267,7 +271,7 @@
 
 
         <!-- =================================================
-             STATS
+             STATS / CREDIBILITY
              ================================================= -->
 
         <section class="stats-section">
@@ -288,69 +292,69 @@
 
             <div class="stats-grid">
 
-    <div class="stat reveal">
+                <div class="stat reveal">
 
-        <strong>
-            $28.5M+
-        </strong>
+                    <strong>
+                        $28.5M+
+                    </strong>
 
-        <span>
-            Sales Closed in 2021
-        </span>
+                    <span>
+                        Sales Closed in 2021
+                    </span>
 
-    </div>
-
-
-    <div class="stat reveal">
-
-        <strong>
-            90
-        </strong>
-
-        <span>
-            Clients Helped in 2021
-        </span>
-
-    </div>
+                </div>
 
 
-    <div class="stat stat-logos reveal">
+                <div class="stat reveal">
 
-        <div class="credibility-logos">
+                    <strong>
+                        90
+                    </strong>
 
-            <img
-                src="images/logo-pahrump-chamber.png"
-                alt="Pahrump Valley Chamber of Commerce"
-            >
+                    <span>
+                        Clients Helped in 2021
+                    </span>
 
-            <img
-                class="equal-housing-logo"
-                src="images/logo-equal-housing.png"
-                alt="Equal Housing Opportunity"
-            >
+                </div>
 
-            <img
-                src="images/logo-realtor.png"
-                alt="Realtor"
-            >
 
-            <img
-                src="images/logo-ridge-realty-group.png"
-                alt="The Ridge Realty Group"
-            >
+                <div class="stat stat-logos reveal">
 
-        </div>
+                    <div class="credibility-logos">
 
-    </div>
+                        <img
+                            src="images/logo-pahrump-chamber.png"
+                            alt="Pahrump Valley Chamber of Commerce"
+                        >
 
-</div>
+                        <img
+                            class="equal-housing-logo"
+                            src="images/logo-equal-housing.png"
+                            alt="Equal Housing Opportunity"
+                        >
+
+                        <img
+                            src="images/logo-realtor.png"
+                            alt="Realtor"
+                        >
+
+                        <img
+                            src="images/logo-ridge-realty-group.png"
+                            alt="The Ridge Realty Group"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
 
 
         <!-- =================================================
-             SELLERS
+             SELLING
              ================================================= -->
 
         <section class="feature feature-sell">
@@ -358,7 +362,7 @@
             <div
                 class="feature-image feature-image-sell"
                 role="img"
-                aria-label="Residential property"
+                aria-label="Home for sale in Pahrump"
             ></div>
 
 
@@ -369,27 +373,32 @@
                 </p>
 
                 <h2>
-                    Don't Just<br>
-                    List It.
+                    Don't Just List It...
                 </h2>
 
                 <h3>
-                    Get It SOLD.
+                    Get It SOLD!
                 </h3>
 
                 <p>
-                    We exhaust every avenue to ensure our
-                    listings are at the fingertips of every
-                    possible buyer, helping you achieve top
-                    dollar for your home.
+                    Selling a home is more than putting a sign
+                    in the yard. The right preparation,
+                    presentation, marketing, and local expertise
+                    can make all the difference.
+                </p>
+
+                <p>
+                    Marci and The Ridge Realty Group help position
+                    your property to attract serious buyers while
+                    guiding you through every step of the sale.
                 </p>
 
                 <a
                     href="#contact"
                     class="text-link"
                 >
-                    Start A Conversation
-                    <span>→</span>
+                    Start a Conversation
+                    <span aria-hidden="true">→</span>
                 </a>
 
             </div>
@@ -399,7 +408,7 @@
 
 
         <!-- =================================================
-             BUYERS
+             BUYING
              ================================================= -->
 
         <section class="feature feature-buy">
@@ -407,28 +416,34 @@
             <div class="feature-content reveal">
 
                 <p class="eyebrow dark">
-                    Find Your Next Home
+                    Guide to Buyers
                 </p>
 
                 <h2>
-                    Find Your<br>
+                    Find Your
                     Dream Home.
                 </h2>
 
                 <p>
-                    Nobody knows the market like we do.
-                    Enjoy having a professional at your
-                    service with market analysis, upgrade
-                    lists, contractors on speed dial,
-                    and more.
+                    Whether you're searching for your first home,
+                    your next investment, land, or the place where
+                    you plan to settle down, having experienced
+                    local guidance makes the process easier.
+                </p>
+
+                <p>
+                    From discovering properties to negotiating
+                    the details, The Ridge Realty Group is ready
+                    to help you find the right property in
+                    Pahrump.
                 </p>
 
                 <a
                     href="#listings"
                     class="text-link"
                 >
-                    Explore Listings
-                    <span>→</span>
+                    Search Listings
+                    <span aria-hidden="true">→</span>
                 </a>
 
             </div>
@@ -437,7 +452,7 @@
             <div
                 class="feature-image feature-image-buy"
                 role="img"
-                aria-label="Residential property interior"
+                aria-label="Pahrump residential property"
             ></div>
 
         </section>
@@ -449,25 +464,14 @@
              ================================================= -->
 
         <section
-            class="property-search section"
+            class="section property-search"
             id="listings"
         >
-
-            <div class="section-label reveal">
-
-                <span>02</span>
-
-                <span>
-                    Listings
-                </span>
-
-            </div>
-
 
             <div class="search-heading reveal">
 
                 <p class="eyebrow dark">
-                    Find Your Place
+                    Find Your Dream Home
                 </p>
 
                 <h2>
@@ -491,7 +495,8 @@
                     <input
                         id="location"
                         type="text"
-                        placeholder="Pahrump, Nevada"
+                        value="Pahrump, Nevada"
+                        readonly
                     >
 
                 </div>
@@ -499,14 +504,14 @@
 
                 <div class="form-field">
 
-                    <label for="property-type">
-                        Type
+                    <label for="propertyType">
+                        Property Type
                     </label>
 
-                    <select id="property-type">
+                    <select id="propertyType">
 
-                        <option>
-                            Any Property Type
+                        <option value="">
+                            Any Type
                         </option>
 
                         <option>
@@ -528,18 +533,109 @@
 
                 <div class="form-field">
 
+                    <label for="minPrice">
+                        Min Price
+                    </label>
+
+                    <select id="minPrice">
+
+                        <option value="">
+                            No Minimum
+                        </option>
+
+                        <option>
+                            $100,000
+                        </option>
+
+                        <option>
+                            $200,000
+                        </option>
+
+                        <option>
+                            $300,000
+                        </option>
+
+                        <option>
+                            $500,000
+                        </option>
+
+                        <option>
+                            $750,000
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="maxPrice">
+                        Max Price
+                    </label>
+
+                    <select id="maxPrice">
+
+                        <option value="">
+                            No Maximum
+                        </option>
+
+                        <option>
+                            $300,000
+                        </option>
+
+                        <option>
+                            $500,000
+                        </option>
+
+                        <option>
+                            $750,000
+                        </option>
+
+                        <option>
+                            $1,000,000
+                        </option>
+
+                        <option>
+                            $2,000,000+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
                     <label for="bedrooms">
                         Bedrooms
                     </label>
 
                     <select id="bedrooms">
 
-                        <option>Any</option>
-                        <option>1+</option>
-                        <option>2+</option>
-                        <option>3+</option>
-                        <option>4+</option>
-                        <option>5+</option>
+                        <option value="">
+                            Any
+                        </option>
+
+                        <option>
+                            1+
+                        </option>
+
+                        <option>
+                            2+
+                        </option>
+
+                        <option>
+                            3+
+                        </option>
+
+                        <option>
+                            4+
+                        </option>
+
+                        <option>
+                            5+
+                        </option>
 
                     </select>
 
@@ -554,11 +650,62 @@
 
                     <select id="bathrooms">
 
-                        <option>Any</option>
-                        <option>1+</option>
-                        <option>2+</option>
-                        <option>3+</option>
-                        <option>4+</option>
+                        <option value="">
+                            Any
+                        </option>
+
+                        <option>
+                            1+
+                        </option>
+
+                        <option>
+                            2+
+                        </option>
+
+                        <option>
+                            3+
+                        </option>
+
+                        <option>
+                            4+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="minSqft">
+                        Min Sq. Ft.
+                    </label>
+
+                    <select id="minSqft">
+
+                        <option value="">
+                            No Minimum
+                        </option>
+
+                        <option>
+                            1,000
+                        </option>
+
+                        <option>
+                            1,500
+                        </option>
+
+                        <option>
+                            2,000
+                        </option>
+
+                        <option>
+                            2,500
+                        </option>
+
+                        <option>
+                            3,000+
+                        </option>
 
                     </select>
 
@@ -567,55 +714,15 @@
 
                 <div class="form-field">
 
-                    <label for="min-price">
-                        Min Price
+                    <label for="keyword">
+                        Keyword
                     </label>
 
                     <input
-                        id="min-price"
+                        id="keyword"
                         type="text"
-                        placeholder="$0"
+                        placeholder="Pool, acreage, views..."
                     >
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="max-price">
-                        Max Price
-                    </label>
-
-                    <input
-                        id="max-price"
-                        type="text"
-                        placeholder="No Maximum"
-                    >
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="sort-by">
-                        Sort By
-                    </label>
-
-                    <select id="sort-by">
-
-                        <option>
-                            Newest
-                        </option>
-
-                        <option>
-                            Price: Low to High
-                        </option>
-
-                        <option>
-                            Price: High to Low
-                        </option>
-
-                    </select>
 
                 </div>
 
@@ -624,7 +731,7 @@
                     class="button button-dark search-button"
                     type="submit"
                 >
-                    Search Now
+                    Search Properties
                 </button>
 
             </form>
@@ -641,7 +748,7 @@
 
 
         <!-- =================================================
-             PHOTO GALLERY
+             GALLERY
              ================================================= -->
 
         <section
@@ -654,17 +761,20 @@
                 <div>
 
                     <p class="eyebrow dark">
-                        Pahrump & Beyond
+                        Photo Gallery
                     </p>
 
                     <h2>
-                        Photo Gallery.
+                        Pahrump Living.
                     </h2>
 
                 </div>
 
 
-                <div class="gallery-count">
+                <div
+                    class="gallery-count"
+                    aria-live="polite"
+                >
 
                     <span id="galleryCurrent">
                         01
@@ -685,21 +795,15 @@
 
             <div class="photo-gallery reveal">
 
-
                 <button
                     class="gallery-arrow gallery-arrow-left"
                     id="galleryPrev"
                     type="button"
                     aria-label="Previous photo"
                 >
-                    ←
+                    ‹
                 </button>
 
-
-                <!--
-                    Gallery photos are generated
-                    automatically by script.js
-                -->
 
                 <div
                     class="photo-stage"
@@ -714,7 +818,7 @@
                     type="button"
                     aria-label="Next photo"
                 >
-                    →
+                    ›
                 </button>
 
             </div>
@@ -728,7 +832,7 @@
                     type="button"
                     aria-label="Previous photo"
                 >
-                    ←
+                    ‹
                 </button>
 
 
@@ -743,7 +847,7 @@
                     type="button"
                     aria-label="Next photo"
                 >
-                    →
+                    ›
                 </button>
 
             </div>
@@ -753,7 +857,7 @@
 
 
         <!-- =================================================
-             GALLERY POPUP
+             GALLERY LIGHTBOX
              ================================================= -->
 
         <div
@@ -772,7 +876,6 @@
                     src=""
                     alt=""
                 >
-
 
                 <button
                     class="lightbox-close"
@@ -804,26 +907,15 @@
             id="services"
         >
 
-            <div class="section-label reveal">
-
-                <span>04</span>
-
-                <span>
-                    Our Services
-                </span>
-
-            </div>
-
-
             <div class="services-heading reveal">
 
                 <p class="eyebrow dark">
-                    Real Estate Done Right
+                    Our Services
                 </p>
 
                 <h2>
-                    Expertise At<br>
-                    Every Step.
+                    Real Estate,
+                    Done Right.
                 </h2>
 
             </div>
@@ -838,17 +930,16 @@
                     </span>
 
                     <h3>
-                        Real Estate<br>
+                        Real Estate
                         Done Right
                     </h3>
 
                     <p>
                         Nervous about your property adventure?
-                        Whether you're getting ready to buy
-                        or sell your residence, looking at
-                        investment properties, or simply
-                        curious about the market, our team
-                        is here to help.
+                        Don't be. Whether you're getting ready
+                        to buy or sell, or simply looking for
+                        answers, we're here to make the process
+                        clear and straightforward.
                     </p>
 
                 </article>
@@ -861,15 +952,15 @@
                     </span>
 
                     <h3>
-                        Commercial &<br>
+                        Commercial &
                         Residential
                     </h3>
 
                     <p>
-                        Large or small, condo or mansion,
-                        fixer-upper or luxury property,
-                        we can help you find the right
-                        opportunity at the right price.
+                        Large or small, residential, commercial,
+                        or land, The Ridge Realty Group can help
+                        you navigate available opportunities and
+                        find a property that fits your goals.
                     </p>
 
                 </article>
@@ -882,16 +973,15 @@
                     </span>
 
                     <h3>
-                        Rely on<br>
+                        Rely on
                         Expertise
                     </h3>
 
                     <p>
-                        Questions about affordability,
-                        credit, or loan options? We can
-                        connect you with the right people
-                        and help you feel confident and
-                        informed throughout the process.
+                        When questions arise about the market,
+                        financing, negotiations, or the details
+                        of a transaction, experienced guidance
+                        helps you move forward with confidence.
                     </p>
 
                 </article>
@@ -919,25 +1009,18 @@
             <div class="contact-content reveal">
 
                 <p class="eyebrow">
-                    Call or Visit
+                    Let's Connect
                 </p>
 
                 <h2>
-                    Let's Talk<br>
+                    Let's Talk
                     Real Estate.
                 </h2>
 
                 <p class="contact-address">
-
-                    Marci Metzger —
-                    The Ridge Realty Group<br>
-
                     3190 HW-160, Suite F<br>
-
-                    Pahrump, Nevada 89048
-
+                    Pahrump, NV 89048
                 </p>
-
 
                 <a
                     class="contact-phone"
@@ -946,13 +1029,10 @@
                     (206) 919-6886
                 </a>
 
-
                 <p class="contact-hours">
-
                     Open daily from 8:00 AM to 7:00 PM.
-                    Appointments outside regular office
-                    hours are available upon request.
-
+                    Appointments outside regular hours are
+                    available upon request.
                 </p>
 
             </div>
@@ -964,7 +1044,7 @@
             >
 
                 <h3>
-                    Send A Message
+                    Send a Message
                 </h3>
 
 
@@ -976,6 +1056,7 @@
                     id="name"
                     name="name"
                     type="text"
+                    autocomplete="name"
                     required
                 >
 
@@ -988,6 +1069,7 @@
                     id="email"
                     name="email"
                     type="email"
+                    autocomplete="email"
                     required
                 >
 
@@ -1000,6 +1082,7 @@
                     id="phone"
                     name="phone"
                     type="tel"
+                    autocomplete="tel"
                 >
 
 
@@ -1033,7 +1116,6 @@
 
         </section>
 
-
     </main>
 
 
@@ -1047,9 +1129,9 @@
         <div class="footer-brand">
 
             <img
+                class="footer-logo"
                 src="images/logo.png"
                 alt="Marci Metzger Homes"
-                class="footer-logo"
             >
 
             <p>
@@ -1059,22 +1141,29 @@
         </div>
 
 
-        <nav class="footer-links">
+        <nav
+            class="footer-links"
+            aria-label="Footer navigation"
+        >
 
             <a href="#home">
                 Home
+            </a>
+
+            <a href="#about">
+                About
             </a>
 
             <a href="#listings">
                 Listings
             </a>
 
-            <a href="#about">
-                About Us
+            <a href="#gallery">
+                Gallery
             </a>
 
             <a href="#contact">
-                Contact Us
+                Contact
             </a>
 
         </nav>
@@ -1088,7 +1177,7 @@
 
             <p>
                 3190 HW-160, Suite F<br>
-                Pahrump, Nevada 89048
+                Pahrump, NV 89048
             </p>
 
         </div>
@@ -1097,7 +1186,7 @@
         <div class="footer-bottom">
 
             <span>
-                © 2026 Marci Metzger Homes
+                © 2026 Marci Metzger
             </span>
 
             <span>
@@ -1109,10 +1198,7 @@
     </footer>
 
 
-
-    <!-- JavaScript -->
-
-    <script src="script.js?v=14"></script>
+    <script src="script.js?v=17"></script>
 
 </body>
 
