@@ -556,9 +556,10 @@ h3 {
     column-gap: clamp(50px, 6vw, 110px);
 
     width: 100%;
-    min-height: 420px;
+    height: 330px;
+    min-height: 0;
 
-    padding: clamp(90px, 8vw, 125px) var(--gutter);
+    padding: 45px var(--gutter);
 
     background: rgba(20, 20, 18, 0.42);
     color: var(--cream);
@@ -636,12 +637,16 @@ h3 {
 .credentials-strip {
     position: relative;
     z-index: 2;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 100%;
-    min-height: 160px;
-    padding: 30px var(--gutter);
+    height: 330px;
+    min-height: 0;
+    padding: 40px var(--gutter);
+
     background: rgba(20, 20, 18, 0.42);
     backdrop-filter: blur(18px) brightness(0.7);
     -webkit-backdrop-filter: blur(18px) brightness(0.7);
