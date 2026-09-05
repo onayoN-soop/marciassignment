@@ -955,15 +955,16 @@ h3 {
     display: grid;
 
     grid-template-columns:
-        minmax(250px, auto)
-        minmax(170px, auto)
+        minmax(330px, auto)
+        minmax(230px, auto)
         minmax(390px, 1fr);
 
     align-items: center;
 
+    column-gap: 28px;
+
     width: 100%;
 }
-
 
 .stat {
     display: flex;
@@ -974,7 +975,7 @@ h3 {
 
     padding:
         12px
-        clamp(28px, 2.5vw, 48px);
+        36px;
 
     border-left: 0;
 }
@@ -991,6 +992,8 @@ h3 {
    $28.5M | 90 */
 
 .stats-grid .stat:nth-child(2) {
+    padding-left: 48px;
+
     border-left:
         1px solid
         rgba(255, 255, 255, 0.16);
