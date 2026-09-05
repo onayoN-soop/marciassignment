@@ -1776,16 +1776,14 @@ h3 {
         --section-y: 80px;
     }
 
-
     /* Header */
+
+    .logo {
+        width: 185px;
+    }
 
     .site-header {
         height: 74px;
-    }
-
-
-    .site-header.scrolled {
-        height: 64px;
     }
 
 
@@ -2145,8 +2143,8 @@ h3 {
     }
 
 
-    .logo strong {
-        font-size: 20px;
+    .logo {
+    width: 165px;
     }
 
 
