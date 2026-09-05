@@ -103,6 +103,30 @@ button {
 
 
 /* =========================================================
+   PAGE LAYERS
+   ========================================================= */
+
+.about,
+.stats-section,
+.feature,
+.property-search,
+.gallery-section,
+.services,
+.contact-section,
+.footer {
+    position: relative;
+    z-index: 2;
+}
+
+
+.about,
+.property-search,
+.services {
+    background: var(--cream);
+}
+
+
+/* =========================================================
    TYPOGRAPHY
    ========================================================= */
 
@@ -270,7 +294,6 @@ h3 {
 
 .menu-icon i {
     position: absolute;
-
     right: 0;
 
     display: block;
@@ -355,7 +378,6 @@ h3 {
     font-family: var(--serif);
     font-size: 31px;
     font-weight: 400;
-
     line-height: 1;
 
     transition:
@@ -436,6 +458,7 @@ h3 {
 
 .hero {
     position: relative;
+    z-index: 1;
 
     display: flex;
     align-items: flex-end;
@@ -445,18 +468,31 @@ h3 {
 
     overflow: hidden;
 
-    background: #77736c;
+    background: transparent;
     color: var(--white);
 }
 
 
-/* Slideshow */
+/*
+   Fixed image layer:
+   page content scrolls over the hero photography.
+*/
 
 .hero-slideshow {
-    position: absolute;
+    position: fixed;
+    z-index: 0;
+
     inset: 0;
 
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
     overflow: hidden;
+
+    pointer-events: none;
+
+    background: #77736c;
 }
 
 
@@ -521,7 +557,7 @@ h3 {
 }
 
 
-/* Hero camera movements */
+/* Hero camera movement */
 
 .hero-slide.active.pan-in {
     animation: heroPanIn 8s linear forwards;
@@ -791,6 +827,11 @@ h3 {
 }
 
 
+.about-copy h2 {
+    margin-bottom: 30px;
+}
+
+
 .large-copy {
     margin-bottom: 30px;
 
@@ -806,6 +847,8 @@ h3 {
 .about-copy > p:not(.large-copy):not(.eyebrow) {
     max-width: 560px;
 
+    margin-bottom: 20px;
+
     color: #5f5a53;
 
     font-size: 19px;
@@ -819,7 +862,7 @@ h3 {
 
     gap: 18px;
 
-    margin-top: 34px;
+    margin-top: 24px;
 
     padding-bottom: 7px;
 
@@ -856,18 +899,21 @@ h3 {
     display: grid;
 
     grid-template-columns:
-        minmax(300px, 0.8fr)
-        minmax(0, 1.2fr);
+        minmax(340px, 470px)
+        minmax(0, 950px);
 
     align-items: center;
+    justify-content: center;
 
     gap:
-        clamp(55px, 7vw, 120px);
+        clamp(70px, 6vw, 120px);
 
     width: 100%;
 
+    min-height: 420px;
+
     padding:
-        clamp(85px, 8vw, 120px)
+        clamp(90px, 8vw, 125px)
         var(--gutter);
 
     background: var(--charcoal);
@@ -875,9 +921,10 @@ h3 {
 }
 
 
-/* Left side */
+/* Left */
 
 .stats-intro {
+    width: 100%;
     max-width: 470px;
 }
 
@@ -890,19 +937,19 @@ h3 {
 
 .stats-intro h2 {
     font-size:
-        clamp(52px, 5vw, 78px);
+        clamp(58px, 4.8vw, 82px);
 }
 
 
-/* Right side */
+/* Right */
 
 .stats-grid {
     display: grid;
 
     grid-template-columns:
-        auto
-        auto
-        minmax(260px, 1fr);
+        minmax(250px, auto)
+        minmax(170px, auto)
+        minmax(390px, 1fr);
 
     align-items: center;
 
@@ -918,22 +965,22 @@ h3 {
     min-width: 0;
 
     padding:
-        8px
-        clamp(20px, 3vw, 45px);
+        12px
+        clamp(28px, 2.5vw, 48px);
 
     border-left: 0;
 }
 
 
-/* First stat has NO divider */
+/* No divider before $28.5M */
 
 .stats-grid .stat:first-child {
     padding-left: 0;
 }
 
 
-/* Only divider on desktop:
-   between $28.5M+ and 90 */
+/* Only desktop divider:
+   $28.5M | 90 */
 
 .stats-grid .stat:nth-child(2) {
     border-left:
@@ -942,28 +989,30 @@ h3 {
 }
 
 
-/* Stats typography */
+/* Large statistics */
 
 .stat strong {
     display: block;
 
-    margin-bottom: 14px;
+    margin-bottom: 18px;
 
     font-family: var(--serif);
 
     font-size:
-        clamp(48px, 4.5vw, 72px);
+        clamp(90px, 7vw, 128px);
 
     font-weight: 400;
 
-    line-height: 1;
+    letter-spacing: -0.045em;
+
+    line-height: 0.82;
 
     white-space: nowrap;
 }
 
 
 .stat span {
-    max-width: 200px;
+    max-width: 220px;
 
     color:
         rgba(255, 255, 255, 0.68);
@@ -978,7 +1027,7 @@ h3 {
 }
 
 
-/* Logo section */
+/* Logos */
 
 .stats-grid .stat.stat-logos {
     display: flex;
@@ -986,15 +1035,13 @@ h3 {
     justify-content: center;
 
     padding-left:
-        clamp(24px, 3vw, 42px);
+        clamp(34px, 3vw, 55px);
 
     padding-right: 0;
 
     border-left: 0;
 }
 
-
-/* Four logos in one row */
 
 .credibility-logos {
     display: grid;
@@ -1005,10 +1052,11 @@ h3 {
     align-items: center;
     justify-items: center;
 
-    gap: clamp(10px, 1.2vw, 18px);
+    gap:
+        clamp(18px, 1.6vw, 28px);
 
     width: 100%;
-    max-width: 500px;
+    max-width: 560px;
 }
 
 
@@ -1017,17 +1065,22 @@ h3 {
 
     width: 100%;
 
-    max-width: 95px;
-    max-height: 70px;
+    max-width: 120px;
+    max-height: 88px;
 
     margin: auto;
 
     object-fit: contain;
 }
 
+
+/* Black logo -> white */
+
 .equal-housing-logo {
     filter: brightness(0) invert(1);
 }
+
+
 /* =========================================================
    FEATURE SECTIONS
    ========================================================= */
@@ -1098,7 +1151,7 @@ h3 {
 .feature-content p:not(.eyebrow) {
     max-width: 560px;
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     color: #5f5a53;
 
@@ -1202,6 +1255,11 @@ h3 {
 .form-field input::placeholder {
     color: #706a62;
     opacity: 1;
+}
+
+
+.form-field input[readonly] {
+    cursor: default;
 }
 
 
@@ -1310,8 +1368,6 @@ h3 {
 }
 
 
-/* Main gallery */
-
 .photo-gallery {
     position: relative;
 
@@ -1347,8 +1403,6 @@ h3 {
     -webkit-user-select: none;
 }
 
-
-/* Photo paper */
 
 .photo-paper {
     position: absolute;
@@ -1439,8 +1493,6 @@ h3 {
 }
 
 
-/* Active */
-
 .photo-paper.is-active {
     z-index: 5;
 
@@ -1457,8 +1509,6 @@ h3 {
 }
 
 
-/* Previous */
-
 .photo-paper.is-prev {
     z-index: 2;
 
@@ -1471,8 +1521,6 @@ h3 {
 }
 
 
-/* Next */
-
 .photo-paper.is-next {
     z-index: 3;
 
@@ -1484,8 +1532,6 @@ h3 {
         scale(0.82);
 }
 
-
-/* Desktop hover */
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -1563,7 +1609,7 @@ h3 {
 
 
 /* =========================================================
-   GALLERY POPUP
+   GALLERY LIGHTBOX
    ========================================================= */
 
 .gallery-lightbox {
@@ -1635,8 +1681,6 @@ h3 {
         rgba(0, 0, 0, 0.45);
 }
 
-
-/* X Close */
 
 .lightbox-close {
     display: inline-flex;
@@ -1805,6 +1849,11 @@ body.lightbox-open {
 }
 
 
+/*
+   Contact photography remains stationary
+   while the section moves through the viewport.
+*/
+
 .contact-background {
     position: absolute;
 
@@ -1819,7 +1868,7 @@ body.lightbox-open {
     background-size: cover;
     background-repeat: no-repeat;
 
-    transform: scale(1.02);
+    background-attachment: fixed;
 }
 
 
@@ -1831,9 +1880,9 @@ body.lightbox-open {
     background:
         linear-gradient(
             90deg,
-            rgba(15, 15, 14, 0.86) 0%,
-            rgba(15, 15, 14, 0.62) 50%,
-            rgba(15, 15, 14, 0.48) 100%
+            rgba(15, 15, 14, 0.76) 0%,
+            rgba(15, 15, 14, 0.48) 52%,
+            rgba(15, 15, 14, 0.30) 100%
         );
 }
 
@@ -1894,8 +1943,6 @@ body.lightbox-open {
     line-height: 1.7;
 }
 
-
-/* Contact form */
 
 .contact-form {
     width: 100%;
@@ -2168,6 +2215,8 @@ body.lightbox-open {
         grid-template-columns: 1fr;
 
         gap: 55px;
+
+        justify-items: start;
     }
 
 
@@ -2177,7 +2226,18 @@ body.lightbox-open {
 
 
     .stats-grid {
-        max-width: 900px;
+        grid-template-columns:
+            minmax(220px, 1fr)
+            minmax(150px, 0.7fr)
+            minmax(320px, 1.3fr);
+
+        max-width: 1000px;
+    }
+
+
+    .stat strong {
+        font-size:
+            clamp(78px, 9vw, 105px);
     }
 
 
@@ -2297,6 +2357,21 @@ body.lightbox-open {
     }
 
 
+    /* Hero fixed effect disabled on mobile */
+
+    .hero-slideshow {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .contact-background {
+        background-attachment: scroll;
+    }
+
+
     /* Header */
 
     .site-header {
@@ -2313,8 +2388,6 @@ body.lightbox-open {
         width: 185px;
     }
 
-
-    /* Hide word MENU on mobile */
 
     .menu-label {
         display: none;
@@ -2454,11 +2527,6 @@ body.lightbox-open {
     }
 
 
-    /*
-       Mobile uses horizontal dividers
-       between each row.
-    */
-
     .stat,
     .stats-grid .stat:first-child,
     .stats-grid .stat:nth-child(2),
@@ -2481,7 +2549,10 @@ body.lightbox-open {
 
 
     .stat strong {
-        font-size: 60px;
+        margin-bottom: 14px;
+
+        font-size:
+            clamp(68px, 20vw, 88px);
     }
 
 
@@ -2491,29 +2562,24 @@ body.lightbox-open {
     }
 
 
-    /*
-       Logos remain in ONE row
-       on mobile.
-    */
-
     .credibility-logos {
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
 
-    gap: 10px;
+        gap: 10px;
 
-    width: 100%;
-    max-width: 100%;
-}
-
-
-.credibility-logos img {
-    max-width: 72px;
-    max-height: 58px;
-}
+        width: 100%;
+        max-width: 100%;
+    }
 
 
-    /* Feature sections */
+    .credibility-logos img {
+        max-width: 72px;
+        max-height: 58px;
+    }
+
+
+    /* Features */
 
     .feature {
         display: flex;
@@ -2701,8 +2767,6 @@ body.lightbox-open {
     }
 
 
-    /* Hide giant desktop arrows */
-
     .gallery-arrow {
         display: none;
     }
@@ -2739,8 +2803,6 @@ body.lightbox-open {
         -webkit-user-drag: none;
     }
 
-
-    /* Mobile photo papers */
 
     .photo-paper {
         width:
@@ -2802,8 +2864,6 @@ body.lightbox-open {
             scale(0.94);
     }
 
-
-    /* Mobile controls */
 
     .gallery-mobile-controls {
         position: relative;
@@ -2962,17 +3022,15 @@ body.lightbox-open {
     }
 
 
-    /* Stats logos stay in one row */
-
     .credibility-logos {
-    gap: 7px;
-}
+        gap: 7px;
+    }
 
 
-.credibility-logos img {
-    max-width: 62px;
-    max-height: 50px;
-}
+    .credibility-logos img {
+        max-width: 62px;
+        max-height: 50px;
+    }
 
 
     .feature-image {
