@@ -8,7 +8,9 @@
    ========================================================= */
 
 const siteHeader =
-    document.querySelector(".site-header");
+    document.querySelector(
+        ".site-header"
+    );
 
 
 function updateHeader() {
@@ -96,21 +98,26 @@ if (
 
 
             const isOpen =
-                headerDropdown.classList.toggle(
-                    "active"
+                headerDropdown
+                    .classList
+                    .toggle(
+                        "active"
+                    );
+
+
+            menuDropdownToggle
+                .classList
+                .toggle(
+                    "active",
+                    isOpen
                 );
 
 
-            menuDropdownToggle.classList.toggle(
-                "active",
-                isOpen
-            );
-
-
-            menuDropdownToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
+            menuDropdownToggle
+                .setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
 
         }
     );
@@ -118,14 +125,16 @@ if (
 
     headerDropdown
         .querySelectorAll("a")
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.addEventListener(
-                "click",
-                closeDropdown
-            );
+                link.addEventListener(
+                    "click",
+                    closeDropdown
+                );
 
-        });
+            }
+        );
 
 
     document.addEventListener(
@@ -154,7 +163,8 @@ if (
         event => {
 
             if (
-                event.key === "Escape"
+                event.key ===
+                "Escape"
             ) {
 
                 closeDropdown();
@@ -209,11 +219,6 @@ function showHeroSlide(index) {
         return;
     }
 
-
-    /*
-     * Restart the camera-motion
-     * animation each time.
-     */
 
     activeSlide.style.animation =
         "none";
@@ -400,9 +405,10 @@ document
 
 
 /*
- * =========================================================
- * CHANGE ONLY THIS NUMBER WHEN ADDING GALLERY PHOTOS
- * =========================================================
+ * IMPORTANT:
+ *
+ * Change ONLY this number when
+ * adding more gallery photos.
  *
  * Example:
  *
@@ -411,16 +417,7 @@ document
  * gallery-3.jpg
  * gallery-4.jpg
  *
- * galleryPhotoCount = 4
- *
- * Add:
- *
- * gallery-5.jpg
- * gallery-6.jpg
- *
- * Then change this to:
- *
- * galleryPhotoCount = 6
+ * = 4
  */
 
 const galleryPhotoCount = 4;
@@ -428,7 +425,7 @@ const galleryPhotoCount = 4;
 
 
 /* =========================================================
-   BUILD GALLERY PHOTOS AUTOMATICALLY
+   BUILD PHOTOS AUTOMATICALLY
    ========================================================= */
 
 const photoStage =
@@ -441,7 +438,8 @@ if (photoStage) {
 
     for (
         let photoNumber = 1;
-        photoNumber <= galleryPhotoCount;
+        photoNumber <=
+        galleryPhotoCount;
         photoNumber++
     ) {
 
@@ -452,10 +450,8 @@ if (photoStage) {
             );
 
 
-        paper.classList.add(
-            "photo-paper"
-        );
-
+        paper.className =
+            "photo-paper";
 
 
         const frame =
@@ -464,10 +460,8 @@ if (photoStage) {
             );
 
 
-        frame.classList.add(
-            "photo-frame"
-        );
-
+        frame.className =
+            "photo-frame";
 
 
         const image =
@@ -488,7 +482,9 @@ if (photoStage) {
             false;
 
 
-        if (photoNumber === 1) {
+        if (
+            photoNumber === 1
+        ) {
 
             image.loading =
                 "eager";
@@ -569,12 +565,17 @@ const galleryMobileNext =
     );
 
 
-let currentGalleryIndex = 0;
+let currentGalleryIndex =
+    0;
+
+
+let galleryDidSwipe =
+    false;
 
 
 
 /* =========================================================
-   GALLERY TOTAL
+   GALLERY COUNTER
    ========================================================= */
 
 if (galleryTotal) {
@@ -592,7 +593,7 @@ if (galleryTotal) {
 
 
 /* =========================================================
-   UPDATE GALLERY POSITION
+   UPDATE GALLERY
    ========================================================= */
 
 function updateGallery() {
@@ -643,10 +644,7 @@ function updateGallery() {
                     "is-active"
                 );
 
-            }
-
-
-            else if (
+            } else if (
                 index ===
                 previousIndex
             ) {
@@ -655,10 +653,7 @@ function updateGallery() {
                     "is-prev"
                 );
 
-            }
-
-
-            else if (
+            } else if (
                 index ===
                 nextIndex
             ) {
@@ -691,7 +686,7 @@ function updateGallery() {
 
 
 /* =========================================================
-   PREVIOUS GALLERY PHOTO
+   PREVIOUS
    ========================================================= */
 
 function previousGalleryPhoto() {
@@ -717,7 +712,7 @@ function previousGalleryPhoto() {
 
 
 /* =========================================================
-   NEXT GALLERY PHOTO
+   NEXT
    ========================================================= */
 
 function nextGalleryPhoto() {
@@ -742,7 +737,7 @@ function nextGalleryPhoto() {
 
 
 /* =========================================================
-   DESKTOP GALLERY ARROWS
+   GALLERY ARROWS
    ========================================================= */
 
 if (galleryPrev) {
@@ -776,11 +771,6 @@ if (galleryNext) {
 
 }
 
-
-
-/* =========================================================
-   MOBILE GALLERY ARROWS
-   ========================================================= */
 
 if (galleryMobilePrev) {
 
@@ -816,13 +806,11 @@ if (galleryMobileNext) {
 
 
 /* =========================================================
-   GALLERY SWIPE / DRAG
+   GALLERY SWIPE
    ========================================================= */
 
-let gallerySwipeStartX = null;
-
-let galleryDidSwipe = false;
-
+let gallerySwipeStartX =
+    null;
 
 
 if (
@@ -845,6 +833,20 @@ if (
 
             galleryDidSwipe =
                 false;
+
+
+            try {
+
+                photoStage
+                    .setPointerCapture(
+                        event.pointerId
+                    );
+
+            } catch (error) {
+
+                /* optional */
+
+            }
 
         }
     );
@@ -902,11 +904,6 @@ if (
             }
 
 
-            /*
-             * Reset after click event
-             * has had a chance to fire.
-             */
-
             window.setTimeout(
                 () => {
 
@@ -914,7 +911,7 @@ if (
                         false;
 
                 },
-                100
+                200
             );
 
         }
@@ -938,9 +935,7 @@ if (
 
 
 
-/*
- * Touch fallback for older browsers.
- */
+/* Touch fallback */
 
 if (
     photoStage &&
@@ -1037,7 +1032,7 @@ if (
                         false;
 
                 },
-                100
+                200
             );
 
         },
@@ -1096,20 +1091,14 @@ if (photoStage) {
 
 
 
-/* =========================================================
-   INITIALIZE GALLERY
-   ========================================================= */
+/* Initialize gallery */
 
 updateGallery();
 
 
 
 /* =========================================================
-   GALLERY LIGHTBOX
-   ========================================================= */
-
-/* =========================================================
-   GALLERY LIGHTBOX
+   GALLERY POPUP
    ========================================================= */
 
 const galleryLightbox =
@@ -1130,8 +1119,13 @@ const lightboxClose =
     );
 
 
+let lastFocusedGalleryPaper =
+    null;
+
+
+
 /* =========================================================
-   OPEN LIGHTBOX
+   OPEN POPUP
    ========================================================= */
 
 function openGalleryLightbox() {
@@ -1151,40 +1145,55 @@ function openGalleryLightbox() {
         ];
 
 
-    const image =
+    if (!currentPaper) {
+        return;
+    }
+
+
+    const currentImage =
         currentPaper.querySelector(
             "img"
         );
 
 
-    if (!image) {
+    if (!currentImage) {
         return;
     }
 
 
     lightboxImage.src =
-        image.src;
+        currentImage.currentSrc ||
+        currentImage.src;
 
 
     lightboxImage.alt =
-        image.alt ||
+        currentImage.alt ||
         "Enlarged gallery photo";
 
 
-    galleryLightbox.classList.add(
-        "is-open"
-    );
+    lastFocusedGalleryPaper =
+        currentPaper;
 
 
-    galleryLightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+    galleryLightbox
+        .classList
+        .add(
+            "is-open"
+        );
 
 
-    document.body.classList.add(
-        "lightbox-open"
-    );
+    galleryLightbox
+        .setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+    document.body
+        .classList
+        .add(
+            "lightbox-open"
+        );
 
 
     if (lightboxClose) {
@@ -1196,8 +1205,9 @@ function openGalleryLightbox() {
 }
 
 
+
 /* =========================================================
-   CLOSE LIGHTBOX
+   CLOSE POPUP
    ========================================================= */
 
 function closeGalleryLightbox() {
@@ -1207,48 +1217,91 @@ function closeGalleryLightbox() {
     }
 
 
-    galleryLightbox.classList.remove(
-        "is-open"
-    );
+    galleryLightbox
+        .classList
+        .remove(
+            "is-open"
+        );
 
 
-    galleryLightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+    galleryLightbox
+        .setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
 
-    document.body.classList.remove(
-        "lightbox-open"
-    );
+    document.body
+        .classList
+        .remove(
+            "lightbox-open"
+        );
+
+
+    if (lightboxImage) {
+
+        lightboxImage.src =
+            "";
+
+    }
+
+
+    if (
+        lastFocusedGalleryPaper
+    ) {
+
+        lastFocusedGalleryPaper
+            .focus({
+                preventScroll: true
+            });
+
+    }
 
 }
 
 
+
 /* =========================================================
-   CLICK / TAP CURRENT PHOTO
+   CLICK ACTIVE PHOTO TO OPEN
    ========================================================= */
 
 galleryPapers.forEach(
     paper => {
 
+        paper.setAttribute(
+            "tabindex",
+            "0"
+        );
+
+
+        paper.setAttribute(
+            "role",
+            "button"
+        );
+
+
+        paper.setAttribute(
+            "aria-label",
+            "Enlarge photo"
+        );
+
+
         paper.addEventListener(
             "click",
             () => {
 
-                /*
-                 * Do not open after swiping.
-                 */
-
-                if (galleryDidSwipe) {
+                if (
+                    galleryDidSwipe
+                ) {
                     return;
                 }
 
 
                 if (
-                    paper.classList.contains(
-                        "is-active"
-                    )
+                    paper.classList
+                        .contains(
+                            "is-active"
+                        )
                 ) {
 
                     openGalleryLightbox();
@@ -1258,8 +1311,43 @@ galleryPapers.forEach(
             }
         );
 
+
+        paper.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    (
+                        event.key ===
+                        "Enter"
+                    ) ||
+                    (
+                        event.key ===
+                        " "
+                    )
+                ) {
+
+                    if (
+                        paper.classList
+                            .contains(
+                                "is-active"
+                            )
+                    ) {
+
+                        event.preventDefault();
+
+                        openGalleryLightbox();
+
+                    }
+
+                }
+
+            }
+        );
+
     }
 );
+
 
 
 /* =========================================================
@@ -1282,8 +1370,9 @@ if (lightboxClose) {
 }
 
 
+
 /* =========================================================
-   CLICK DARK BACKGROUND TO CLOSE
+   CLICK DARK AREA TO CLOSE
    ========================================================= */
 
 if (galleryLightbox) {
@@ -1305,6 +1394,7 @@ if (galleryLightbox) {
     );
 
 }
+
 
 
 /* =========================================================
@@ -1316,448 +1406,28 @@ document.addEventListener(
     event => {
 
         if (
-            event.key === "Escape" &&
-            galleryLightbox &&
-            galleryLightbox.classList.contains(
-                "is-open"
-            )
-        ) {
-
-            closeGalleryLightbox();
-
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   UPDATE LIGHTBOX IMAGE
-   ========================================================= */
-
-function updateLightboxImage() {
-
-    if (
-        !galleryPapers.length ||
-        !lightboxImage
-    ) {
-        return;
-    }
-
-
-    const currentPaper =
-        galleryPapers[
-            currentGalleryIndex
-        ];
-
-
-    if (!currentPaper) {
-        return;
-    }
-
-
-    const image =
-        currentPaper.querySelector(
-            "img"
-        );
-
-
-    if (!image) {
-        return;
-    }
-
-
-    lightboxImage.src =
-        image.src;
-
-
-    lightboxImage.alt =
-        image.alt ||
-        "Enlarged gallery photo";
-
-}
-
-
-
-/* =========================================================
-   OPEN LIGHTBOX
-   ========================================================= */
-
-function openGalleryLightbox() {
-
-    if (!galleryLightbox) {
-        return;
-    }
-
-
-    updateLightboxImage();
-
-
-    galleryLightbox.classList.add(
-        "is-open"
-    );
-
-
-    galleryLightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-
-    document.body.classList.add(
-        "lightbox-open"
-    );
-
-
-    if (lightboxClose) {
-
-        lightboxClose.focus();
-
-    }
-
-}
-
-
-
-/* =========================================================
-   CLOSE LIGHTBOX
-   ========================================================= */
-
-function closeGalleryLightbox() {
-
-    if (!galleryLightbox) {
-        return;
-    }
-
-
-    galleryLightbox.classList.remove(
-        "is-open"
-    );
-
-
-    galleryLightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    document.body.classList.remove(
-        "lightbox-open"
-    );
-
-}
-
-
-
-/* =========================================================
-   CLICK / TAP ACTIVE PHOTO TO ENLARGE
-   ========================================================= */
-
-galleryPapers.forEach(
-    paper => {
-
-        paper.addEventListener(
-            "click",
-            () => {
-
-
-                /*
-                 * Don't open the lightbox
-                 * after a swipe.
-                 */
-
-                if (galleryDidSwipe) {
-                    return;
-                }
-
-
-                if (
-                    paper.classList.contains(
-                        "is-active"
-                    )
-                ) {
-
-                    openGalleryLightbox();
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =========================================================
-   LIGHTBOX PREVIOUS
-   ========================================================= */
-
-if (lightboxPrev) {
-
-    lightboxPrev.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-
-            previousGalleryPhoto();
-
-
-            updateLightboxImage();
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   LIGHTBOX NEXT
-   ========================================================= */
-
-if (lightboxNext) {
-
-    lightboxNext.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-
-            nextGalleryPhoto();
-
-
-            updateLightboxImage();
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   LIGHTBOX CLOSE BUTTON
-   ========================================================= */
-
-if (lightboxClose) {
-
-    lightboxClose.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-
-            closeGalleryLightbox();
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   CLICK DARK BACKGROUND TO CLOSE
-   ========================================================= */
-
-if (galleryLightbox) {
-
-    galleryLightbox.addEventListener(
-        "click",
-        event => {
-
-            if (
-                event.target ===
-                galleryLightbox
-            ) {
-
-                closeGalleryLightbox();
-
-            }
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   LIGHTBOX KEYBOARD
-   ========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            !galleryLightbox ||
-            !galleryLightbox.classList.contains(
-                "is-open"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        if (
-            event.key ===
+            event.key !==
             "Escape"
         ) {
+            return;
+        }
+
+
+        if (
+            galleryLightbox &&
+            galleryLightbox
+                .classList
+                .contains(
+                    "is-open"
+                )
+        ) {
 
             closeGalleryLightbox();
 
         }
 
-
-        if (
-            event.key ===
-            "ArrowLeft"
-        ) {
-
-            event.preventDefault();
-
-
-            previousGalleryPhoto();
-
-
-            updateLightboxImage();
-
-        }
-
-
-        if (
-            event.key ===
-            "ArrowRight"
-        ) {
-
-            event.preventDefault();
-
-
-            nextGalleryPhoto();
-
-
-            updateLightboxImage();
-
-        }
-
     }
 );
-
-
-
-/* =========================================================
-   LIGHTBOX MOBILE SWIPE
-   ========================================================= */
-
-let lightboxSwipeStartX =
-    null;
-
-
-if (
-    galleryLightbox &&
-    window.PointerEvent
-) {
-
-    galleryLightbox.addEventListener(
-        "pointerdown",
-        event => {
-
-            /*
-             * Don't start swipe gestures
-             * from arrow/close buttons.
-             */
-
-            if (
-                event.target.closest(
-                    "button"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            lightboxSwipeStartX =
-                event.clientX;
-
-        }
-    );
-
-
-    galleryLightbox.addEventListener(
-        "pointerup",
-        event => {
-
-            if (
-                lightboxSwipeStartX ===
-                null
-            ) {
-
-                return;
-
-            }
-
-
-            const difference =
-                event.clientX -
-                lightboxSwipeStartX;
-
-
-            lightboxSwipeStartX =
-                null;
-
-
-            if (
-                Math.abs(
-                    difference
-                ) < 40
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                difference > 0
-            ) {
-
-                previousGalleryPhoto();
-
-            } else {
-
-                nextGalleryPhoto();
-
-            }
-
-
-            updateLightboxImage();
-
-        }
-    );
-
-
-    galleryLightbox.addEventListener(
-        "pointercancel",
-        () => {
-
-            lightboxSwipeStartX =
-                null;
-
-        }
-    );
-
-}
 
 
 
