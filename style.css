@@ -1599,7 +1599,9 @@ body.lightbox-open {
         min-height: 160px;
         padding: 30px var(--gutter);
     
-        background: var(--charcoal);
+        background: rgba(20, 20, 18, 0.42);
+        backdrop-filter: blur(18px) brightness(0.7);
+        -webkit-backdrop-filter: blur(18px) brightness(0.7);
     }
     
     .credibility-logos {
