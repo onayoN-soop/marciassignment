@@ -1591,17 +1591,28 @@ body.lightbox-open {
         font-size: 18px;
     }
 
+   @media (max-width: 900px) {
+
     .stats-section {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         gap: 50px;
+
+        height: auto;
         padding: 75px 25px;
     }
 
-    .stats-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-        max-width: none;
+    .stat {
+        align-items: flex-start;
+        text-align: left;
     }
+
+    .stats-title span {
+        margin-left: 0;
+    }
+
+}
 
     .stat,
     .stats-grid .stat:first-child,
