@@ -369,7 +369,7 @@ document
    this number.
 */
 
-const galleryPhotoCount = 4;
+const galleryPhotoCount = 9;
 
 
 const photoStage =
