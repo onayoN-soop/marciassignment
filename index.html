@@ -1,119 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Marci Metzger | Pahrump Realtor</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Marci Metzger - Pahrump Realtor with nearly three decades of real estate experience."
+        content="Marci Metzger Homes and The Ridge Realty Group — serving buyers and sellers in Pahrump, Nevada."
     >
+
+    <title>Marci Metzger Homes | Pahrump Real Estate</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet"
     >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-    <header class="site-header" id="site-header">
+    <header class="site-header">
 
-        <a href="#" class="logo" aria-label="Marci Metzger Homes">
-        <img src="images/logo.png" alt="Marci Metzger Homes">
+        <a
+            href="#home"
+            class="logo"
+            aria-label="Marci Metzger Homes"
+        >
+            <img
+                src="images/logo.png"
+                alt="Marci Metzger Homes"
+            >
         </a>
 
-        <nav class="desktop-nav">
-            <a href="#about">About</a>
-            <a href="#sell">Sell</a>
-            <a href="#buy">Buy</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
 
-        <a href="tel:+12069196886" class="header-phone">
-            Call Now
-        </a>
+        <div class="header-menu">
 
-        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-        </button>
+            <button
+                class="menu-dropdown-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                <span>Menu</span>
+
+                <span class="menu-icon" aria-hidden="true">
+                    <i></i>
+                    <i></i>
+                </span>
+            </button>
+
+
+            <nav
+                class="header-dropdown"
+                aria-label="Main navigation"
+            >
+                <a href="#home">Home</a>
+                <a href="#listings">Listings</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#about">About Us</a>
+            </nav>
+
+        </div>
 
     </header>
 
 
-    <!-- =========================
-         MOBILE NAVIGATION
-    ========================== -->
+    <main>
 
-    <div class="mobile-menu" id="mobile-menu">
-
-        <button class="mobile-close" id="mobile-close" aria-label="Close menu">
-            ×
-        </button>
-
-        <nav>
-            <a href="#about">About</a>
-            <a href="#sell">Sell</a>
-            <a href="#buy">Buy</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <a href="tel:+12069196886" class="mobile-call">
-            (206) 919-6886
-        </a>
-
-    </div>
-
-
-    <main id="top">
-
-        <!-- =========================
+        <!-- =================================================
              HERO
-        ========================== -->
+             ================================================= -->
 
-        <section class="hero">
+        <section class="hero" id="home">
 
-          <div class="hero-slideshow">
-            <div class="hero-slide pan-in active"></div>
-            <div class="hero-slide pan-out"></div>
-            <div class="hero-slide pan-right"></div>
-          </div>
+            <div class="hero-slideshow">
+
+                <div
+                    class="hero-slide pan-in active"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    class="hero-slide pan-out"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    class="hero-slide pan-right"
+                    aria-hidden="true"
+                ></div>
+
+            </div>
+
 
             <div class="hero-overlay"></div>
 
+
             <div class="hero-content">
 
-                <p class="eyebrow">Pahrump, Nevada</p>
+                <p class="eyebrow">
+                    Pahrump, Nevada
+                </p>
 
                 <h1>
                     Marci<br>
                     Metzger
                 </h1>
 
-                <p class="hero-subtitle">
-                    Realtor for nearly<br>
-                    three decades
+                <p class="hero-company">
+                    The Ridge Realty Group
                 </p>
 
-                <a href="#sell" class="button button-light">
-                    Get It Sold
+                <a
+                    href="tel:+12069196886"
+                    class="button button-light"
+                >
+                    Call Now
                 </a>
 
             </div>
+
 
             <div class="hero-scroll">
                 <span>Scroll</span>
@@ -123,48 +144,56 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              ABOUT
-        ========================== -->
+             ================================================= -->
 
-        <section class="about section" id="about">
+        <section
+            class="section about"
+            id="about"
+        >
 
-            <div class="section-label">
+            <div class="section-label reveal">
                 <span>01</span>
                 <span>About Marci</span>
             </div>
 
+
             <div class="about-grid">
 
-                <div class="about-heading">
+                <div class="about-portrait reveal">
 
-                    <p class="eyebrow dark">
-                        The Ridge Realty Group
-                    </p>
-
-                    <h2>
-                        Real Estate<br>
-                        Done Right.
-                    </h2>
+                    <img
+                        src="images/marci.jpg"
+                        alt="Marci Metzger"
+                    >
 
                 </div>
 
-                <div class="about-copy">
+
+                <div class="about-copy reveal">
+
+                    <p class="eyebrow dark">
+                        Realtor for nearly three decades
+                    </p>
 
                     <p class="large-copy">
-                        With nearly three decades of experience,
-                        Marci Metzger knows the Pahrump real estate
-                        market inside and out.
+                        Experience, local knowledge, and a
+                        commitment to getting results.
                     </p>
 
                     <p>
-                        Our team works hard every day to grow and learn,
-                        so that we may continue to excel in our market.
-                        Our clients deserve our best, and we want to make
+                        Our team works hard every day to grow
+                        and learn, so that we may continue to
+                        excel in our market. Our clients
+                        deserve our best, and we want to make
                         sure our best is better every year.
                     </p>
 
-                    <a href="#contact" class="text-link">
+                    <a
+                        href="#contact"
+                        class="text-link"
+                    >
                         Work With Marci
                         <span>→</span>
                     </a>
@@ -176,34 +205,39 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              STATS
-        ========================== -->
+             ================================================= -->
 
         <section class="stats-section">
 
-            <div class="stats-intro">
-                <p class="eyebrow">A Proven Track Record</p>
+            <div class="stats-intro reveal">
+
+                <p class="eyebrow">
+                    Proven Results
+                </p>
 
                 <h2>
                     Experience<br>
-                    you can trust.
+                    That Delivers.
                 </h2>
+
             </div>
+
 
             <div class="stats-grid">
 
-                <div class="stat">
-                    <strong>28.5M+</strong>
+                <div class="stat reveal">
+                    <strong>$28.5M+</strong>
                     <span>Sales Closed in 2021</span>
                 </div>
 
-                <div class="stat">
+                <div class="stat reveal">
                     <strong>90</strong>
                     <span>Clients Helped in 2021</span>
                 </div>
 
-                <div class="stat">
+                <div class="stat reveal">
                     <strong>29+</strong>
                     <span>Years in Real Estate</span>
                 </div>
@@ -213,33 +247,47 @@
         </section>
 
 
-        <!-- =========================
-             SELL
-        ========================== -->
+        <!-- =================================================
+             SELLERS
+             ================================================= -->
 
-        <section class="feature feature-sell" id="sell">
+        <section class="feature feature-sell">
 
-            <div class="feature-image feature-image-sell"></div>
+            <div
+                class="feature-image feature-image-sell"
+                role="img"
+                aria-label="Luxury home"
+            ></div>
 
-            <div class="feature-content">
 
-                <p class="eyebrow dark">For Sellers</p>
+            <div class="feature-content reveal">
+
+                <p class="eyebrow dark">
+                    Selling Your Home
+                </p>
 
                 <h2>
                     Don't Just<br>
                     List It.
                 </h2>
 
-                <h3>Get It SOLD.</h3>
+                <h3>
+                    Get It SOLD.
+                </h3>
 
                 <p>
-                    We exhaust every avenue to ensure our listings
-                    are at the fingertips of every possible buyer,
-                    getting you top dollar for your home.
+                    We exhaust every avenue to ensure our
+                    listings are at the fingertips of every
+                    possible buyer, helping you achieve top
+                    dollar for your home.
                 </p>
 
-                <a href="#contact" class="button button-dark">
-                    Sell With Us
+                <a
+                    href="#contact"
+                    class="text-link"
+                >
+                    Start A Conversation
+                    <span>→</span>
                 </a>
 
             </div>
@@ -247,15 +295,17 @@
         </section>
 
 
-        <!-- =========================
-             BUY
-        ========================== -->
+        <!-- =================================================
+             BUYERS
+             ================================================= -->
 
-        <section class="feature feature-buy" id="buy">
+        <section class="feature feature-buy">
 
-            <div class="feature-content">
+            <div class="feature-content reveal">
 
-                <p class="eyebrow dark">For Buyers</p>
+                <p class="eyebrow dark">
+                    Find Your Next Home
+                </p>
 
                 <h2>
                     Find Your<br>
@@ -263,159 +313,238 @@
                 </h2>
 
                 <p>
-                    Nobody knows the market like we do. Enjoy having
-                    a pro at your service. Market analysis, upgrade
-                    lists, contractors on speed dial, and more.
+                    Nobody knows the market like we do.
+                    Enjoy having a professional at your
+                    service with market analysis, upgrade
+                    lists, contractors on speed dial, and
+                    more.
                 </p>
 
-                <a href="#search" class="button button-dark">
-                    Search Listings
+                <a
+                    href="#listings"
+                    class="text-link"
+                >
+                    Explore Listings
+                    <span>→</span>
                 </a>
 
             </div>
 
-            <div class="feature-image feature-image-buy"></div>
+
+            <div
+                class="feature-image feature-image-buy"
+                role="img"
+                aria-label="Luxury home interior"
+            ></div>
 
         </section>
 
 
-        <!-- =========================
-             PROPERTY SEARCH
-        ========================== -->
+        <!-- =================================================
+             LISTINGS / SEARCH
+             ================================================= -->
 
-        <section class="property-search section" id="search">
+        <section
+            class="property-search section"
+            id="listings"
+        >
 
-            <div class="section-label">
+            <div class="section-label reveal">
                 <span>02</span>
-                <span>Find Your Dream Home</span>
+                <span>Listings</span>
             </div>
 
-            <div class="search-heading">
 
-                <p class="eyebrow dark">Search Listings</p>
+            <div class="search-heading reveal">
+
+                <p class="eyebrow dark">
+                    Find Your Place
+                </p>
 
                 <h2>
-                    Your next home<br>
-                    starts here.
+                    Search Listings.
                 </h2>
 
             </div>
 
-            <form class="search-form">
+
+            <form
+                class="search-form reveal"
+                id="searchForm"
+            >
 
                 <div class="form-field">
-                    <label for="location">Location</label>
-                    <select id="location">
-                        <option value="">Any Location</option>
-                        <option>Pahrump</option>
-                        <option>Las Vegas</option>
-                        <option>Amargosa Valley</option>
-                    </select>
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        id="location"
+                        type="text"
+                        placeholder="Pahrump, Nevada"
+                    >
+
                 </div>
 
+
                 <div class="form-field">
-                    <label for="type">Type</label>
-                    <select id="type">
-                        <option value="">Any Type</option>
+
+                    <label for="property-type">
+                        Type
+                    </label>
+
+                    <select id="property-type">
+                        <option>Any Property Type</option>
                         <option>Residential</option>
                         <option>Commercial</option>
                         <option>Land</option>
                     </select>
+
                 </div>
 
-                <div class="form-field">
-                    <label for="sort">Sort By</label>
-                    <select id="sort">
-                        <option value="">Newest</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                    </select>
-                </div>
 
                 <div class="form-field">
-                    <label for="bedrooms">Bedrooms</label>
+
+                    <label for="bedrooms">
+                        Bedrooms
+                    </label>
+
                     <select id="bedrooms">
-                        <option value="">Any</option>
+                        <option>Any</option>
+                        <option>1+</option>
+                        <option>2+</option>
+                        <option>3+</option>
+                        <option>4+</option>
+                        <option>5+</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="bathrooms">
+                        Bathrooms
+                    </label>
+
+                    <select id="bathrooms">
+                        <option>Any</option>
                         <option>1+</option>
                         <option>2+</option>
                         <option>3+</option>
                         <option>4+</option>
                     </select>
+
                 </div>
 
-                <div class="form-field">
-                    <label for="baths">Baths</label>
-                    <select id="baths">
-                        <option value="">Any</option>
-                        <option>1+</option>
-                        <option>2+</option>
-                        <option>3+</option>
-                    </select>
-                </div>
 
                 <div class="form-field">
-                    <label for="min-price">Min Price</label>
+
+                    <label for="min-price">
+                        Min Price
+                    </label>
+
                     <input
-                        type="number"
                         id="min-price"
+                        type="text"
                         placeholder="$0"
                     >
+
                 </div>
+
 
                 <div class="form-field">
-                    <label for="max-price">Max Price</label>
+
+                    <label for="max-price">
+                        Max Price
+                    </label>
+
                     <input
-                        type="number"
                         id="max-price"
-                        placeholder="No Max"
+                        type="text"
+                        placeholder="No Maximum"
                     >
+
                 </div>
 
-                <button type="submit" class="button button-dark search-button">
+
+                <div class="form-field">
+
+                    <label for="sort-by">
+                        Sort By
+                    </label>
+
+                    <select id="sort-by">
+                        <option>Newest</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+
+                </div>
+
+
+                <button
+                    class="button button-dark search-button"
+                    type="submit"
+                >
                     Search Now
                 </button>
 
             </form>
 
+
+            <p
+                class="search-message"
+                id="searchMessage"
+                aria-live="polite"
+            ></p>
+
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              GALLERY
-        ========================== -->
+             ================================================= -->
 
         <section class="gallery-section">
 
-            <div class="gallery-heading">
+            <div class="gallery-heading reveal">
 
                 <div>
-                    <p class="eyebrow dark">Explore Pahrump</p>
+
+                    <p class="eyebrow dark">
+                        Pahrump & Beyond
+                    </p>
 
                     <h2>
-                        Life here<br>
-                        looks good.
+                        Photo Gallery.
                     </h2>
+
                 </div>
 
-                <span class="gallery-number">03</span>
+                <span class="gallery-number">
+                    03
+                </span>
 
             </div>
 
+
             <div class="gallery-grid">
 
-                <div class="gallery-item gallery-large">
+                <div class="gallery-item gallery-large reveal">
                     <div class="gallery-image image-1"></div>
                 </div>
 
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <div class="gallery-image image-2"></div>
                 </div>
 
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <div class="gallery-image image-3"></div>
                 </div>
 
-                <div class="gallery-item gallery-wide">
+                <div class="gallery-item reveal">
                     <div class="gallery-image image-4"></div>
                 </div>
 
@@ -424,35 +553,65 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              SERVICES
-        ========================== -->
+             ================================================= -->
 
-        <section class="services section" id="services">
+        <section
+            class="section services"
+            id="services"
+        >
 
-            <div class="section-label">
+            <div class="section-label reveal">
                 <span>04</span>
                 <span>Our Services</span>
             </div>
 
-            <div class="services-heading">
+
+            <div class="services-heading reveal">
 
                 <p class="eyebrow dark">
-                    Expertise That Works For You
+                    Real Estate Done Right
                 </p>
 
                 <h2>
-                    Everything you need<br>
-                    from one team.
+                    Expertise At<br>
+                    Every Step.
                 </h2>
 
             </div>
 
+
             <div class="services-grid">
 
-                <article class="service-card">
+                <article class="service-card reveal">
 
-                    <span class="service-number">01</span>
+                    <span class="service-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Real Estate<br>
+                        Done Right
+                    </h3>
+
+                    <p>
+                        Nervous about your property
+                        adventure? Whether you're getting
+                        ready to buy or sell your residence,
+                        looking at investment properties,
+                        or simply curious about the market,
+                        our team is here to help.
+                    </p>
+
+                </article>
+
+
+                <article class="service-card reveal">
+
+                    <span class="service-number">
+                        02
+                    </span>
 
                     <h3>
                         Commercial &<br>
@@ -460,34 +619,20 @@
                     </h3>
 
                     <p>
-                        Whether you're getting ready to buy or sell
-                        your residence, looking at investment properties,
-                        or simply curious about the market, our team
-                        ensures you get the best experience possible.
+                        Large or small, condo or mansion,
+                        fixer-upper or luxury property, we
+                        can help you find the right
+                        opportunity at the right price.
                     </p>
 
                 </article>
 
-                <article class="service-card">
 
-                    <span class="service-number">02</span>
+                <article class="service-card reveal">
 
-                    <h3>
-                        Find the<br>
-                        Right Property
-                    </h3>
-
-                    <p>
-                        Large or small, condo or mansion, we can find it
-                        and get it at the price that's right. Fixer-uppers?
-                        Luxury? We can help with all of it.
-                    </p>
-
-                </article>
-
-                <article class="service-card">
-
-                    <span class="service-number">03</span>
+                    <span class="service-number">
+                        03
+                    </span>
 
                     <h3>
                         Rely on<br>
@@ -495,9 +640,11 @@
                     </h3>
 
                     <p>
-                        If you have questions about affordability,
-                        credit, and loan options, we connect you with
-                        the right people to get the answers you need.
+                        Questions about affordability,
+                        credit, or loan options? We can
+                        connect you with the right people
+                        and help you feel confident and
+                        informed throughout the process.
                     </p>
 
                 </article>
@@ -507,62 +654,122 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              CONTACT
-        ========================== -->
+             ================================================= -->
 
-        <section class="contact-section" id="contact">
+        <section
+            class="contact-section"
+            id="contact"
+        >
 
             <div class="contact-background"></div>
-
             <div class="contact-overlay"></div>
 
-            <div class="contact-content">
 
-                <p class="eyebrow">Let's Talk Real Estate</p>
+            <div class="contact-content reveal">
+
+                <p class="eyebrow">
+                    Call or Visit
+                </p>
 
                 <h2>
-                    Call or<br>
-                    Visit.
+                    Let's Talk<br>
+                    Real Estate.
                 </h2>
 
                 <p class="contact-address">
+                    Marci Metzger — The Ridge Realty Group<br>
                     3190 HW-160, Suite F<br>
                     Pahrump, Nevada 89048
                 </p>
 
-                <a href="tel:+12069196886" class="contact-phone">
+                <a
+                    class="contact-phone"
+                    href="tel:+12069196886"
+                >
                     (206) 919-6886
                 </a>
 
                 <p class="contact-hours">
-                    Open daily · 8:00 AM – 7:00 PM<br>
-                    Appointments outside office hours available upon request.
+                    Open daily from 8:00 AM to 7:00 PM.
+                    Appointments outside regular office
+                    hours are available upon request.
                 </p>
 
             </div>
 
 
-            <form class="contact-form">
-
-                <p class="eyebrow">Get In Touch</p>
+            <form
+                class="contact-form reveal"
+                id="contactForm"
+            >
 
                 <h3>
-                    Send a message.
+                    Send A Message
                 </h3>
 
-                <label for="name">Name</label>
-                <input type="text" id="name" required>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
+                <label for="name">
+                    Name
+                </label>
 
-                <label for="message">Message</label>
-                <textarea id="message" rows="4"></textarea>
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                >
 
-                <button type="submit" class="button button-light">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                >
+
+
+                <label for="phone">
+                    Phone
+                </label>
+
+                <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                >
+
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                ></textarea>
+
+
+                <button
+                    class="button button-light"
+                    type="submit"
+                >
                     Send Message
                 </button>
+
+
+                <p
+                    class="form-message"
+                    id="formMessage"
+                    aria-live="polite"
+                ></p>
 
             </form>
 
@@ -571,16 +778,19 @@
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+         ===================================================== -->
 
     <footer class="footer">
 
         <div class="footer-brand">
 
-            <span>MARCI</span>
-            <strong>METZGER</strong>
+            <img
+                src="images/logo.png"
+                alt="Marci Metzger Homes"
+                class="footer-logo"
+            >
 
             <p>
                 The Ridge Realty Group
@@ -588,15 +798,16 @@
 
         </div>
 
-        <div class="footer-links">
 
-            <a href="#about">About</a>
-            <a href="#sell">Sell</a>
-            <a href="#buy">Buy</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+        <nav class="footer-links">
 
-        </div>
+            <a href="#home">Home</a>
+            <a href="#listings">Listings</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+
+        </nav>
+
 
         <div class="footer-contact">
 
@@ -611,10 +822,11 @@
 
         </div>
 
+
         <div class="footer-bottom">
 
             <span>
-                © 2026 Marci Metzger
+                © 2026 Marci Metzger Homes
             </span>
 
             <span>
@@ -629,5 +841,5 @@
     <script src="script.js"></script>
 
 </body>
-</html>
 
+</html>
