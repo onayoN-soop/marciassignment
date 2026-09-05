@@ -819,37 +819,47 @@ if (
 ) {
 
     photoStage.addEventListener(
-        "pointerdown",
-        event => {
+    "pointerdown",
+    event => {
 
-            if (!event.isPrimary) {
-                return;
-            }
+        if (!event.isPrimary) {
+            return;
+        }
+
+        gallerySwipeStartX =
+            event.clientX;
+
+        galleryDidSwipe =
+            false;
 
 
-            gallerySwipeStartX =
-                event.clientX;
+        /*
+         * Pointer capture is useful for
+         * touch swiping, but don't use it
+         * for a desktop mouse because it
+         * can swallow the photo click.
+         */
 
-
-            galleryDidSwipe =
-                false;
-
+        if (
+            event.pointerType !== "mouse"
+        ) {
 
             try {
 
-                photoStage
-                    .setPointerCapture(
-                        event.pointerId
-                    );
+                photoStage.setPointerCapture(
+                    event.pointerId
+                );
 
             } catch (error) {
 
-                /* optional */
+                /* Pointer capture is optional */
 
             }
 
         }
-    );
+
+    }
+);
 
 
     photoStage.addEventListener(
