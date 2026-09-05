@@ -551,10 +551,9 @@ h3 {
 
 .stats-section {
     display: grid;
-    grid-template-columns: minmax(600px, 1.25fr) minmax(600px, 1fr);
+    grid-template-columns: 1.35fr 1fr 1fr;
     align-items: center;
-    justify-content: center;
-    gap: clamp(60px, 6vw, 120px);
+    column-gap: clamp(50px, 6vw, 110px);
 
     width: 100%;
     min-height: 420px;
@@ -588,7 +587,7 @@ h3 {
 }
 
 .stats-grid {
-    display: grid;
+    display: contents;
     grid-template-columns: minmax(230px, 0.8fr) minmax(150px, 0.5fr) minmax(440px, 1.7fr);
     align-items: center;
     gap: 20px;
@@ -599,8 +598,9 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     min-width: 0;
-    padding: 12px 24px;
+    padding: 0;
 }
 
 .stats-grid .stat:first-child {
@@ -608,7 +608,7 @@ h3 {
 }
 
 .stats-grid .stat:nth-child(2) {
-    padding-left: 36px;
+    padding-left: 0;
     border-left: 0;
 }
 
