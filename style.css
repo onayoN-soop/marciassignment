@@ -717,16 +717,24 @@ h3 {
    ========================================================= */
 
 .section {
+    width: 100%;
+
+    margin: 0;
+
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y);
+}
+
+
+.section > * {
     width:
         min(
             calc(100% - (var(--gutter) * 2)),
             var(--content-width)
         );
 
-    margin: 0 auto;
-
-    padding-top: var(--section-y);
-    padding-bottom: var(--section-y);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
