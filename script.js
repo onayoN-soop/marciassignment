@@ -266,7 +266,7 @@ if (heroSlides.length > 0) {
             (currentHeroSlide + 1) % heroSlides.length;
 
         showHeroSlide(currentHeroSlide);
-    }, 4000);
+    }, 8000);
 }
 
 
