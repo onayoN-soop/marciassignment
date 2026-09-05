@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -14,7 +15,9 @@
         content="Marci Metzger Homes and The Ridge Realty Group — serving buyers and sellers in Pahrump, Nevada."
     >
 
-    <title>Marci Metzger Homes | Pahrump Real Estate</title>
+    <title>
+        Marci Metzger Homes | Pahrump Real Estate
+    </title>
 
 
     <!-- Google Fonts -->
@@ -36,9 +39,12 @@
     >
 
 
-    <!-- Stylesheet -->
+    <!-- CSS -->
 
-    <link rel="stylesheet" href="style.css?v=13">
+    <link
+        rel="stylesheet"
+        href="style.css?v=14"
+    >
 
 </head>
 
@@ -57,10 +63,12 @@
             class="logo"
             aria-label="Marci Metzger Homes"
         >
+
             <img
                 src="images/logo.png"
                 alt="Marci Metzger Homes"
             >
+
         </a>
 
 
@@ -128,7 +136,6 @@
             class="hero"
             id="home"
         >
-
 
             <div class="hero-slideshow">
 
@@ -214,9 +221,6 @@
 
             <div class="about-grid">
 
-
-                <!-- Portrait -->
-
                 <div class="about-portrait reveal">
 
                     <img
@@ -227,8 +231,6 @@
                 </div>
 
 
-                <!-- About copy -->
-
                 <div class="about-copy reveal">
 
                     <p class="eyebrow dark">
@@ -237,18 +239,15 @@
 
                     <p class="large-copy">
                         Experience, local knowledge,
-                        and a commitment to getting
-                        results.
+                        and a commitment to getting results.
                     </p>
 
                     <p>
-                        Our team works hard every day
-                        to grow and learn, so that we
-                        may continue to excel in our
-                        market. Our clients deserve
-                        our best, and we want to make
-                        sure our best is better every
-                        year.
+                        Our team works hard every day to grow
+                        and learn, so that we may continue to
+                        excel in our market. Our clients deserve
+                        our best, and we want to make sure our
+                        best is better every year.
                     </p>
 
                     <a
@@ -272,7 +271,6 @@
              ================================================= -->
 
         <section class="stats-section">
-
 
             <div class="stats-intro reveal">
 
@@ -340,7 +338,6 @@
 
         <section class="feature feature-sell">
 
-
             <div
                 class="feature-image feature-image-sell"
                 role="img"
@@ -364,11 +361,10 @@
                 </h3>
 
                 <p>
-                    We exhaust every avenue to ensure
-                    our listings are at the fingertips
-                    of every possible buyer, helping
-                    you achieve top dollar for your
-                    home.
+                    We exhaust every avenue to ensure our
+                    listings are at the fingertips of every
+                    possible buyer, helping you achieve top
+                    dollar for your home.
                 </p>
 
                 <a
@@ -391,7 +387,6 @@
 
         <section class="feature feature-buy">
 
-
             <div class="feature-content reveal">
 
                 <p class="eyebrow dark">
@@ -404,11 +399,10 @@
                 </h2>
 
                 <p>
-                    Nobody knows the market like we
-                    do. Enjoy having a professional
-                    at your service with market
-                    analysis, upgrade lists,
-                    contractors on speed dial,
+                    Nobody knows the market like we do.
+                    Enjoy having a professional at your
+                    service with market analysis, upgrade
+                    lists, contractors on speed dial,
                     and more.
                 </p>
 
@@ -442,7 +436,6 @@
             id="listings"
         >
 
-
             <div class="section-label reveal">
 
                 <span>02</span>
@@ -471,7 +464,6 @@
                 class="search-form reveal"
                 id="searchForm"
             >
-
 
                 <div class="form-field">
 
@@ -640,7 +632,6 @@
             id="gallery"
         >
 
-
             <div class="gallery-heading reveal">
 
                 <div>
@@ -675,11 +666,8 @@
             </div>
 
 
-
             <div class="photo-gallery reveal">
 
-
-                <!-- Desktop left arrow -->
 
                 <button
                     class="gallery-arrow gallery-arrow-left"
@@ -691,13 +679,9 @@
                 </button>
 
 
-
                 <!--
-                    PHOTOS ARE GENERATED AUTOMATICALLY
-                    BY JAVASCRIPT.
-
-                    You do NOT add individual photo
-                    blocks here anymore.
+                    Gallery photos are generated
+                    automatically by script.js
                 -->
 
                 <div
@@ -706,9 +690,6 @@
                     aria-label="Property photo gallery"
                 ></div>
 
-
-
-                <!-- Desktop right arrow -->
 
                 <button
                     class="gallery-arrow gallery-arrow-right"
@@ -721,9 +702,6 @@
 
             </div>
 
-
-
-            <!-- Mobile controls -->
 
             <div class="gallery-mobile-controls">
 
@@ -758,39 +736,46 @@
 
 
         <!-- =================================================
-             GALLERY LIGHTBOX
+             GALLERY POPUP
              ================================================= -->
 
-<div
-    class="gallery-lightbox"
-    id="galleryLightbox"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Enlarged gallery photo"
->
-
-    <div class="lightbox-popup">
-
-        <img
-            id="lightboxImage"
-            src=""
-            alt=""
+        <div
+            class="gallery-lightbox"
+            id="galleryLightbox"
+            aria-hidden="true"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged gallery photo"
         >
 
-        <button
-            class="lightbox-close"
-            id="lightboxClose"
-            type="button"
-            aria-label="Close enlarged photo"
-        >
-            <span>×</span>
-            Close
-        </button>
+            <div class="lightbox-popup">
 
-    </div>
+                <img
+                    id="lightboxImage"
+                    src=""
+                    alt=""
+                >
 
-</div>
+
+                <button
+                    class="lightbox-close"
+                    id="lightboxClose"
+                    type="button"
+                    aria-label="Close enlarged photo"
+                >
+
+                    <span aria-hidden="true">
+                        ×
+                    </span>
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
 
 
         <!-- =================================================
@@ -801,7 +786,6 @@
             class="section services"
             id="services"
         >
-
 
             <div class="section-label reveal">
 
@@ -830,7 +814,6 @@
 
             <div class="services-grid">
 
-
                 <article class="service-card reveal">
 
                     <span class="service-number">
@@ -843,18 +826,15 @@
                     </h3>
 
                     <p>
-                        Nervous about your property
-                        adventure? Whether you're
-                        getting ready to buy or sell
-                        your residence, looking at
-                        investment properties, or
-                        simply curious about the
-                        market, our team is here
-                        to help.
+                        Nervous about your property adventure?
+                        Whether you're getting ready to buy
+                        or sell your residence, looking at
+                        investment properties, or simply
+                        curious about the market, our team
+                        is here to help.
                     </p>
 
                 </article>
-
 
 
                 <article class="service-card reveal">
@@ -869,16 +849,13 @@
                     </h3>
 
                     <p>
-                        Large or small, condo or
-                        mansion, fixer-upper or
-                        luxury property, we can
-                        help you find the right
-                        opportunity at the right
-                        price.
+                        Large or small, condo or mansion,
+                        fixer-upper or luxury property,
+                        we can help you find the right
+                        opportunity at the right price.
                     </p>
 
                 </article>
-
 
 
                 <article class="service-card reveal">
@@ -894,11 +871,10 @@
 
                     <p>
                         Questions about affordability,
-                        credit, or loan options?
-                        We can connect you with the
-                        right people and help you
-                        feel confident and informed
-                        throughout the process.
+                        credit, or loan options? We can
+                        connect you with the right people
+                        and help you feel confident and
+                        informed throughout the process.
                     </p>
 
                 </article>
@@ -918,7 +894,6 @@
             id="contact"
         >
 
-
             <div class="contact-background"></div>
 
             <div class="contact-overlay"></div>
@@ -936,13 +911,16 @@
                 </h2>
 
                 <p class="contact-address">
+
                     Marci Metzger —
                     The Ridge Realty Group<br>
 
                     3190 HW-160, Suite F<br>
 
                     Pahrump, Nevada 89048
+
                 </p>
+
 
                 <a
                     class="contact-phone"
@@ -951,15 +929,16 @@
                     (206) 919-6886
                 </a>
 
+
                 <p class="contact-hours">
-                    Open daily from 8:00 AM
-                    to 7:00 PM. Appointments
-                    outside regular office hours
-                    are available upon request.
+
+                    Open daily from 8:00 AM to 7:00 PM.
+                    Appointments outside regular office
+                    hours are available upon request.
+
                 </p>
 
             </div>
-
 
 
             <form
@@ -1037,6 +1016,7 @@
 
         </section>
 
+
     </main>
 
 
@@ -1046,7 +1026,6 @@
          ===================================================== -->
 
     <footer class="footer">
-
 
         <div class="footer-brand">
 
@@ -1061,7 +1040,6 @@
             </p>
 
         </div>
-
 
 
         <nav class="footer-links">
@@ -1085,7 +1063,6 @@
         </nav>
 
 
-
         <div class="footer-contact">
 
             <a href="tel:+12069196886">
@@ -1098,7 +1075,6 @@
             </p>
 
         </div>
-
 
 
         <div class="footer-bottom">
@@ -1119,7 +1095,7 @@
 
     <!-- JavaScript -->
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
 
 </body>
 
