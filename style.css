@@ -2004,15 +2004,33 @@ h3 {
         margin-bottom: 36px;
     }
 
+    /* Search fields */
     .search-form {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    .search-form .form-field:nth-child(n) {
+    
+    /* Location, property type, sort */
+    .search-form .form-field:nth-child(1),
+    .search-form .form-field:nth-child(2),
+    .search-form .form-field:nth-child(3) {
         grid-column: 1 / -1;
         padding: 20px 0;
     }
-
+    
+    /* Bedrooms + min price */
+    .search-form .form-field:nth-child(4),
+    .search-form .form-field:nth-child(6) {
+        grid-column: 1;
+        padding: 20px 12px 20px 0;
+    }
+    
+    /* Bathrooms + max price */
+    .search-form .form-field:nth-child(5),
+    .search-form .form-field:nth-child(7) {
+        grid-column: 2;
+        padding: 20px 0 20px 12px;
+    }
+    
     .search-button {
         grid-column: 1 / -1;
         min-height: 64px;
