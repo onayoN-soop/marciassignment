@@ -1,10 +1,6 @@
-/* =========================================================
-   MARCI METZGER HOMES
-   ========================================================= */
+/* Marci Metzger site interactions */
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* Header scroll state */
 
 const siteHeader = document.querySelector(".site-header");
 
@@ -16,9 +12,7 @@ function updateHeader() {
 window.addEventListener("scroll", updateHeader, { passive: true });
 
 
-/* =========================================================
-   HEADER MENU
-   ========================================================= */
+/* Menu open / close */
 
 const menuDropdownToggle = document.querySelector(".menu-dropdown-toggle");
 const headerDropdown = document.querySelector(".header-dropdown");
@@ -55,9 +49,7 @@ if (menuDropdownToggle && headerDropdown) {
 }
 
 
-/* =========================================================
-   HERO SLIDESHOW — 8 SECOND ROTATION + PAN
-   ========================================================= */
+/* Hero slideshow — 8 seconds per image, with the pan restarted each time. */
 
 const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
 let currentHeroSlide = 0;
@@ -72,7 +64,7 @@ function showHeroSlide(index) {
 
     const activeSlide = heroSlides[index];
 
-    /* Restart the selected slide's pan animation on every activation. */
+    /* Reset the animation first, otherwise a returning slide can resume halfway through its pan. */
     void activeSlide.offsetWidth;
     activeSlide.style.animation = "";
     activeSlide.classList.add("active");
@@ -88,9 +80,7 @@ if (heroSlides.length) {
 }
 
 
-/* =========================================================
-   SCROLL-CONTROLLED STATIC BACKDROP
-   ========================================================= */
+/* Page backdrop — section-driven image swap only. No timer, no panning. */
 
 const siteBackdrop = document.querySelector("#siteBackdrop");
 const heroSection = document.querySelector("#home");
@@ -127,9 +117,8 @@ function updateBackdropFromScroll() {
     if (!backdropSections.length || !backdropSlides.length) return;
 
     /*
-       The hero has its own animated slideshow.
-       This separate backdrop appears only as the page moves beyond the hero
-       and never pans on its own.
+       Keep this separate from the hero slideshow.
+       The hero moves; this one stays fixed and only changes when the scroll position calls for it.
     */
     if (siteBackdrop && heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
@@ -172,9 +161,7 @@ window.addEventListener("scroll", requestBackdropUpdate, { passive: true });
 window.addEventListener("resize", requestBackdropUpdate);
 
 
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+/* One-time section reveals */
 
 const revealElements = document.querySelectorAll(".reveal");
 
@@ -197,9 +184,7 @@ if ("IntersectionObserver" in window) {
 }
 
 
-/* =========================================================
-   SMOOTH INTERNAL LINKS
-   ========================================================= */
+/* Smooth jumps for links that point to sections on this page */
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
@@ -216,9 +201,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 
-/* =========================================================
-   ABOUT TWO-PAGE FLIP / SLIDE
-   ========================================================= */
+/* About pages — no resizing. Just switch which fixed page is active. */
 
 const aboutStage = document.querySelector("#aboutStage");
 const aboutMarciPage = document.querySelector("#aboutMarciPage");
@@ -274,9 +257,7 @@ aboutPageTriggers.forEach(trigger => {
 });
 
 
-/* =========================================================
-   MOBILE AFFILIATION PRESS-AND-HOLD CONTROL
-   ========================================================= */
+/* Mobile affiliation control — show while held, hide on release. */
 
 const affiliationDock = document.querySelector("#affiliationDock");
 const affiliationHandle = document.querySelector("#affiliationHandle");
@@ -302,7 +283,7 @@ if (affiliationHandle) {
         try {
             affiliationHandle.setPointerCapture(event.pointerId);
         } catch (_) {
-            /* Pointer capture is optional. */
+            /* Nice to have for a steady drag, but not worth breaking the interaction if it fails. */
         }
     });
 
@@ -327,32 +308,14 @@ if (affiliationHandle) {
 }
 
 
-/* =========================================================
-   DATA-DRIVEN PROPERTY LISTINGS GALLERY
-   ========================================================= */
+/* Homepage listings gallery */
 
 /*
-   The public site currently uses these local images as fallback data.
+   Gallery data lives here for now so the page still works without a backend.
+   Later, point data-listings-endpoint on <body> to the realtor/admin API and this same gallery can use live listings.
 
-   For a future realtor-only admin/CMS, set the body attribute:
-
-       data-listings-endpoint="https://your-domain.com/api/listings"
-
-   The endpoint can return either an array of listing objects or:
-
-       { "listings": [...] }
-
-   Each listing may contain:
-       id
-       image / imageUrl / coverImage
-       url / listingUrl
-       alt
-       visible
-       showOnHomepage
-       status
-
-   When the endpoint is connected, newly published listings can populate
-   this homepage gallery without changing the gallery HTML.
+   I accept either [...] or { listings: [...] }, and normalize a few common field names below so the first backend
+   version does not have to match the front end perfectly on day one.
 */
 
 const DEFAULT_LISTINGS = Array.from({ length: 9 }, (_, index) => ({
@@ -619,7 +582,7 @@ function moveListingsGalleryPointer(event) {
     const horizontalDistance = Math.abs(differenceX);
     const verticalDistance = Math.abs(differenceY);
 
-    /* Any meaningful pointer movement means the user is probably dragging. */
+    /* Treat even a tiny move as drag intent; otherwise these listing links feel way too trigger-happy. */
     if (Math.hypot(differenceX, differenceY) > 2) {
         listingsGallerySuppressClickUntil = performance.now() + 700;
     }
@@ -638,7 +601,7 @@ function moveListingsGalleryPointer(event) {
             try {
                 listingsGalleryViewport.setPointerCapture(event.pointerId);
             } catch (_) {
-                /* Pointer capture is optional. */
+                /* Nice to have for a steady drag, but not worth breaking the interaction if it fails. */
             }
         } else {
             return;
@@ -666,8 +629,8 @@ function endListingsGalleryPointer(event) {
     const wasDragging = listingsGalleryDragging;
 
     /*
-       A listing only follows its link after a deliberate click/tap.
-       Even a small movement or a long press suppresses the redirect.
+       Only open a listing on a clean click/tap.
+       If the pointer moved or stayed down too long, assume the user meant to drag instead.
     */
     const deliberateClick = movement <= 2 && elapsed < 350 && !wasDragging;
 
@@ -698,7 +661,7 @@ function endListingsGalleryPointer(event) {
     try {
         listingsGalleryViewport.releasePointerCapture(event.pointerId);
     } catch (_) {
-        /* Pointer capture may already have been released. */
+        /* It may already be released by the browser; nothing to clean up in that case. */
     }
 }
 
@@ -825,9 +788,7 @@ async function initListingsGallery() {
 }
 
 
-/* =========================================================
-   LISTING SEARCH DEMO
-   ========================================================= */
+/* Search form placeholder until a live MLS / IDX connection is added */
 
 const searchForm = document.querySelector("#searchForm");
 const searchMessage = document.querySelector("#searchMessage");
@@ -844,9 +805,7 @@ if (searchForm) {
 }
 
 
-/* =========================================================
-   CONTACT FORM DEMO
-   ========================================================= */
+/* Contact form placeholder until the real form handler is connected */
 
 const contactForm = document.querySelector("#contactForm");
 const formMessage = document.querySelector("#formMessage");
@@ -863,9 +822,7 @@ if (contactForm) {
 }
 
 
-/* =========================================================
-   GLOBAL KEYBOARD BEHAVIOR
-   ========================================================= */
+/* Escape should clean up anything temporary that might be open */
 
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
@@ -875,9 +832,7 @@ document.addEventListener("keydown", event => {
 });
 
 
-/* =========================================================
-   INITIAL STATE
-   ========================================================= */
+/* First paint / startup */
 
 updateHeader();
 updateBackdropFromScroll();
