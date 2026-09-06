@@ -826,17 +826,19 @@ h3 {
     font-weight: 600;
 }
 
-/* Seller + buyer blocks */
+/* Seller + buyer blocks — keep both at 650px on desktop. */
 
 .feature {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 700px;
+    height: 650px;
+    min-height: 650px;
     background: rgba(248, 246, 241, 0.95);
 }
 
 .feature-image {
-    min-height: 650px;
+    height: 100%;
+    min-height: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1563,11 +1565,13 @@ h3 {
     }
 
     .feature {
+        height: 620px;
         min-height: 620px;
     }
 
     .feature-image {
-        min-height: 580px;
+        height: 100%;
+        min-height: 0;
     }
 
     /* Search Listings is already right. Only stack the fields here. */
@@ -1914,10 +1918,12 @@ h3 {
     .feature {
         display: flex;
         flex-direction: column;
+        height: auto;
         min-height: 0;
     }
 
     .feature-image {
+        height: auto;
         min-height: 72vw;
     }
 
