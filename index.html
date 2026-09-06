@@ -276,41 +276,292 @@
             <p class="search-message" id="searchMessage" aria-live="polite"></p>
         </section>
 
-        <section class="gallery-section" id="gallery">
-            <div class="gallery-heading reveal">
-                <div>
-                    <h2>Photo Gallery</h2>
-                </div>
+        <section class="listings-gallery-section" id="gallery">
 
-                <div class="gallery-count" aria-live="polite">
-                    <span id="galleryCurrent">01</span>
-                    <span class="gallery-count-divider">/</span>
-                    <span id="galleryTotal">09</span>
-                </div>
-            </div>
+    <h2 class="listings-gallery-title reveal">
+        Photo Gallery
+    </h2>
 
-            <div class="photo-gallery reveal">
-                <button class="gallery-arrow gallery-arrow-left" id="galleryPrev" type="button" aria-label="Previous photo">‹</button>
-                <div class="photo-stage" id="photoStage" aria-label="Property photo gallery"></div>
-                <button class="gallery-arrow gallery-arrow-right" id="galleryNext" type="button" aria-label="Next photo">›</button>
-            </div>
+    <div
+        class="listings-gallery-viewport reveal"
+        id="listingsGalleryViewport"
+        aria-label="Marci Metzger property listings gallery"
+        tabindex="0"
+    >
+        <div
+            class="listings-gallery-track"
+            id="listingsGalleryTrack"
+        >
 
-            <div class="gallery-mobile-controls">
-                <button class="gallery-mobile-arrow" id="galleryMobilePrev" type="button" aria-label="Previous photo">‹</button>
-                <span class="gallery-mobile-hint">Swipe to explore</span>
-                <button class="gallery-mobile-arrow" id="galleryMobileNext" type="button" aria-label="Next photo">›</button>
-            </div>
-        </section>
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 1"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-1.jpg"
+                        alt="Marci Metzger property listing 1"
+                        draggable="false"
+                        loading="eager"
+                    >
 
-        <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Enlarged gallery photo">
-            <div class="lightbox-popup">
-                <img id="lightboxImage" src="" alt="">
-                <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close enlarged photo">
-                    <span aria-hidden="true">×</span>
-                    Close
-                </button>
-            </div>
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 01
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 2"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-2.jpg"
+                        alt="Marci Metzger property listing 2"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 02
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 3"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-3.jpg"
+                        alt="Marci Metzger property listing 3"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 03
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 4"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-4.jpg"
+                        alt="Marci Metzger property listing 4"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 04
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 5"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-5.jpg"
+                        alt="Marci Metzger property listing 5"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 05
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 6"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-6.jpg"
+                        alt="Marci Metzger property listing 6"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 06
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 7"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-7.jpg"
+                        alt="Marci Metzger property listing 7"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 07
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 8"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-8.jpg"
+                        alt="Marci Metzger property listing 8"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 08
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
+
+            <article class="listings-gallery-slide">
+                <a
+                    class="listings-gallery-card"
+                    href="unavailable.html"
+                    aria-label="View listing 9"
+                    draggable="false"
+                >
+                    <img
+                        src="images/gallery-9.jpg"
+                        alt="Marci Metzger property listing 9"
+                        draggable="false"
+                        loading="lazy"
+                    >
+
+                    <span class="listings-gallery-caption">
+                        <span class="listings-gallery-name">
+                            Listing 09
+                        </span>
+                        <span class="listings-gallery-meta">
+                            View Property
+                        </span>
+                    </span>
+                </a>
+            </article>
+
         </div>
+    </div>
+
+
+    <div
+        class="listings-gallery-controls reveal"
+        aria-label="Gallery navigation"
+    >
+        <button
+            class="listings-gallery-arrow listings-gallery-prev"
+            id="listingsGalleryPrev"
+            type="button"
+            aria-label="Previous listing"
+        >
+            ←
+        </button>
+
+        <a
+            class="listings-gallery-see-all"
+            href="unavailable.html"
+        >
+            See All
+        </a>
+
+        <button
+            class="listings-gallery-arrow listings-gallery-next"
+            id="listingsGalleryNext"
+            type="button"
+            aria-label="Next listing"
+        >
+            →
+        </button>
+    </div>
+
+</section>
+
 
         <section class="section services" id="services">
             <div class="services-heading reveal">
