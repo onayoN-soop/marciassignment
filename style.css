@@ -540,6 +540,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
     width: 100px;
     height: 100px;
     padding: 13px;
@@ -1535,6 +1536,8 @@ h3 {
     .listings-gallery-next:hover {
         transform: translateX(6px);
     }
+    .affiliation-logo-card:hover {
+        transform: translateY(-3px);
 }
 
 /* Medium desktop */
