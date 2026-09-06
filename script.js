@@ -49,7 +49,7 @@ if (menuDropdownToggle && headerDropdown) {
 }
 
 
-/* Hero: 8 seconds each. Restart the pan whenever a slide comes back. */
+/* Hero: six seconds each. Restart the pan whenever a slide comes back. */
 
 const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
 let currentHeroSlide = 0;
