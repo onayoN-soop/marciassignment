@@ -1224,9 +1224,17 @@ h3 {
 .contact-section {
     position: relative;
     min-height: 780px;
-    padding: clamp(85px, 8vw, 125px) max(var(--gutter), calc((100vw - var(--content-width)) / 2));
+    padding:
+        clamp(85px, 8vw, 125px)
+        clamp(28px, 3.2vw, 64px);
+
     overflow: hidden;
-    background: url("images/contact.jpg") center / cover no-repeat;
+
+    background:
+        url("images/contact.jpg")
+        center / cover
+        no-repeat;
+
     color: var(--white);
 }
 
@@ -1241,20 +1249,32 @@ h3 {
 .contact-inner {
     position: relative;
     z-index: 1;
+
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(430px, 540px);
-    column-gap: clamp(80px, 10vw, 180px);
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(430px, 540px);
+
     align-items: center;
+
     width: 100%;
-    max-width: 1600px;
+    max-width: none;
     min-height: 590px;
-    margin: 0 auto;
+
+    margin: 0;
+
+    column-gap: clamp(60px, 8vw, 150px);
 }
+
 
 .contact-content {
     width: 100%;
     max-width: 720px;
+
     justify-self: start;
+
+    margin: 0;
+
     text-align: left;
 }
 
@@ -1294,12 +1314,20 @@ h3 {
 .contact-form {
     width: 100%;
     max-width: 540px;
+
     justify-self: end;
-    margin-left: auto;
+
+    margin: 0;
+
     padding: clamp(32px, 4vw, 54px);
+
     border: 1px solid rgba(255, 255, 255, 0.40);
+
     background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
+
+    box-shadow:
+        0 26px 70px rgba(0, 0, 0, 0.18);
+
     backdrop-filter: blur(18px) saturate(1.05);
     -webkit-backdrop-filter: blur(18px) saturate(1.05);
 }
