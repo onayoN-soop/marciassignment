@@ -201,11 +201,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 
-/* About pages — no resizing. Just switch which fixed page is active. */
+/* About pages — the pictures never resize; the inactive one is just clipped down to its preview. */
 
 const aboutStage = document.querySelector("#aboutStage");
-const aboutMarciPage = document.querySelector("#aboutMarciPage");
-const aboutRidgePage = document.querySelector("#aboutRidgePage");
+const aboutStories = Array.from(
+    document.querySelectorAll(".about-story")
+);
 const aboutPageTriggers = Array.from(
     document.querySelectorAll("[data-about-page]")
 );
@@ -213,20 +214,27 @@ const aboutPageTriggers = Array.from(
 let aboutHoverTimer = null;
 
 function setAboutPage(pageName) {
-    if (!aboutStage || !aboutMarciPage || !aboutRidgePage) return;
+    if (!aboutStage || !aboutStories.length) return;
 
-    const showRidge = pageName === "ridge";
+    const activePage = pageName === "ridge" ? "ridge" : "marci";
 
-    aboutStage.dataset.aboutActive = showRidge ? "ridge" : "marci";
+    aboutStage.dataset.aboutActive = activePage;
 
-    aboutMarciPage.classList.toggle("is-active", !showRidge);
-    aboutRidgePage.classList.toggle("is-active", showRidge);
+    aboutStories.forEach(story => {
+        const isActive = story.classList.contains(`about-story-${activePage}`);
 
-    aboutMarciPage.setAttribute("aria-hidden", String(showRidge));
-    aboutRidgePage.setAttribute("aria-hidden", String(!showRidge));
+        story.classList.toggle("is-active", isActive);
+        story.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    aboutPageTriggers.forEach(trigger => {
+        const isActive = trigger.dataset.aboutPage === activePage;
+        trigger.classList.toggle("is-active", isActive);
+        trigger.setAttribute("aria-pressed", String(isActive));
+    });
 }
 
-function scheduleAboutPage(pageName, delay = 85) {
+function scheduleAboutPage(pageName, delay = 95) {
     window.clearTimeout(aboutHoverTimer);
 
     aboutHoverTimer = window.setTimeout(() => {
@@ -246,7 +254,10 @@ aboutPageTriggers.forEach(trigger => {
             "(hover: hover) and (pointer: fine)"
         ).matches;
 
-        if (hoverCapable) {
+        if (
+            hoverCapable &&
+            aboutStage?.dataset.aboutActive !== pageName
+        ) {
             scheduleAboutPage(pageName);
         }
     });
