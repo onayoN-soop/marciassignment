@@ -438,6 +438,10 @@ h3 {
     background-image: url("images/hero-3.jpg");
 }
 
+.hero-slide-4 {
+    background-image: url("images/hero-4.jpg");
+}
+
 .hero-slide.active {
     opacity: 1;
     visibility: visible;
@@ -455,6 +459,10 @@ h3 {
     animation: hero-pan-left 6s linear both;
 }
 
+.hero-slide.pan-right.active {
+    animation: hero-pan-right 6s linear both;
+}
+
 @keyframes hero-pan-in {
     from { transform: scale(1.035) translate3d(0, 0, 0); }
     to   { transform: scale(1.105) translate3d(-0.8%, -0.4%, 0); }
@@ -468,6 +476,11 @@ h3 {
 @keyframes hero-pan-left {
     from { transform: scale(1.075) translate3d(1.4%, 0, 0); }
     to   { transform: scale(1.075) translate3d(-1.4%, -0.3%, 0); }
+}
+
+@keyframes hero-pan-right {
+    from { transform: scale(1.075) translate3d(-1.4%, -0.2%, 0); }
+    to   { transform: scale(1.075) translate3d(1.4%, 0.2%, 0); }
 }
 
 .hero-overlay {
