@@ -10,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=32">
+    <link rel="stylesheet" href="style.css?v=33">
 </head>
 
 <body data-listings-endpoint="">
-    <!-- Page backdrop: fixed in place; JS only swaps the image as I move through the page. -->
+    <!-- Fixed page backdrop. Keep this separate from the hero slideshow. -->
     <div class="site-backdrop" id="siteBackdrop" aria-hidden="true">
         <div class="site-backdrop-slide active" data-backdrop-slide="0"></div>
         <div class="site-backdrop-slide" data-backdrop-slide="1"></div>
@@ -44,7 +44,7 @@
         </div>
     </header>
 
-    <!-- Affiliation logos: fixed on desktop, press-and-hold on mobile. -->
+    <!-- Affiliation logos: fixed on desktop; press + hold on phones. -->
     <aside class="affiliation-dock" id="affiliationDock" aria-label="Professional affiliations">
         <div class="affiliation-items">
             <div class="affiliation-logo-card">
@@ -81,7 +81,7 @@
             </div>
         </section>
 
-        <!-- ABOUT: the pictures stay full-size; the inactive side is only clipped to a preview. -->
+        <!-- ABOUT: desktop uses the cropped preview. Phone layout is kept separate below. -->
         <section class="about-flip-section" id="about" data-backdrop="0">
             <div class="about-stage reveal" id="aboutStage" data-about-active="marci">
 
@@ -128,9 +128,39 @@
                     aria-label="Show The Ridge Realty Group story"
                     aria-pressed="false"
                 >
-                    <img src="images/ridgeabout.png" alt="The Ridge Realty Group">
+                    <img src="images/logo-ridge-realty-group.png" alt="The Ridge Realty Group">
                 </button>
 
+            </div>
+            <!-- Phone About: no flip, no crop, no internal scroll. -->
+            <div class="about-mobile-static">
+                <article class="about-mobile-profile about-mobile-marci">
+                    <div class="about-mobile-visual">
+                        <img src="images/marci.jpg" alt="Marci Metzger">
+                    </div>
+
+                    <div class="about-mobile-copy">
+                        <p class="eyebrow dark">Realtor for Nearly 3 Decades</p>
+                        <h2>Marci Metzger</h2>
+                        <p class="large-copy">Top Residential Sales Last 5 Years</p>
+                        <p>We helped nearly 90 clients in 2021, and closed $28.5 million in sales.</p>
+                        <p>Our team works hard every day to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, and we want to make sure our best is better every year.</p>
+                        <a href="#contact" class="text-link">Work With Marci <span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+
+                <article class="about-mobile-profile about-mobile-ridge">
+                    <div class="about-mobile-visual about-mobile-ridge-logo">
+                        <img src="images/logo-ridge-realty-group.png" alt="The Ridge Realty Group">
+                    </div>
+
+                    <div class="about-mobile-copy about-mobile-ridge-copy">
+                        <p class="eyebrow">About the Brokerage</p>
+                        <h2>Only the Best<br>for Our Clients</h2>
+                        <p><strong>THE RIDGE REALTY GROUP</strong> is a premier real estate brokerage in Southern Nevada. Comprised of some of the best agents the valley has to offer, we take great pride in providing top-notch service to our community.</p>
+                        <p>Whether you're looking for your primary residence, a vacation home, or an investment property, The Ridge Realty Group is here to help you every step of the way!</p>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -159,7 +189,7 @@
             <div class="feature-image feature-image-buy" role="img" aria-label="Pahrump residential property"></div>
         </section>
 
-        <!-- LISTINGS SEARCH: keeping this layout as-is. -->
+        <!-- Search Listings is already where I want it. -->
         <section class="property-search" id="listings" data-backdrop="1">
             <div class="search-glass-panel reveal">
                 <div class="search-heading">
@@ -286,7 +316,7 @@
             </div>
         </section>
 
-        <!-- PHOTO GALLERY: cards are built from the listing data in script.js. -->
+        <!-- Gallery cards come from the listing data in script.js. -->
         <section class="listings-gallery-section" id="gallery" data-backdrop="1">
             <p class="eyebrow dark listings-gallery-title reveal">Photo Gallery</p>
 
@@ -406,6 +436,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=32"></script>
+    <script src="script.js?v=33"></script>
 </body>
 </html>
