@@ -81,44 +81,56 @@
             </div>
         </section>
 
-        <!-- ABOUT: two fixed pages. Marci first, Ridge on hover/tap. -->
+        <!-- ABOUT: the pictures stay full-size; the inactive side is only clipped to a preview. -->
         <section class="about-flip-section" id="about" data-backdrop="0">
             <div class="about-stage reveal" id="aboutStage" data-about-active="marci">
-                <article class="about-sheet about-sheet-marci is-active" id="aboutMarciPage" aria-hidden="false">
-                    <div class="about-sheet-inner about-marci-inner">
-                        <div class="about-media about-marci-media">
-                            <img src="images/marci.jpg" alt="Marci Metzger">
-                        </div>
 
-                        <div class="about-copy about-marci-copy">
-                            <p class="eyebrow dark">Realtor for Nearly 3 Decades</p>
-                            <h2>Marci Metzger</h2>
-                            <p class="large-copy">Top Residential Sales Last 5 Years</p>
-                            <p>We helped nearly 90 clients in 2021, and closed $28.5 million in sales.</p>
-                            <p>Our team works hard every day to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, and we want to make sure our best is better every year.</p>
-                            <a href="#contact" class="text-link">Work With Marci <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-                </article>
+                <button
+                    class="about-visual about-visual-marci is-active"
+                    type="button"
+                    data-about-page="marci"
+                    aria-label="Show Marci Metzger story"
+                    aria-pressed="true"
+                >
+                    <img src="images/marci.jpg" alt="Marci Metzger">
+                </button>
 
-                <article class="about-sheet about-sheet-ridge" id="aboutRidgePage" aria-hidden="true">
-                    <div class="about-sheet-inner about-ridge-inner">
-                        <div class="about-copy about-ridge-copy">
-                            <p class="eyebrow dark">About the Brokerage</p>
-                            <h2>Only the Best<br>for Our Clients</h2>
-                            <p><strong>THE RIDGE REALTY GROUP</strong> is a premier real estate brokerage in Southern Nevada. Comprised of some of the best agents the valley has to offer, we take great pride in providing top-notch service to our community.</p>
-                            <p>Whether you're looking for your primary residence, a vacation home, or an investment property, The Ridge Realty Group is here to help you every step of the way!</p>
-                        </div>
+                <div class="about-story-panel">
+                    <article
+                        class="about-story about-story-marci is-active"
+                        id="aboutMarciStory"
+                        aria-hidden="false"
+                    >
+                        <p class="eyebrow dark">Realtor for Nearly 3 Decades</p>
+                        <h2>Marci Metzger</h2>
+                        <p class="large-copy">Top Residential Sales Last 5 Years</p>
+                        <p>We helped nearly 90 clients in 2021, and closed $28.5 million in sales.</p>
+                        <p>Our team works hard every day to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, and we want to make sure our best is better every year.</p>
+                        <a href="#contact" class="text-link">Work With Marci <span aria-hidden="true">→</span></a>
+                    </article>
 
-                        <div class="about-media about-ridge-media">
-                            <img src="ridgeabout.png" alt="The Ridge Realty Group">
-                        </div>
-                    </div>
-                </article>
+                    <article
+                        class="about-story about-story-ridge"
+                        id="aboutRidgeStory"
+                        aria-hidden="true"
+                    >
+                        <p class="eyebrow">About the Brokerage</p>
+                        <h2>Only the Best<br>for Our Clients</h2>
+                        <p><strong>THE RIDGE REALTY GROUP</strong> is a premier real estate brokerage in Southern Nevada. Comprised of some of the best agents the valley has to offer, we take great pride in providing top-notch service to our community.</p>
+                        <p>Whether you're looking for your primary residence, a vacation home, or an investment property, The Ridge Realty Group is here to help you every step of the way!</p>
+                    </article>
+                </div>
 
-                <button class="about-page-trigger about-page-trigger-ridge" type="button" data-about-page="ridge" aria-label="Show The Ridge Realty Group story"></button>
+                <button
+                    class="about-visual about-visual-ridge"
+                    type="button"
+                    data-about-page="ridge"
+                    aria-label="Show The Ridge Realty Group story"
+                    aria-pressed="false"
+                >
+                    <img src="images/logo-ridge-realty-group.png" alt="The Ridge Realty Group">
+                </button>
 
-                <button class="about-page-trigger about-page-trigger-marci" type="button" data-about-page="marci" aria-label="Show Marci Metzger story"></button>
             </div>
         </section>
 
