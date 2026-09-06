@@ -1595,26 +1595,36 @@ h3 {
 
     /* Search fields */
     .search-form {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    .search-form .form-field:nth-child(n) {
-        grid-column: auto;
-        grid-row: auto;
-        padding: 24px 18px 22px 0;
+    
+    /* Location, property type, sort */
+    .search-form .form-field:nth-child(1),
+    .search-form .form-field:nth-child(2),
+    .search-form .form-field:nth-child(3) {
+        grid-column: 1 / -1;
+        padding: 20px 0;
     }
-
-    .search-form .form-field:nth-child(even) {
-        padding-left: 18px;
+    
+    /* Bedrooms + min price */
+    .search-form .form-field:nth-child(4),
+    .search-form .form-field:nth-child(6) {
+        grid-column: 1;
+        padding: 20px 12px 20px 0;
     }
-
+    
+    /* Bathrooms + max price */
+    .search-form .form-field:nth-child(5),
+    .search-form .form-field:nth-child(7) {
+        grid-column: 2;
+        padding: 20px 0 20px 12px;
+    }
+    
     .search-button {
         grid-column: 1 / -1;
-        grid-row: auto;
-        width: 100%;
-        min-width: 0;
-        min-height: 70px;
-        margin: 24px 0 0;
+        min-height: 64px;
+        margin-top: 22px;
+        font-size: 12px;
     }
 
     .listings-gallery-slide {
