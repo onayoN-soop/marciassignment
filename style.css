@@ -1385,9 +1385,12 @@ h3 {
 }
 
 .contact-form .button {
+    width: 100%;
     margin-top: 30px;
     background: rgba(245, 241, 232, 0.96);
     color: var(--charcoal);
+    text-align: center;
+    justify-content: center;
 }
 
 .form-message {
