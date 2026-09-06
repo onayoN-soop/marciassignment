@@ -76,7 +76,7 @@ if (heroSlides.length) {
     window.setInterval(() => {
         currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
         showHeroSlide(currentHeroSlide);
-    }, 6000);
+    }, 5000);
 }
 
 
