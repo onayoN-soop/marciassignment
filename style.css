@@ -448,19 +448,19 @@ h3 {
 }
 
 .hero-slide.pan-in.active {
-    animation: hero-pan-in 6s linear both;
+    animation: hero-pan-in 5s linear both;
 }
 
 .hero-slide.pan-out.active {
-    animation: hero-pan-out 6s linear both;
+    animation: hero-pan-out 5s linear both;
 }
 
 .hero-slide.pan-left.active {
-    animation: hero-pan-left 6s linear both;
+    animation: hero-pan-left 5s linear both;
 }
 
 .hero-slide.pan-right.active {
-    animation: hero-pan-right 6s linear both;
+    animation: hero-pan-right 5s linear both;
 }
 
 @keyframes hero-pan-in {
