@@ -56,8 +56,44 @@ if (menuDropdownToggle && headerDropdown) {
 
 
 /* =========================================================
+   HERO SLIDESHOW — 8 SECOND ROTATION + PAN
+   ========================================================= */
+
+const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+let currentHeroSlide = 0;
+
+function showHeroSlide(index) {
+    if (!heroSlides.length) return;
+
+    heroSlides.forEach(slide => {
+        slide.classList.remove("active");
+        slide.style.animation = "none";
+    });
+
+    const activeSlide = heroSlides[index];
+
+    /* Restart the selected slide's pan animation on every activation. */
+    void activeSlide.offsetWidth;
+    activeSlide.style.animation = "";
+    activeSlide.classList.add("active");
+}
+
+if (heroSlides.length) {
+    showHeroSlide(0);
+
+    window.setInterval(() => {
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        showHeroSlide(currentHeroSlide);
+    }, 8000);
+}
+
+
+/* =========================================================
    SCROLL-CONTROLLED STATIC BACKDROP
    ========================================================= */
+
+const siteBackdrop = document.querySelector("#siteBackdrop");
+const heroSection = document.querySelector("#home");
 
 const backdropSlides = Array.from(
     document.querySelectorAll("[data-backdrop-slide]")
@@ -78,9 +114,9 @@ function setBackdrop(index) {
         Math.min(index, backdropSlides.length - 1)
     );
 
-    if (safeIndex === currentBackdropIndex) return;
-
-    currentBackdropIndex = safeIndex;
+    if (safeIndex !== currentBackdropIndex) {
+        currentBackdropIndex = safeIndex;
+    }
 
     backdropSlides.forEach((slide, slideIndex) => {
         slide.classList.toggle("active", slideIndex === safeIndex);
@@ -89,6 +125,19 @@ function setBackdrop(index) {
 
 function updateBackdropFromScroll() {
     if (!backdropSections.length || !backdropSlides.length) return;
+
+    /*
+       The hero has its own animated slideshow.
+       This separate backdrop appears only as the page moves beyond the hero
+       and never pans on its own.
+    */
+    if (siteBackdrop && heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        siteBackdrop.classList.toggle(
+            "is-visible",
+            heroBottom <= window.innerHeight * 0.62
+        );
+    }
 
     const triggerLine = window.innerHeight * 0.46;
     let nextIndex = 0;
@@ -168,85 +217,61 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 /* =========================================================
-   ABOUT TWO-PAGE INTERACTION
+   ABOUT TWO-PAGE FLIP / SLIDE
    ========================================================= */
 
-const aboutSpread = document.querySelector("#aboutSpread");
+const aboutStage = document.querySelector("#aboutStage");
 const aboutMarciPage = document.querySelector("#aboutMarciPage");
 const aboutRidgePage = document.querySelector("#aboutRidgePage");
+const aboutPageTriggers = Array.from(
+    document.querySelectorAll("[data-about-page]")
+);
 
 let aboutHoverTimer = null;
 
-function showRidgePage() {
-    if (!aboutSpread) return;
-    aboutSpread.classList.add("ridge-active");
+function setAboutPage(pageName) {
+    if (!aboutStage || !aboutMarciPage || !aboutRidgePage) return;
+
+    const showRidge = pageName === "ridge";
+
+    aboutStage.dataset.aboutActive = showRidge ? "ridge" : "marci";
+
+    aboutMarciPage.classList.toggle("is-active", !showRidge);
+    aboutRidgePage.classList.toggle("is-active", showRidge);
+
+    aboutMarciPage.setAttribute("aria-hidden", String(showRidge));
+    aboutRidgePage.setAttribute("aria-hidden", String(!showRidge));
 }
 
-function showMarciPage() {
-    if (!aboutSpread) return;
-    aboutSpread.classList.remove("ridge-active");
-}
-
-function scheduleAboutState(showRidge, delay = 120) {
+function scheduleAboutPage(pageName, delay = 85) {
     window.clearTimeout(aboutHoverTimer);
 
     aboutHoverTimer = window.setTimeout(() => {
-        if (showRidge) {
-            showRidgePage();
-        } else {
-            showMarciPage();
-        }
+        setAboutPage(pageName);
     }, delay);
 }
 
-if (aboutSpread && aboutMarciPage && aboutRidgePage) {
-    const desktopHoverQuery = window.matchMedia(
-        "(min-width: 801px) and (hover: hover) and (pointer: fine)"
-    );
+aboutPageTriggers.forEach(trigger => {
+    const pageName = trigger.dataset.aboutPage;
 
-    aboutRidgePage.addEventListener("pointerenter", () => {
-        if (!desktopHoverQuery.matches) return;
-        scheduleAboutState(true);
+    trigger.addEventListener("click", () => {
+        setAboutPage(pageName);
     });
 
-    aboutMarciPage.addEventListener("pointerenter", () => {
-        if (!desktopHoverQuery.matches) return;
-        scheduleAboutState(false);
+    trigger.addEventListener("pointerenter", () => {
+        const hoverCapable = window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches;
+
+        if (hoverCapable) {
+            scheduleAboutPage(pageName);
+        }
     });
 
-    aboutSpread.addEventListener("pointerleave", () => {
-        if (!desktopHoverQuery.matches) return;
-        scheduleAboutState(false, 160);
+    trigger.addEventListener("pointerleave", () => {
+        window.clearTimeout(aboutHoverTimer);
     });
-
-    aboutRidgePage.addEventListener("click", () => {
-        if (window.innerWidth <= 800) return;
-        showRidgePage();
-    });
-
-    aboutMarciPage.addEventListener("click", event => {
-        if (window.innerWidth <= 800) return;
-
-        if (event.target.closest("a")) return;
-        showMarciPage();
-    });
-
-    [aboutMarciPage, aboutRidgePage].forEach(page => {
-        page.addEventListener("keydown", event => {
-            if (window.innerWidth <= 800) return;
-
-            if (event.key !== "Enter" && event.key !== " ") return;
-
-            event.preventDefault();
-
-            if (page === aboutRidgePage) {
-                showRidgePage();
-            } else {
-                showMarciPage();
-            }
-        });
-    });
-}
+});
 
 
 /* =========================================================
@@ -594,8 +619,13 @@ function moveListingsGalleryPointer(event) {
     const horizontalDistance = Math.abs(differenceX);
     const verticalDistance = Math.abs(differenceY);
 
+    /* Any meaningful pointer movement means the user is probably dragging. */
+    if (Math.hypot(differenceX, differenceY) > 2) {
+        listingsGallerySuppressClickUntil = performance.now() + 700;
+    }
+
     if (!listingsGalleryDragging) {
-        const dragStartThreshold = listingsGalleryPointerType === "mouse" ? 7 : 10;
+        const dragStartThreshold = listingsGalleryPointerType === "mouse" ? 4 : 7;
 
         if (
             horizontalDistance >= dragStartThreshold &&
@@ -639,10 +669,10 @@ function endListingsGalleryPointer(event) {
        A listing only follows its link after a deliberate click/tap.
        Even a small movement or a long press suppresses the redirect.
     */
-    const deliberateClick = movement < 4 && elapsed < 480 && !wasDragging;
+    const deliberateClick = movement <= 2 && elapsed < 350 && !wasDragging;
 
     if (!deliberateClick) {
-        listingsGallerySuppressClickUntil = performance.now() + 520;
+        listingsGallerySuppressClickUntil = performance.now() + 700;
     }
 
     listingsGalleryPointerId = null;
@@ -677,7 +707,7 @@ function cancelListingsGalleryPointer(event) {
 
     listingsGalleryPointerId = null;
     listingsGalleryDragging = false;
-    listingsGallerySuppressClickUntil = performance.now() + 420;
+    listingsGallerySuppressClickUntil = performance.now() + 650;
 
     listingsGalleryViewport?.classList.remove("is-dragging");
     updateListingsGallery(true);
