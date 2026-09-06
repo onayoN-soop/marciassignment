@@ -1,6 +1,4 @@
-/* Main site interactions */
-
-/* Header state on scroll */
+/* Header */
 
 const siteHeader = document.querySelector(".site-header");
 
@@ -12,7 +10,7 @@ function updateHeader() {
 window.addEventListener("scroll", updateHeader, { passive: true });
 
 
-/* Menu open / close */
+/* Menu */
 
 const menuDropdownToggle = document.querySelector(".menu-dropdown-toggle");
 const headerDropdown = document.querySelector(".header-dropdown");
@@ -49,7 +47,7 @@ if (menuDropdownToggle && headerDropdown) {
 }
 
 
-/* Hero: six seconds each. Restart the pan whenever a slide comes back. */
+/* Hero slideshow */
 
 const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
 let currentHeroSlide = 0;
@@ -64,7 +62,7 @@ function showHeroSlide(index) {
 
     const activeSlide = heroSlides[index];
 
-    /* Force a fresh pan instead of letting a returning slide resume halfway. */
+    /* Restart the animation each time the slide returns. */
     void activeSlide.offsetWidth;
     activeSlide.style.animation = "";
     activeSlide.classList.add("active");
@@ -80,7 +78,7 @@ if (heroSlides.length) {
 }
 
 
-/* Page backdrop: section-driven only. No timer and no pan here. */
+/* Site backdrop */
 
 const siteBackdrop = document.querySelector("#siteBackdrop");
 const heroSection = document.querySelector("#home");
@@ -116,10 +114,6 @@ function setBackdrop(index) {
 function updateBackdropFromScroll() {
     if (!backdropSections.length || !backdropSlides.length) return;
 
-    /*
-       Keep this separate from the hero slideshow.
-       The hero moves; this one stays fixed and only changes when the scroll position calls for it.
-    */
     if (siteBackdrop && heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
         siteBackdrop.classList.toggle(
@@ -161,7 +155,7 @@ window.addEventListener("scroll", requestBackdropUpdate, { passive: true });
 window.addEventListener("resize", requestBackdropUpdate);
 
 
-/* Reveal once when a section comes into view */
+/* Section reveal */
 
 const revealElements = document.querySelectorAll(".reveal");
 
@@ -184,7 +178,7 @@ if ("IntersectionObserver" in window) {
 }
 
 
-/* Smooth jumps for local section links */
+/* Local links */
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
@@ -201,7 +195,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 
-/* Desktop About: keep image sizes fixed and only crop the inactive preview. */
+/* About switch */
 
 const aboutStage = document.querySelector("#aboutStage");
 const aboutStories = Array.from(
@@ -268,7 +262,7 @@ aboutPageTriggers.forEach(trigger => {
 });
 
 
-/* Phone affiliation line: show while held, hide on release. */
+/* Mobile affiliation hold */
 
 const affiliationDock = document.querySelector("#affiliationDock");
 const affiliationHandle = document.querySelector("#affiliationHandle");
@@ -294,7 +288,7 @@ if (affiliationHandle) {
         try {
             affiliationHandle.setPointerCapture(event.pointerId);
         } catch (_) {
-            /* Pointer capture can fail on some browsers; the hold still works without it. */
+
         }
     });
 
@@ -319,15 +313,9 @@ if (affiliationHandle) {
 }
 
 
-/* Homepage listings gallery */
+/* Listings gallery */
 
-/*
-   Gallery data lives here for now so the page still works without a backend.
-   Later, point data-listings-endpoint on <body> to the realtor/admin API and this same gallery can use live listings.
-
-   I accept either [...] or { listings: [...] }, and normalize a few common field names below so the first backend
-   version does not have to match the front end perfectly on day one.
-*/
+/* Gallery data: keep the local fallback until the live listing feed is connected. */
 
 const DEFAULT_LISTINGS = Array.from({ length: 9 }, (_, index) => ({
     id: index + 1,
@@ -593,7 +581,7 @@ function moveListingsGalleryPointer(event) {
     const horizontalDistance = Math.abs(differenceX);
     const verticalDistance = Math.abs(differenceY);
 
-    /* Tiny horizontal movement counts as drag so a swipe does not open a listing by accident. */
+    /* Small horizontal movement counts as a drag. */
     if (Math.hypot(differenceX, differenceY) > 2) {
         listingsGallerySuppressClickUntil = performance.now() + 700;
     }
@@ -612,7 +600,7 @@ function moveListingsGalleryPointer(event) {
             try {
                 listingsGalleryViewport.setPointerCapture(event.pointerId);
             } catch (_) {
-                /* Pointer capture can fail on some browsers; the hold still works without it. */
+    
             }
         } else {
             return;
@@ -639,10 +627,7 @@ function endListingsGalleryPointer(event) {
     const elapsed = performance.now() - listingsGalleryStartTime;
     const wasDragging = listingsGalleryDragging;
 
-    /*
-       Only open a listing on a clean click/tap.
-       If the pointer moved or stayed down too long, assume the user meant to drag instead.
-    */
+    /* Only open a listing on a clean click or tap. */
     const deliberateClick = movement <= 2 && elapsed < 350 && !wasDragging;
 
     if (!deliberateClick) {
@@ -672,7 +657,7 @@ function endListingsGalleryPointer(event) {
     try {
         listingsGalleryViewport.releasePointerCapture(event.pointerId);
     } catch (_) {
-        /* Browser may have released it already. */
+
     }
 }
 
@@ -799,7 +784,7 @@ async function initListingsGallery() {
 }
 
 
-/* Search form placeholder until MLS / IDX is connected */
+/* Search form placeholder */
 
 const searchForm = document.querySelector("#searchForm");
 const searchMessage = document.querySelector("#searchMessage");
@@ -816,7 +801,7 @@ if (searchForm) {
 }
 
 
-/* Contact form placeholder until the real handler is connected */
+/* Contact form placeholder */
 
 const contactForm = document.querySelector("#contactForm");
 const formMessage = document.querySelector("#formMessage");
@@ -833,7 +818,7 @@ if (contactForm) {
 }
 
 
-/* Escape closes anything temporary */
+/* Escape key */
 
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
@@ -843,7 +828,7 @@ document.addEventListener("keydown", event => {
 });
 
 
-/* Initial setup */
+/* Initial state */
 
 updateHeader();
 updateBackdropFromScroll();
