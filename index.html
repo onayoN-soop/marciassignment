@@ -10,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=1.0.1">
+    <link rel="stylesheet" href="style.css?v=1.1.0">
 </head>
 
 <body data-listings-endpoint="">
-    <!-- Fixed page backdrop. Keep this separate from the hero slideshow. -->
+    <!-- Fixed page backdrop -->
     <div class="site-backdrop" id="siteBackdrop" aria-hidden="true">
         <div class="site-backdrop-slide active" data-backdrop-slide="0"></div>
         <div class="site-backdrop-slide" data-backdrop-slide="1"></div>
@@ -44,7 +44,7 @@
         </div>
     </header>
 
-    <!-- Affiliation logos: fixed on desktop; press + hold on phones. -->
+    <!-- Professional affiliation logos -->
     <aside class="affiliation-dock" id="affiliationDock" aria-label="Professional affiliations">
         <div class="affiliation-items">
             <div class="affiliation-logo-card">
@@ -66,22 +66,23 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-slideshow" aria-hidden="true">
-            <div class="hero-slide hero-slide-1 pan-in active"></div>
-            <div class="hero-slide hero-slide-2 pan-out"></div>
-            <div class="hero-slide hero-slide-3 pan-left"></div>
-            <div class="hero-slide hero-slide-4 pan-right"></div>
-        </div>
+                <div class="hero-slide hero-slide-1 pan-in active"></div>
+                <div class="hero-slide hero-slide-2 pan-out"></div>
+                <div class="hero-slide hero-slide-3 pan-left"></div>
+                <div class="hero-slide hero-slide-4 pan-right"></div>
+            </div>
 
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
+                <p class="eyebrow">Pahrump, Nevada</p>
                 <h1>Marci<br>Metzger</h1>
-                <p class="hero-company">Pahrump Realtor, The Ridge Realty Group</p>
+                <p class="hero-company">The Ridge Realty Group</p>
                 <a class="button button-light" href="tel:+12069196886">Call Now</a>
             </div>
         </section>
 
-        <!-- ABOUT: desktop uses the cropped preview. Phone layout is kept separate below. -->
+        <!-- About -->
         <section class="about-flip-section" id="about" data-backdrop="0">
             <div class="about-stage reveal" id="aboutStage" data-about-active="marci">
 
@@ -128,11 +129,11 @@
                     aria-label="Show The Ridge Realty Group story"
                     aria-pressed="false"
                 >
-                    <img src="images/ridgeabout.png" alt="The Ridge Realty Group">
+                    <img src="images/logo-ridge-realty-group.png" alt="The Ridge Realty Group">
                 </button>
 
             </div>
-            <!-- Phone About: no flip, no crop, no internal scroll. -->
+            <!-- Mobile About -->
             <div class="about-mobile-static">
                 <article class="about-mobile-profile about-mobile-marci">
                     <div class="about-mobile-visual">
@@ -187,12 +188,12 @@
             <div class="feature-image feature-image-buy" role="img" aria-label="Pahrump residential property"></div>
         </section>
 
-        <!-- Search Listings is already where I want it. -->
+        <!-- Search Listings -->
         <section class="property-search" id="listings" data-backdrop="1">
             <div class="search-glass-panel reveal">
                 <div class="search-heading">
                     <p class="eyebrow dark">Find Your Dream Home</p>
-                    <h2>Search Listings</h2>
+                    <h2>Search Listings.</h2>
                 </div>
 
                 <form class="search-form" id="searchForm">
@@ -314,7 +315,7 @@
             </div>
         </section>
 
-        <!-- Gallery cards come from the listing data in script.js. -->
+        <!-- Listings gallery -->
         <section class="listings-gallery-section" id="gallery" data-backdrop="1">
             <p class="eyebrow dark listings-gallery-title reveal">Photo Gallery</p>
 
@@ -370,7 +371,7 @@
             <div class="contact-inner">
                 <div class="contact-content reveal">
                     <p class="eyebrow">Let's Connect</p>
-                    <h2>Let's Talk<br>Real Estate</h2>
+                    <h2>Let's Talk<br>Real Estate.</h2>
                     <p class="contact-address">3190 HW-160, Suite F<br>Pahrump, NV 89048</p>
                     <a class="contact-phone" href="tel:+12069196886">(206) 919-6886</a>
                     <p class="contact-hours">Open daily from 8:00 AM to 7:00 PM. Appointments outside regular hours are available upon request.</p>
@@ -434,6 +435,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.1"></script>
+    <script src="script.js?v=1.1.0"></script>
 </body>
 </html>
