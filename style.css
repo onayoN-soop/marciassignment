@@ -1670,6 +1670,24 @@ h3 {
     }
 }
 
+/* Desktop menu: line it up with the scrolled header edge. */
+@media (min-width: 801px) {
+    .site-header.scrolled .header-menu {
+        position: static;
+    }
+
+    .site-header.scrolled .header-dropdown {
+        top: 100%;
+        right: var(--gutter);
+        border-top: 0;
+        transform: translateY(-12px);
+    }
+
+    .site-header.scrolled .header-dropdown.active {
+        transform: translateY(0);
+    }
+}
+
 /* Mobile About */
 .about-mobile-static {
     display: none;
