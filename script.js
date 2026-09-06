@@ -216,6 +216,11 @@ let aboutHoverTimer = null;
 function setAboutPage(pageName) {
     if (!aboutStage || !aboutStories.length) return;
 
+    /* Mobile shows both About profiles, so there is nothing to switch. */
+    if (window.matchMedia("(max-width: 700px)").matches) {
+        return;
+    }
+
     const activePage = pageName === "ridge" ? "ridge" : "marci";
 
     aboutStage.dataset.aboutActive = activePage;
