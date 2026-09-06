@@ -1,6 +1,6 @@
-/* Marci Metzger site interactions */
+/* Main site interactions */
 
-/* Header scroll state */
+/* Header state on scroll */
 
 const siteHeader = document.querySelector(".site-header");
 
@@ -49,7 +49,7 @@ if (menuDropdownToggle && headerDropdown) {
 }
 
 
-/* Hero slideshow — 8 seconds per image, with the pan restarted each time. */
+/* Hero: 8 seconds each. Restart the pan whenever a slide comes back. */
 
 const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
 let currentHeroSlide = 0;
@@ -64,7 +64,7 @@ function showHeroSlide(index) {
 
     const activeSlide = heroSlides[index];
 
-    /* Reset the animation first, otherwise a returning slide can resume halfway through its pan. */
+    /* Force a fresh pan instead of letting a returning slide resume halfway. */
     void activeSlide.offsetWidth;
     activeSlide.style.animation = "";
     activeSlide.classList.add("active");
@@ -80,7 +80,7 @@ if (heroSlides.length) {
 }
 
 
-/* Page backdrop — section-driven image swap only. No timer, no panning. */
+/* Page backdrop: section-driven only. No timer and no pan here. */
 
 const siteBackdrop = document.querySelector("#siteBackdrop");
 const heroSection = document.querySelector("#home");
@@ -161,7 +161,7 @@ window.addEventListener("scroll", requestBackdropUpdate, { passive: true });
 window.addEventListener("resize", requestBackdropUpdate);
 
 
-/* One-time section reveals */
+/* Reveal once when a section comes into view */
 
 const revealElements = document.querySelectorAll(".reveal");
 
@@ -184,7 +184,7 @@ if ("IntersectionObserver" in window) {
 }
 
 
-/* Smooth jumps for links that point to sections on this page */
+/* Smooth jumps for local section links */
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
@@ -201,7 +201,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 
-/* About pages — the pictures never resize; the inactive one is just clipped down to its preview. */
+/* Desktop About: keep image sizes fixed and only crop the inactive preview. */
 
 const aboutStage = document.querySelector("#aboutStage");
 const aboutStories = Array.from(
@@ -215,11 +215,6 @@ let aboutHoverTimer = null;
 
 function setAboutPage(pageName) {
     if (!aboutStage || !aboutStories.length) return;
-
-    /* Mobile shows both About profiles, so there is nothing to switch. */
-    if (window.matchMedia("(max-width: 700px)").matches) {
-        return;
-    }
 
     const activePage = pageName === "ridge" ? "ridge" : "marci";
 
@@ -273,7 +268,7 @@ aboutPageTriggers.forEach(trigger => {
 });
 
 
-/* Mobile affiliation control — show while held, hide on release. */
+/* Phone affiliation line: show while held, hide on release. */
 
 const affiliationDock = document.querySelector("#affiliationDock");
 const affiliationHandle = document.querySelector("#affiliationHandle");
@@ -299,7 +294,7 @@ if (affiliationHandle) {
         try {
             affiliationHandle.setPointerCapture(event.pointerId);
         } catch (_) {
-            /* Nice to have for a steady drag, but not worth breaking the interaction if it fails. */
+            /* Pointer capture can fail on some browsers; the hold still works without it. */
         }
     });
 
@@ -598,7 +593,7 @@ function moveListingsGalleryPointer(event) {
     const horizontalDistance = Math.abs(differenceX);
     const verticalDistance = Math.abs(differenceY);
 
-    /* Treat even a tiny move as drag intent; otherwise these listing links feel way too trigger-happy. */
+    /* Tiny horizontal movement counts as drag so a swipe does not open a listing by accident. */
     if (Math.hypot(differenceX, differenceY) > 2) {
         listingsGallerySuppressClickUntil = performance.now() + 700;
     }
@@ -617,7 +612,7 @@ function moveListingsGalleryPointer(event) {
             try {
                 listingsGalleryViewport.setPointerCapture(event.pointerId);
             } catch (_) {
-                /* Nice to have for a steady drag, but not worth breaking the interaction if it fails. */
+                /* Pointer capture can fail on some browsers; the hold still works without it. */
             }
         } else {
             return;
@@ -677,7 +672,7 @@ function endListingsGalleryPointer(event) {
     try {
         listingsGalleryViewport.releasePointerCapture(event.pointerId);
     } catch (_) {
-        /* It may already be released by the browser; nothing to clean up in that case. */
+        /* Browser may have released it already. */
     }
 }
 
@@ -804,7 +799,7 @@ async function initListingsGallery() {
 }
 
 
-/* Search form placeholder until a live MLS / IDX connection is added */
+/* Search form placeholder until MLS / IDX is connected */
 
 const searchForm = document.querySelector("#searchForm");
 const searchMessage = document.querySelector("#searchMessage");
@@ -821,7 +816,7 @@ if (searchForm) {
 }
 
 
-/* Contact form placeholder until the real form handler is connected */
+/* Contact form placeholder until the real handler is connected */
 
 const contactForm = document.querySelector("#contactForm");
 const formMessage = document.querySelector("#formMessage");
@@ -838,7 +833,7 @@ if (contactForm) {
 }
 
 
-/* Escape should clean up anything temporary that might be open */
+/* Escape closes anything temporary */
 
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
@@ -848,7 +843,7 @@ document.addEventListener("keydown", event => {
 });
 
 
-/* First paint / startup */
+/* Initial setup */
 
 updateHeader();
 updateBackdropFromScroll();
