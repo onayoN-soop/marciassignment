@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="stylesheet" href="style.css?v=31">
 </head>
 
 <body data-listings-endpoint="">
@@ -67,7 +67,13 @@
     </aside>
 
     <main>
-        <section class="hero" id="home" data-backdrop="0">
+        <section class="hero" id="home">
+            <div class="hero-slideshow" aria-hidden="true">
+                <div class="hero-slide hero-slide-1 pan-in active"></div>
+                <div class="hero-slide hero-slide-2 pan-out"></div>
+                <div class="hero-slide hero-slide-3 pan-left"></div>
+            </div>
+
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
@@ -89,14 +95,14 @@
                 </div>
             </div>
 
-            <div class="about-spread reveal" id="aboutSpread">
-                <article class="about-page about-page-marci" id="aboutMarciPage" tabindex="0" aria-label="Marci Metzger story">
-                    <div class="about-page-inner about-marci-inner">
-                        <div class="about-visual about-marci-visual">
+            <div class="about-stage reveal" id="aboutStage" data-about-active="marci">
+                <article class="about-sheet about-sheet-marci is-active" id="aboutMarciPage" aria-hidden="false">
+                    <div class="about-sheet-inner about-marci-inner">
+                        <div class="about-media about-marci-media">
                             <img src="images/marci.jpg" alt="Marci Metzger">
                         </div>
 
-                        <div class="about-story about-marci-story">
+                        <div class="about-copy about-marci-copy">
                             <p class="eyebrow dark">Realtor for Nearly 3 Decades</p>
                             <h2>Marci Metzger</h2>
                             <p class="large-copy">Top Residential Sales Last 5 Years</p>
@@ -107,20 +113,28 @@
                     </div>
                 </article>
 
-                <article class="about-page about-page-ridge" id="aboutRidgePage" tabindex="0" aria-label="The Ridge Realty Group story">
-                    <div class="about-page-inner about-ridge-inner">
-                        <div class="about-story about-ridge-story">
-                            <p class="eyebrow ridge-eyebrow">About the Brokerage</p>
+                <article class="about-sheet about-sheet-ridge" id="aboutRidgePage" aria-hidden="true">
+                    <div class="about-sheet-inner about-ridge-inner">
+                        <div class="about-copy about-ridge-copy">
+                            <p class="eyebrow dark">About the Brokerage</p>
                             <h2>Only the Best<br>for Our Clients</h2>
                             <p><strong>THE RIDGE REALTY GROUP</strong> is a premier real estate brokerage in Southern Nevada. Comprised of some of the best agents the valley has to offer, we take great pride in providing top-notch service to our community.</p>
-                            <p>Whether you're looking for your primary residence, a vacation home, or an investment property, The Ridge Real Estate is here to help you every step of the way!</p>
+                            <p>Whether you're looking for your primary residence, a vacation home, or an investment property, The Ridge Realty Group is here to help you every step of the way!</p>
                         </div>
 
-                        <div class="about-visual about-ridge-visual">
+                        <div class="about-media about-ridge-media">
                             <img src="images/logo-ridge-realty-group.png" alt="The Ridge Realty Group">
                         </div>
                     </div>
                 </article>
+
+                <button class="about-page-trigger about-page-trigger-ridge" type="button" data-about-page="ridge" aria-label="Show The Ridge Realty Group story">
+                    <span>Ridge</span>
+                </button>
+
+                <button class="about-page-trigger about-page-trigger-marci" type="button" data-about-page="marci" aria-label="Show Marci Metzger story">
+                    <span>Marci</span>
+                </button>
             </div>
         </section>
 
@@ -282,7 +296,7 @@
              DATA-DRIVEN LISTINGS GALLERY
              ================================================= -->
         <section class="listings-gallery-section" id="gallery" data-backdrop="1">
-            <h2 class="listings-gallery-title reveal">Photo Gallery</h2>
+            <p class="eyebrow dark listings-gallery-title reveal">Photo Gallery</p>
 
             <div class="listings-gallery-viewport reveal" id="listingsGalleryViewport" aria-label="Marci Metzger property listings gallery" tabindex="0">
                 <div class="listings-gallery-track" id="listingsGalleryTrack"></div>
@@ -302,52 +316,65 @@
 
             <div class="services-grid">
                 <article class="service-card reveal">
-                    <span class="service-number">01</span>
-                    <h4>Real Estate<br>Done Right</h4>
-                    <p>Nervous about your property adventure? Don't be. Whether you're getting ready to buy or sell, or simply looking for answers, we're here to make the process clear and straightforward.</p>
+                    <div class="service-image-frame service-image-1" role="img" aria-label="Real estate service image"></div>
+                    <div class="service-copy">
+                        <span class="service-number">01</span>
+                        <h4>Real Estate<br>Done Right</h4>
+                        <p>Nervous about your property adventure? Don't be. Whether you're getting ready to buy or sell, or simply looking for answers, we're here to make the process clear and straightforward.</p>
+                    </div>
                 </article>
 
                 <article class="service-card reveal">
-                    <span class="service-number">02</span>
-                    <h4>Commercial &<br>Residential</h4>
-                    <p>Large or small, residential, commercial, or land, The Ridge Realty Group can help you navigate available opportunities and find a property that fits your goals.</p>
+                    <div class="service-image-frame service-image-2" role="img" aria-label="Commercial and residential real estate service image"></div>
+                    <div class="service-copy">
+                        <span class="service-number">02</span>
+                        <h4>Commercial &<br>Residential</h4>
+                        <p>Large or small, residential, commercial, or land, The Ridge Realty Group can help you navigate available opportunities and find a property that fits your goals.</p>
+                    </div>
                 </article>
 
                 <article class="service-card reveal">
-                    <span class="service-number">03</span>
-                    <h4>Rely on<br>Expertise</h4>
-                    <p>When questions arise about the market, financing, negotiations, or the details of a transaction, experienced guidance helps you move forward with confidence.</p>
+                    <div class="service-image-frame service-image-3" role="img" aria-label="Real estate expertise service image"></div>
+                    <div class="service-copy">
+                        <span class="service-number">03</span>
+                        <h4>Rely on<br>Expertise</h4>
+                        <p>When questions arise about the market, financing, negotiations, or the details of a transaction, experienced guidance helps you move forward with confidence.</p>
+                    </div>
                 </article>
             </div>
         </section>
 
         <section class="contact-section" id="contact" data-backdrop="2">
-            <div class="contact-content reveal">
-                <p class="eyebrow dark">Let's Connect</p>
-                <h2>Let's Talk<br>Real Estate.</h2>
-                <p class="contact-address">3190 HW-160, Suite F<br>Pahrump, NV 89048</p>
-                <a class="contact-phone" href="tel:+12069196886">(206) 919-6886</a>
-                <p class="contact-hours">Open daily from 8:00 AM to 7:00 PM. Appointments outside regular hours are available upon request.</p>
+            <div class="contact-overlay" aria-hidden="true"></div>
+
+            <div class="contact-inner">
+                <div class="contact-content reveal">
+                    <p class="eyebrow">Let's Connect</p>
+                    <h2>Let's Talk<br>Real Estate.</h2>
+                    <p class="contact-address">3190 HW-160, Suite F<br>Pahrump, NV 89048</p>
+                    <a class="contact-phone" href="tel:+12069196886">(206) 919-6886</a>
+                    <p class="contact-hours">Open daily from 8:00 AM to 7:00 PM. Appointments outside regular hours are available upon request.</p>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm">
+                    <h3>Send a Message</h3>
+
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button class="button button-dark" type="submit">Send Message</button>
+                    <p class="form-message" id="formMessage" aria-live="polite"></p>
+                </form>
             </div>
-
-            <form class="contact-form reveal" id="contactForm">
-                <h3>Send a Message</h3>
-
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required>
-
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
-
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel">
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button class="button button-dark" type="submit">Send Message</button>
-                <p class="form-message" id="formMessage" aria-live="polite"></p>
-            </form>
         </section>
     </main>
 
@@ -387,6 +414,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=30"></script>
+    <script src="script.js?v=31"></script>
 </body>
 </html>
