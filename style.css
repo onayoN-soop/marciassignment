@@ -405,11 +405,11 @@ h3 {
     opacity: 0;
     visibility: hidden;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     transform: scale(1.04);
-    transition: opacity 1.25s ease, visibility 1.25s ease;
-    will-change: transform, opacity;
+    transition: none;
+    will-change: transform;
 }
 
 .hero-slide-1 {
@@ -430,15 +430,15 @@ h3 {
 }
 
 .hero-slide.pan-in.active {
-    animation: hero-pan-in 8.4s linear both;
+    animation: hero-pan-in 6s linear both;
 }
 
 .hero-slide.pan-out.active {
-    animation: hero-pan-out 8.4s linear both;
+    animation: hero-pan-out 6s linear both;
 }
 
 .hero-slide.pan-left.active {
-    animation: hero-pan-left 8.4s linear both;
+    animation: hero-pan-left 6s linear both;
 }
 
 @keyframes hero-pan-in {
