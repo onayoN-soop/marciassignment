@@ -291,6 +291,8 @@ h3 {
     pointer-events: none;
     transform: translateY(-6px);
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .header-dropdown.active {
